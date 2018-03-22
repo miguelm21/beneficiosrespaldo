@@ -75,24 +75,34 @@ input.empty {
   
   /* |||||||||||||||||||| First Carousel |||||||||||||||||||||*/
   .hero-section {
-    background: url("../../../../public/img/images.jpg") 50% no-repeat;
+    height: 70vh;
+    margin-top: 10px;
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.5),
+      rgba($color-primary-dark, 0.8)),
+    url('../../images/hero.jpg');
     background-size: cover;
-    height: 60vh;
-    text-align: center;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  
-  .hero-section .hero-section-text {
-    color: #fefefe;
-    text-shadow: 1px 1px 2px #0a0a0a;
+    background-position: top;
+    position: relative;
+        
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 55vh, 70% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 55vh, 70% 100%, 0 100%);
+    }
+
+    &-text {
+      @include absCenter();
+      color: $color-white;
+      text-shadow: 1px 1px 2px #0a0a0a;
+      font-size: $xl-size / 2;
+
+      & h1 {
+        font-family: 'SuecaSemiBold', sans-serif;
+        text-transform: uppercase;
+        font-size: $xl-size;
+      }
+    }
   }
   
   /* |||||||||||||||||||| Second Carousel |||||||||||||||||||||*/
@@ -423,4 +433,22 @@ input.empty {
   #panel {
     padding: 50px;
     display: none;
+  }
+
+  .section__title {
+    color: $color-white;
+    background: $color-black;
+    font-family: 'SuecaSemiBold', sans-serif;
+    border-left: 1px solid $color-grey-light-1;
+    border-right: 1px solid $color-grey-light-1;
+    border-top: 1px solid $color-grey-light-1;
+    text-align: center;
+    width: fit-content;
+    padding: 5px;
+    margin: 50px auto 0px;
+
+    &-separator {
+      margin-top: 0;
+      background: $color-grey-light-1;
+    }
   }

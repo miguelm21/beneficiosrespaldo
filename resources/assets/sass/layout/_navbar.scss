@@ -1,23 +1,71 @@
 .btn-edit-login{
     margin-top: 4px;
-    border: 2px solid #fff;
+    border: 2px solid $color-white;
     background: transparent;
-    color: #FFF !important;
+    color: $color-white;
     transition: .3s;
     border-radius: 20px;
-    padding: 5px 35px;
+    padding: 0px 20px;
+
+    @include respond(phone) {
+        padding: 3.5px 20px;
+    }
 
     &:hover {
         background: #fff;
         border-color: #2cb5e8;
         color: #2cb5e8 !important;
+        text-decoration: none;
+    }
+
+    @include respond(phone) {
+        background: $color-white;
+        color: $color-primary;
+        border: 2px solid $color-primary;
+        text-align: center;
+        border-radius: 0;
     }
   
 }
 
+.btn-search {
+    height: 25px;
+    margin: 0;
+    padding: 0;
+
+    & svg {
+        @include respond(phone) {
+            background: $color-white;
+            color: $color-primary;
+            height: 25px;
+            padding: 10%;
+            margin: 0px;
+            position: absolute;
+            top: -1px;
+            left: -25px;
+        }
+    }
+}
+
+.no-border {
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.format-input {
+    color: $color-primary;
+    font-weight: 700;
+    font-size: $s-size;
+
+    &:focus {
+        color: $color-primary;
+    }
+}
+
 .nav {
     &-config {
-        background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        background: $color-primary;
 
         @include respond(tab-port) {
             padding: 8px 8%;
@@ -27,17 +75,41 @@
     &-link {
         color: #fff !important;
     }
+
+    &__logo {
+        position: absolute;
+        left: -60px;
+        top: -58px;
+
+        @include respond(phone) {
+            opacity: 0.5;
+        }
+
+        &-container {
+            width: 200px;
+        }
+
+    }
 }
 
-  
-.navbar-toggler{
-    color: #fff;
+.navbar {
+    overflow: hidden;
+
+    &-toggler {
+        border-color: $color-white;
+        color: $color-white;
+        z-index: 1;
+    }
+
+    &-collapse {
+        z-index: 1;
+    }
 }
   
 .searh-navbar{
-    width: 30%;
+    margin: 5px 10%;
 
     @include respond(phone) {
-        width: 75%;
+        margin: 5px 0;
     }
 }

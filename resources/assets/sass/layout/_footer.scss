@@ -1,19 +1,78 @@
 .footer {
-    &-edit {
-        background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-        padding: 15px;
-        border: 0;
-    }
+    font-family: 'SuecaSemiBold', sans-serif;
+    color: $color-white;
+    background: $color-primary-dark;
+    padding: 15px;
+    border: 0;
 
-    &-social {
-        color: #fff;
-        padding: 15px;
+    &__social {
+        color: $color-white;
+        
         font-size: 20px;
         transition: 0.5s;
 
         &:hover {
-            color:#000;
+            color: $color-secondary;
+        }
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            text-align: end;
         }
     }
+
+    &-media {
+        @include respond(m-phone) {
+            float: none !important;
+        }
+    }
+    
+    &-copyright {
+        width: 100%;
+        font-family: 'SuecaMedium', sans-serif;
+        font-size: $s-size;
+        @include respond(m-phone) {
+            margin-top: 20px;
+        }
+    }
+
+    &-links {
+        font-size: $s-size;
+
+        &-container {
+            border-right: 1px solid;
+
+            @include respond(m-phone) {
+                border-right: none;
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+            }
+        }
+
+        & ul {
+            list-style: none;
+            @include respond(m-phone) {
+                margin-top: 20px;
+            }
+
+            & li {
+                line-height: 3;
+                font-family: 'SuecaMedium', sans-serif;
+                font-weight: 100;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $color-secondary;
+                }
+            }
+        }
+
+        & span {
+            opacity: 0;
+        }
+    }
+
+    
 }
   

@@ -9,7 +9,9 @@
 
 @yield('content')
 
-<footer class="footer-edit">
+@include('partials.modal')
+
+<footer class="footer clearfix">
 	@include('partials.footer')
 </footer>
 

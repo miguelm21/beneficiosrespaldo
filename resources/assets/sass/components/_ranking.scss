@@ -1,0 +1,26 @@
+.content__ranking div div div div h4 {
+    font-family: 'SuecaSemiBold', sans-serif;
+    font-size: $s-size/1.1;
+
+    @include respond(m-phone) {
+        font-size: $s-size/1.5;
+    }
+}
+
+.card {
+    text-align: -webkit-center;
+
+    & svg {
+        color: $color-white;
+        background: $color-secondary;
+        margin-top: 5px;
+        border-radius: 50px;
+        padding: 20px;
+        width: 100px !important;
+        height: 100px;
+
+        &:hover {
+            background: $color-grey-light-1;
+        }
+    }
+}
