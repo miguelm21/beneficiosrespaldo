@@ -65,7 +65,7 @@
 
 .nav {
     &-config {
-        background: $color-primary;
+        background: $color-primary-dark;
 
         @include respond(tab-port) {
             padding: 8px 8%;
