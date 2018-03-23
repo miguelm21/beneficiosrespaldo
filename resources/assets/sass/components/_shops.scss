@@ -1,0 +1,47 @@
+.shops__container {
+
+    padding: 10px;
+
+    & .box-description {
+        height: 70px;
+        max-height: inherit;
+        overflow: hidden;
+    }
+
+    & a img {
+        height: 130px;
+        
+    }
+}
+
+.li-config{
+    cursor: default;
+    display: inline-block;
+    font-size: 15px;
+    padding: 0 5px;
+    list-style-type: none;
+  
+  }
+  .rating{
+    padding-left: 0;
+  }
+  
+  .star,
+  .rating:not(.vote-cast):hover .star:hover ~ .star,
+  .rating.vote-cast .star.selected ~ .star
+  {
+    /* normal state */
+    color: #c1c1c1;
+  }
+  
+  .rating:hover .star,
+  .rating.vote-cast .star
+  {
+    /* highlighted state */
+    color: #f9e25c;
+  }
+  /*   code star end  */
+
+  .owl-dots {
+      display: none;
+  }

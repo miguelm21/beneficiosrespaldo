@@ -41,35 +41,7 @@ input.empty {
   /* |||||||||||||||||||| Navbar |||||||||||||||||||||*/
   
   
-  
-  /*code star*/
-  
-  .li-config{
-    cursor: default;
-    display: inline-block;
-    font-size: 30px;
-    list-style-type: none;
-  
-  }
-  .rating{
-    padding-left: 0;
-  }
-  
-  .star,
-  .rating:not(.vote-cast):hover .star:hover ~ .star,
-  .rating.vote-cast .star.selected ~ .star
-  {
-    /* normal state */
-    color: #c1c1c1;
-  }
-  
-  .rating:hover .star,
-  .rating.vote-cast .star
-  {
-    /* highlighted state */
-    color: #f9e25c;
-  }
-  /*   code star end  */
+
   
   
   
@@ -83,7 +55,7 @@ input.empty {
       rgba($color-primary-dark, 0.8)),
     url('../../images/hero.jpg');
     background-size: cover;
-    background-position: top;
+    background-position: center;
     position: relative;
         
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
@@ -91,9 +63,28 @@ input.empty {
       clip-path: polygon(0 0, 100% 0, 100% 55vh, 70% 100%, 0 100%);
     }
 
+    &__btn {
+      width: 80%;
+      padding: 10px;
+      margin-top: 50px;
+      font-size: $m-size;
+      background: $color-secondary;
+      border-color: $color-secondary;
+      font-family: 'SuecaSemiBold', sans-serif;
+
+      animation: moveInBottom 1s ease-out;
+
+      &:hover {
+        background: $color-white;
+        border-color: $color-white;
+        color: $color-secondary;
+      }
+    }
+
     &-text {
       @include absCenter();
       color: $color-white;
+      text-align: center;
       text-shadow: 1px 1px 2px #0a0a0a;
       font-size: $xl-size / 2;
 
@@ -101,6 +92,11 @@ input.empty {
         font-family: 'SuecaSemiBold', sans-serif;
         text-transform: uppercase;
         font-size: $xl-size;
+        animation: moveInLeft 1s ease-in-out;
+      }
+
+      & h5 {
+        animation: moveInRight 1s ease-in-out;
       }
     }
   }
@@ -449,6 +445,7 @@ input.empty {
 
     &-separator {
       margin-top: 0;
+      margin-bottom: 0;
       background: $color-grey-light-1;
     }
   }
