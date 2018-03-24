@@ -32,7 +32,9 @@ mix.scripts([
 .sass(
 	'resources/assets/sass/main.scss',
 	'../resources/assets/css/main.css'
-)
+).options({
+	processCssUrls: false
+ })
 .styles([
 	'resources/assets/css/normalize.css',
 	'resources/assets/css/bootstrap.css',

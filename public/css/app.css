@@ -9792,38 +9792,32 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 1em = 16px
 */
-
 @-webkit-keyframes moveInLeft {
   0% {
     opacity: 0;
     -webkit-transform: translateX(-10rem);
             transform: translateX(-10rem);
   }
-
   80% {
     -webkit-transform: translateX(1rem);
             transform: translateX(1rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
             transform: translate(0);
   }
 }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
     -webkit-transform: translateX(-10rem);
             transform: translateX(-10rem);
   }
-
   80% {
     -webkit-transform: translateX(1rem);
             transform: translateX(1rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
@@ -9837,12 +9831,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
     -webkit-transform: translateX(10rem);
             transform: translateX(10rem);
   }
-
   80% {
     -webkit-transform: translateX(-1rem);
             transform: translateX(-1rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
@@ -9856,12 +9848,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
     -webkit-transform: translateX(10rem);
             transform: translateX(10rem);
   }
-
   80% {
     -webkit-transform: translateX(-1rem);
             transform: translateX(-1rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
@@ -9875,7 +9865,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
     -webkit-transform: translateY(3rem);
             transform: translateY(3rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
@@ -9889,7 +9878,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
     -webkit-transform: translateY(3rem);
             transform: translateY(3rem);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate(0);
@@ -9899,22 +9887,22 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 @font-face {
   font-family: SuecaMedium;
-  src: url(/fonts/sueca-medium.ttf?3d7cb06caf2bc92e75a7b95c6ac1e9c7);
+  src: url("/fonts/sueca-medium.ttf");
 }
 
 @font-face {
   font-family: SuecaSemiBold;
-  src: url(/fonts/sueca-bold.ttf?d36457806fa737f5823f19cc6aa8194d);
+  src: url("/fonts/sueca-bold.ttf");
 }
 
 @font-face {
   font-family: PrumoBold;
-  src: url(/fonts/PrumoSlab-Bold.otf?f5fc2ac3ad9339f7ce950d5a001d689b);
+  src: url("/fonts/PrumoSlab-Bold.otf");
 }
 
 @font-face {
   font-family: PrumoMedium;
-  src: url(/fonts/PrumoSlab-Medium.otf?f5c7e5c6c16e372b58de1b8773bb2d72);
+  src: url("/fonts/PrumoSlab-Medium.otf");
 }
 
 *,
@@ -10113,7 +10101,6 @@ body {
 }
 
 /*   code star end  */
-
 .owl-dots {
   display: none;
 }
@@ -10529,14 +10516,12 @@ input.empty {
 }
 
 /* |||||||||||||||||||| Navbar |||||||||||||||||||||*/
-
 /* |||||||||||||||||||| First Carousel |||||||||||||||||||||*/
-
 .hero-section {
   height: 70vh;
   margin-top: 10px;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 41, 143, 0.5)), to(rgba(0, 0, 102, 0.8))), url(/images/hero.jpg?856a761faca01b2801cdcd68805fb56b);
-  background-image: linear-gradient(to right bottom, rgba(0, 41, 143, 0.5), rgba(0, 0, 102, 0.8)), url(/images/hero.jpg?856a761faca01b2801cdcd68805fb56b);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 41, 143, 0.5)), to(rgba(0, 0, 102, 0.8))), url("/images/hero.png");
+  background-image: linear-gradient(to right bottom, rgba(0, 41, 143, 0.5), rgba(0, 0, 102, 0.8)), url("/images/hero.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -10593,9 +10578,7 @@ input.empty {
 }
 
 /* |||||||||||||||||||| Second Carousel |||||||||||||||||||||*/
-
 /* Carousel */
-
 .box-title {
   min-height: 52px;
 }
@@ -10658,7 +10641,6 @@ input.empty {
 }
 
 /* Tabs */
-
 .nav-tabs {
   list-style: none;
   margin: 0;
@@ -10701,7 +10683,6 @@ input.empty {
 }
 
 /* |||||||||||||||||||| Profile |||||||||||||||||||||*/
-
 .box-panel-admin {
   border: 1px solid #1fc8db;
 }
@@ -10726,7 +10707,6 @@ input.empty {
 }
 
 /* |||||||||||||||||||| Dashboard-admin |||||||||||||||||||||*/
-
 .circle {
   position: relative;
   display: inline-block;
@@ -10764,7 +10744,6 @@ input.empty {
 }
 
 /* |||||||||||||||||||| Benefits Details|||||||||||||||||||||*/
-
 .box-benefits {
   margin: 5% auto;
 }
@@ -10852,7 +10831,6 @@ input.empty {
 }
 
 /*||||||||||||||||||| Franchise |||||||||||||||||||||||*/
-
 .edit-section2 {
   margin: 5% 15%;
 }
@@ -10884,7 +10862,6 @@ input.empty {
 }
 
 /*||||||||||||||||||| Closest Benefits |||||||||||||||||||||||*/
-
 .center-km {
   width: 65%;
   margin: auto;
@@ -10921,9 +10898,7 @@ input.empty {
 }
 
 /* Code maps */
-
-#panel,
-#flip {
+#panel, #flip {
   padding: 5px;
   text-align: center;
   background-color: #e5eecc;
@@ -10955,4 +10930,3 @@ input.empty {
   margin-bottom: 0;
   background: #666666;
 }
-
