@@ -521,7 +521,7 @@
 					<a class="hoverfx" href="#">
 						<div class="overlay">
 						</div>
-						<img src="img/sities/sities-3.png">
+						<img src="img/sities/sities-1.png">
 					</a>
 					
 					<div class="box-description">
@@ -582,7 +582,7 @@
 					<a class="hoverfx" href="#">
 						<div class="overlay">
 						</div>
-						<img src="img/sities/sities-3.png">
+						<img src="img/sities/sities-1.png">
 					</a>
 					<div class="box-description">
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, repellendus!</p>

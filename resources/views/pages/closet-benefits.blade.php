@@ -6,7 +6,7 @@
 		<div class="col-12">
 			<div class="logo text-right">
 				<a href="">
-					<img src="img/Penguins.jpg" width="100px" height="100px" class="back-img my-4" alt="">
+					<img src="img/Penguins.jpg" width="80px" height="80px" class="rounded back-img my-4" alt="">
 				</a>
 			</div>
 		</div>
@@ -18,10 +18,14 @@
 					<div class="row my-4">
 						<div class="col-12 form-inline">
 							<div class="form-group center-km">
-								<input class="form-control mr-2" type="number" min="1" max="9" step="1" value="1">
-								<label for="form-control">Km</label>
+								<div class="col-lg-8 col-12 text-center">
+									<input class="form-control form-control-lg w-100" type="number" min="1" max="9" step="1" value="1">
+								</div>
+								<div class="col-lg-4 col-12 text-center">
+									<label for="form-control">Km</label>
+								</div>
 								<div class="col-12 nopadding my-1">
-									<button class="btn btn-block btn-edit-blue">Aplicar</button>
+									<button class="btn btn-block button-style">Aplicar</button>
 								</div>
 							</div>
 						</div>
@@ -34,7 +38,7 @@
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-edit-blue pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Go somewhere</a>
 									</div>
 								</div>
 							</div>
@@ -44,7 +48,7 @@
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-edit-blue pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Go somewhere</a>
 									</div>
 								</div>
 							</div>
@@ -54,7 +58,7 @@
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-edit-blue pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Go somewhere</a>
 									</div>
 								</div>
 							</div>
@@ -64,7 +68,7 @@
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn btn-edit-blue pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Go somewhere</a>
 									</div>
 								</div>
 							</div>
@@ -73,9 +77,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-9 col-12 border-closest2 p-2">
-			<div class="container">
-
+		<div class="col-lg-9 col-12 border-closest2 nopadding">
+			<div class="box-img-gps p-4">
+				<img src="images/gps-2.jpg" class="gps-img" alt="">
 			</div>
 		</div>
 	</div>

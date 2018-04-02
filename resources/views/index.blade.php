@@ -122,7 +122,7 @@
 					<a class="hoverfx" href="#">
 						<div class="overlay">
 						</div>
-						<img src="img/sities/sities-3.png" height="100">
+						<img src="img/sities/sities-2.png" height="100">
 					</a>
 					<div class="box-title">
 						<!-- title max 50 character-->
@@ -198,7 +198,7 @@
 					<a class="hoverfx" href="#">
 						<div class="overlay">
 						</div>
-						<img src="img/sities/sities-3.png" height="100">
+						<img src="img/sities/sities-2.png" height="100">
 					</a>
 					<div class="box-title">
 						<!-- title max 50 character-->
