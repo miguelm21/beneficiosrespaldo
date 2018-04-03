@@ -37,41 +37,41 @@
 						<div class="row p-3">
 							<div class="col-lg-12 col-sm-6 col-12 my-2">
 								<div class="card">
-									<img class="card-img-top img-height"  src="img/place/place-1.png" alt="Card image cap">
+									<img class="card-img-top" height="160"  src="img/category/gastro_1.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
+										<h5 class="card-title">Gastronomía</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn button-style pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Ver más</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 col-sm-6 col-12 my-2">
 								<div class="card">
-									<img class="card-img-top img-height"  src="img/place/place-2.jpg" alt="Card image cap">
+									<img class="card-img-top" height="160"  src="img/category/entertaiment_1.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
+										<h5 class="card-title">Entretenimiento</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn button-style pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Ver más</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 col-sm-6 col-12 my-2">
 								<div class="card">
-									<img class="card-img-top img-height"  src="img/place/place-3.jpg" alt="Card image cap">
+									<img class="card-img-top" height="160"  src="img/category/tourism_1.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
+										<h5 class="card-title">Turismo</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn button-style pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Ver más</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 col-sm-6 col-12 my-2">
 								<div class="card">
-									<img class="card-img-top img-height"  src="img/place/place-2.jpg" alt="Card image cap">
+									<img class="card-img-top" height="160"  src="img/category/beauty_1.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h5 class="card-title">Card title</h5>
+										<h5 class="card-title">Belleza</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-										<a href="#" class="btn button-style pull-right">Go somewhere</a>
+										<a href="#" class="btn button-style pull-right">Ver más</a>
 									</div>
 								</div>
 							</div>

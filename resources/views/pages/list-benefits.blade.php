@@ -5,9 +5,9 @@
 	<div class="row">
 		<div class="col-12">
 			<div class="logo text-right">
-<!-- 				<a href="">
+				<a href="">
 					<img src="img/Penguins.jpg" width="80px" height="80px" class="rounded back-img my-4" alt="">
-				</a> -->
+				</a>
 			</div>
 		</div>
 	</div>
@@ -105,91 +105,101 @@
 		<div class="col-lg-9 col-sm-9 col-12 border-closest2 p-3 mb-4">
 			<div class="container">
 				<div class="row">
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/gastro_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Gastronomía</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/tourism_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Turismo</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/entertaiment_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Entretenimiento</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/fashion_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Moda</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/home_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Deco y hogar</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/beauty_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Belleza</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/gastro_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Gastronomía</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/tourism_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Turismo</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-lg-4 my-2">
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
 						<div class="card">
-							<img class="card-img-top" src="images/ranking/gastro_1.jpg" alt="Gastronomy image">
+							<img class="card-img-top" height="170" src="img/category/entertaiment_1.jpg" alt="Gastronomy image">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Entretenimiento</h5>
+								<p class="card-text"> make up the bulk of the card's content.</p>
+								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-4 my-2">
+						<div class="card">
+							<img class="card-img-top" height="170" src="img/category/fashion_1.jpg" alt="Gastronomy image">
+							<div class="card-body">
+								<h5 class="card-title">Moda</h5>
 								<p class="card-text"> make up the bulk of the card's content.</p>
 								<a href="#" class="btn button-style btn-lg pull-right">Ver mas</a>
 							</div>
