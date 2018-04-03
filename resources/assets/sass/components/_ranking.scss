@@ -3,7 +3,7 @@
 }
 
 .card {
-    text-align: -webkit-center;
+    text-align: right;
     border-radius: 1rem;
     box-shadow: 0px 2px 5px 0.5px #e9ecef;
     border: none;
@@ -12,6 +12,9 @@
     &-title {
         font-family: 'SuecaSemiBold', sans-serif;
         font-size: $m-size;
+        padding-left: 140px;
+        margin: 5rem 0;
+        text-align: start;
 
         @include respond(phone-land) {
             font-size: $m-size/1.1;
@@ -27,6 +30,9 @@
         padding: 20px;
         width: 100px !important;
         height: 100px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
 
         &:hover {
             background: $color-secondary;
@@ -34,10 +40,64 @@
     }
 }
 
+.ranking-item-father {
+
+    position: relative;
+    perspective: 150rem;
+    height: 25rem;
+
+    @include respond(desktop) {
+        height: 30rem;
+    }
+
+    @include respond(medium-desktop) {
+        height: 40rem;
+    }
+
+    @include respond(big-desktop) {
+        height: 45rem;
+    }
+
+    &:hover > .ranking-item {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover > .ranking-item-back {
+        transform: rotateY(0);
+    }
+
+    & > .ranking-item, & > .ranking-item-back {
+        transition: all .8s ease;
+        backface-visibility: hidden;
+        height: 25rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include respond(desktop) {
+            height: 30rem;
+        }
+
+        @include respond(medium-desktop) {
+            height: 40rem;
+        }
+
+        @include respond(big-desktop) {
+            height: 45rem;
+        }
+    }
+
+    & > .ranking-item-back {
+        transform: rotateY(180deg);
+    }
+
+}
+
 
 .ranking-item {
 
     margin-bottom: $s-size;
+    
 
     & a:hover .ranking-item__title {
         color: $color-primary;
@@ -48,6 +108,11 @@
         padding-top: 5px;
         padding-right: 5px;
         text-align: right;
+        display: none;
+
+        @include respond(tab-land) {
+            display: block;
+        }
     }
 
     & a {
@@ -59,6 +124,10 @@
             color: $color-primary;
             background: $color-white;
         }
+    }
+
+    .btn-primary {
+        margin-right: 50px;
     }
 
     &__image-container {
@@ -103,6 +172,83 @@
 
                 @include respond(phone) {
                     font-size: $xl-size;
+                }
+            }
+        }
+    }
+}
+
+.ranking-item-back {
+
+    margin-bottom: $s-size;
+
+    & a:hover .ranking-item__title {
+        color: $color-primary;
+    }
+
+    &__title {
+        color: $color-black;
+        padding-top: 5px;
+        padding-right: 5px;
+        text-align: right;
+    }
+
+    & a {
+        font-size: $m-size;
+        background: $color-primary;
+        border-color: $color-primary;
+
+        &:hover {
+            color: $color-primary;
+            background: $color-white;
+        }
+    }
+
+    .btn-primary {
+        margin-right: 50px;
+    }
+
+    &__image-container {
+        position: relative;
+    
+        &__sticker {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(
+            to right bottom,
+            rgba($color-secondary, 0.5),
+            rgba($color-secondary, 1));
+            background-size: cover;
+            background-position: top;
+                
+            @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
+            }
+    
+            &-text {
+                color: $color-white;
+                text-shadow: 1px 1px 2px #0a0a0a;
+                font-size: 3rem;
+                font-family: 'PrumoBold', sans-serif;
+
+                @include respond(big-desktop) {
+                    font-size: 3rem;
+                }
+
+                @include respond(tab-land) {
+                    font-size: 3rem;
+                }
+
+                @include respond(tab-port) {
+                    font-size: 2rem;
+                }
+
+                @include respond(phone) {
+                    font-size: 3rem;
                 }
             }
         }
