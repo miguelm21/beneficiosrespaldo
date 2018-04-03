@@ -7,7 +7,7 @@
 			<div class="hero-section-text">
 				<h1>club uno</h1>
 				<h5>Expertos en OCIO, pedi tu tarjeta ya.</h5>
-				<a class="hero-section__btn btn btn-primary" href="#" role="button">Cercanos a mí</a>
+				<a class="hero-section__btn btn btn-primary" href="{{ url('closet-benefits') }}" role="button">Cercanos a mí</a>
 			</div>
 		</div>
 	</div>
@@ -97,7 +97,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>
 						
 					</div>
@@ -178,7 +178,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>
 
 						</div>
@@ -259,7 +259,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>	
 					</div>
 				</div>
@@ -339,7 +339,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>	
 					</div>
 				</div>
@@ -419,7 +419,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>	
 					</div>
 				</div>
@@ -499,7 +499,7 @@
 						</div>
 
 						<div class="ranking-item">
-							<a class="btn btn-primary" href="#" role="button">Ver más...</a>	
+							<a class="btn btn-primary" href="{{ url('list-benefits') }}" role="button">Ver más...</a>	
 						</div>	
 					</div>
 				</div>

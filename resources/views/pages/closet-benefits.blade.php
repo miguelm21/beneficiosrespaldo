@@ -8,9 +8,9 @@
 	<div class="row">
 		<div class="col-12">
 			<div class="logo text-right">
-				<a href="">
+				<!-- <a href="">
 					<img src="img/Penguins.jpg" width="80px" height="80px" class="rounded back-img my-4" alt="">
-				</a>
+				</a> -->
 			</div>
 		</div>
 	</div>

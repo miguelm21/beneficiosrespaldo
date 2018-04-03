@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-config">
 	<div class="container">
 		<div class="nav__logo-container">
-			<a href="#"><img class="nav__logo" width="180px" height="90px" src="images/tarjeta.png" alt="tarjeta_clubuno"></a>
+			<a href="{{ url('/') }}"><img class="nav__logo" width="180px" height="90px" src="images/tarjeta.png" alt="tarjeta_clubuno"></a>
 		</div> 
 		<button class="navbar-toggler nav-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
