@@ -1,5 +1,8 @@
 @extends('template')
 
+<head><script type="text/javascript">var centreGot = false;</script>
+<?php echo $map['js']; ?></head>
+
 @section('content')
 <div class="container">
 	<div class="row">
@@ -79,7 +82,8 @@
 		</div>
 		<div class="col-lg-9 col-12 border-closest2 nopadding">
 			<div class="box-img-gps p-4">
-				<img src="images/gps-2.jpg" class="gps-img" alt="">
+				<!-- <img src="images/gps-2.jpg" class="gps-img" alt=""> -->
+				<body><?php echo $map['html']; ?></body>
 			</div>
 		</div>
 	</div>

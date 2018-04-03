@@ -16,7 +16,31 @@ Route::get('/', function () {
 });
 
 Route::get('closet-benefits', function () {
-    return view('pages.closet-benefits');
+	$config = array();
+    $config['center'] = 'auto';
+    $config['onboundschanged'] = 'if (!centreGot) {
+            var mapCentre = map.getCenter();
+            marker_0.setOptions({
+                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+            });
+        }
+        centreGot = true;';
+
+    app('map')->initialize($config);
+
+    // set up the marker ready for positioning
+    // once we know the users location
+    $marker = array();
+    app('map')->add_marker($marker);
+
+    $marker = array();
+    $marker['position'] = '9.042930, -69.756560';
+    $marker['icon'] = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+    $marker['infowindow_content'] = 'Marcador 1';
+    app('map')->add_marker($marker);
+
+    $map = app('map')->create_map();
+    return view('pages.closet-benefits', ['map' => $map]);
 });
 
 Route::get('dashboard-admin', function () {
