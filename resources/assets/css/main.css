@@ -662,6 +662,113 @@ body {
   }
 }
 
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #000066;
+}
+
+.box-dashboard-list__custom-label::before {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.box-dashboard-list__custom-label::after {
+  background-size: 100% 100%;
+  top: .4em;
+  left: 4px;
+}
+
+.box-dashboard-list button {
+  background-color: #000066;
+  color: #fff;
+  border: 2px solid #000066;
+}
+
+.box-dashboard-list button:hover {
+  background-color: #fff;
+  color: #000066;
+  border: 2px solid #000066;
+}
+
+.box-dashboard-list__select {
+  border-color: #000066;
+}
+
+.card-list {
+  text-align: right;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 2px 5px 0.5px #e9ecef;
+          box-shadow: 0px 2px 5px 0.5px #e9ecef;
+  border: none;
+  border-top: 5px solid #000066;
+}
+
+.card-list__title {
+  font-family: 'SuecaSemiBold', sans-serif;
+  font-size: 1.6rem;
+  text-align: start;
+}
+
+@media only screen and (max-width: 43.75em) {
+  .card-list__title {
+    font-size: 1.45454545rem;
+  }
+}
+
+.card-list__text {
+  text-align: justify;
+}
+
+.card-list a {
+  background-color: #000066;
+  color: #fff;
+  border: 2px solid #000066;
+}
+
+.card-list a:hover {
+  background-color: #fff;
+  color: #000066;
+  border: 2px solid #000066;
+}
+
+.box-km button {
+  background-color: #000066;
+  color: #fff;
+  border: 2px solid #000066;
+  font-size: 1.2rem;
+}
+
+.box-km button:hover {
+  background-color: #fff;
+  color: #000066;
+  border: 2px solid #000066;
+  font-size: 1.2rem;
+}
+
+.box-panel-closest__title {
+  font-family: 'SuecaSemiBold', sans-serif;
+  font-size: 1.6rem;
+  text-align: start;
+  color: #000066;
+}
+
+.box-panel-closest__text {
+  text-align: justify;
+}
+
+.box-panel-closest a {
+  background-color: #000066;
+  color: #fff;
+  border: 2px solid #000066;
+  font-size: 1.2rem;
+}
+
+.box-panel-closest a:hover {
+  background-color: #fff;
+  color: #000066;
+  border: 2px solid #000066;
+  font-size: 1.2rem;
+}
+
 .footer {
   font-family: 'SuecaSemiBold', sans-serif;
   color: #fff;
@@ -1382,8 +1489,8 @@ input.empty {
 }
 
 .border-closest {
-  border-top: 1px solid #2CB5E8;
-  border-bottom: 1px solid #2CB5E8;
+  border-top: 1px solid #000066;
+  border-bottom: 1px solid #000066;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -1393,9 +1500,9 @@ input.empty {
 }
 
 .border-closest2 {
-  border-top: 1px solid #2CB5E8;
-  border-left: 1px solid #2CB5E8;
-  border-bottom: 1px solid #2CB5E8;
+  border-top: 1px solid #000066;
+  border-left: 1px solid #000066;
+  border-bottom: 1px solid #000066;
 }
 
 @media only screen and (max-width: 56.25em) {

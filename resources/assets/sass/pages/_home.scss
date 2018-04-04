@@ -420,8 +420,8 @@ input.empty {
   }
   
   .border-closest{
-    border-top: 1px solid #2CB5E8;
-    border-bottom: 1px solid #2CB5E8;
+    border-top: 1px solid #000066;
+    border-bottom: 1px solid #000066;
 
     @include respond(tab-port) {
         border: none;
@@ -429,9 +429,9 @@ input.empty {
   }
   
   .border-closest2{
-    border-top: 1px solid #2CB5E8;
-    border-left: 1px solid #2CB5E8;
-    border-bottom: 1px solid #2CB5E8;
+    border-top: 1px solid #000066;
+    border-left: 1px solid #000066;
+    border-bottom: 1px solid #000066;
 
     @include respond(tab-port) {
         border: none;
