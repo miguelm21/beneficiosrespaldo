@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('pages.index');
 });
@@ -101,6 +102,14 @@ Route::get('list-benefits', function () {
 
 Route::get('profile-screen', function () {
     return view('pages.profile-screen');
+});
+
+Route::get('login', function () {
+    return view('pages.login.login');
+});
+
+Route::get('sign-up ', function () {
+    return view('pages.login.register');
 });
 
 Route::resource('task', 'TaskController', ['except' => 'show', 'create', 'edit']);

@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
 	<div class="row m-1">
 		<div class="col-lg-3 col-sm-3 col-10 mx-auto nopadding">
 			<div class="row m-0">
@@ -22,21 +22,40 @@
 							</div>
 						</div>
 					</div>
+					<hr>
 					<div class="row p-3">
 						<div class="col-lg-9 m-lg-auto my-2">
 							<div class="form-group">
-								<select id="inputState" class="form-control form-control-lg">
-									<option selected>Categorias</option>
-									<option>A</option>
-									<option>B</option>
-									<option>C</option>
-								</select>
-								<div class="col-12 text-center nopadding">
-									<button class="btn btn-block button-style text-center mt-2 btn-lg">Aplicar</button>
+								<label for="" class="box-dashboard-list__title mb-3">Nombre</label>
+								<input class="form-control form-control-lg mr-sm-2 box-dashboard-list__search" type="search" placeholder="" aria-label="Search">
+							</div>
+							<div class="form-group">
+								<label for="" class="box-dashboard-list__title mb-3">Categorias</label>
+								<div class="boxes">
+									<input type="checkbox" class="checkbox-edit" id="box-1">
+									<label for="box-1">Gastronomia</label>
+
+									<input type="checkbox" class="checkbox-edit" id="box-2">
+									<label for="box-2">Entretenimiento</label>
+
+									<input type="checkbox" class="checkbox-edit" id="box-3">
+									<label for="box-3">Turismo</label>
+
+									<input type="checkbox" class="checkbox-edit" id="box-4">
+									<label for="box-4">Moda</label>
+
+									<input type="checkbox" class="checkbox-edit" id="box-5">
+									<label for="box-5">Belleza</label>
+
+									<input type="checkbox" class="checkbox-edit" id="box-6">
+									<label for="box-6">Deco y hogar</label>
 								</div>
 							</div>
+							<div class="col-12 text-center nopadding">
+								<button class="btn btn-block  mt-2 btn-lg">Buscar</button>
+							</div>
 						</div>
-						<div class="col-lg-9 m-auto my-2">
+						<!-- <div class="col-lg-9 m-auto my-2">
 							<div class="form-group">
 								<select id="inputState" class="form-control form-control-lg">
 									<option selected>Franquicias</option>
@@ -88,7 +107,7 @@
 									<button class="btn btn-block button-style text-center mt-2 btn-lg">Aplicar</button>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

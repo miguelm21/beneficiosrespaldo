@@ -4,6 +4,20 @@
 
 .box-dashboard-list{
 	
+	width:100%;
+
+	&__title{
+		color: $color-secondary;
+		font-size: $m-size;
+		font-family: 'SuecaSemiBold', sans-serif;
+		text-align: center;
+	}
+
+	&__search{
+		font-size: $m-size;
+		border-color: $color-primary-dark;
+	}
+
 	&__custom-label::before{
 		width: 1.15em;
 		height: 1.15em;
@@ -11,8 +25,8 @@
 
 	&__custom-label::after{
 		background-size: 100% 100%;
-		top: .4em;
-		left: 4px;
+		top: .45em;
+		left: 4.5px;
 	}
 	
 	& button{
@@ -63,3 +77,59 @@
 		border: 2px solid $color-primary-dark;
 	}
 }
+
+
+
+//checkbox//
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+	/*Page styles*/
+	.boxes {
+		margin: auto;
+	}
+
+	/*Checkboxes styles*/
+	.checkbox-edit { display: none; }
+
+	.checkbox-edit + label {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 20px;
+		font-family: 'SuecaSemiBold', sans-serif;
+		font-size: $m-size;
+		color: $color-primary-dark;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+	}
+
+	.checkbox-edit + label:last-child { margin-bottom: 0; }
+
+	.checkbox-edit + label:before {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid $color-secondary;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: .6;
+		-webkit-transition: all .12s, border-color .08s;
+		transition: all .12s, border-color .08s;
+	}
+
+	.checkbox-edit:checked + label:before {
+		width: 10px;
+		top: -5px;
+		left: 5px;
+		border-radius: 0;
+		opacity: 1;
+		border-top-color: transparent;
+		border-left-color: transparent;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}

@@ -1,0 +1,106 @@
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+	background-color: $color-primary-dark;
+}
+
+.box-benefits{
+	
+
+	&__title{
+		text-align: justify;
+		font-family: 'SuecaSemiBold', sans-serif;
+		font-size: $m-size + .3;
+		color: $color-primary-dark;
+	}
+
+	&__text{
+		text-align: justify;
+		height: 140px;
+		overflow-y: auto;
+		@include respond(tab-port){
+			height: 80px;
+		}
+		@include respond(tab-port){
+			height: 120px;
+		}
+	}
+	
+	&__custom-checkbox::before{
+		width: 1em;
+		height: 1em;
+	}
+
+	&__custom-checkbox::after{
+		background-size: 100% 100%;
+		top: 0.4em;
+		left: .21em;
+	}
+
+}
+
+.container-carousel{
+
+	&__edit-carousel{
+		@include respond(m-phone) {
+			height: auto;
+		}
+
+	}
+	&__size{
+		height: 320px;
+		@include respond(tab-port) {
+			height: 220px;
+		}
+
+		@include respond(m-phone){
+			height:230px;
+		}
+	}
+}
+
+.box-terms{
+	
+	margin-top: 20px;
+
+	&__button{
+		width: 82%;
+		padding: 15px 0;
+		color: $color-white;
+		background: $color-primary-dark;
+		border: 2px solid $color-primary-dark;
+		box-shadow: 3px 3px 3px #c1c1c1;
+		transition: .3s;
+		cursor: pointer;
+		font-weight: 550;
+		@include respond(m-phone){
+			width: 100%;
+		}
+
+	}
+
+	&__button:hover{
+		background-color: $color-white;
+		color: $color-primary-dark;
+		letter-spacing: .8px;
+		@include respond(m-phone){
+			letter-spacing: 0;
+		}
+	}
+
+	&__container-terms{
+
+		margin: 3% 7%;
+		@include respond(m-phone){
+			margin: 7% auto;
+		}
+
+		&__title{
+			font-family: 'SuecaSemiBold', sans-serif;
+			color: $color-secondary;
+			font-size: $m-size + .8;
+		}
+
+		&__text{
+			color: $color-grey-light-2;
+		}
+	}
+}

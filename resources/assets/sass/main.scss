@@ -6,6 +6,7 @@
 @import "base/typography";
 @import "base/base";
 @import "base/utilities";
+@import "base/checkbox";
 
 @import "components/ranking";
 @import "components/shops";
@@ -13,6 +14,11 @@
 @import "components/news";
 @import "components/listbenefits";
 @import "components/closet-benefits";
+@import "components/dashboard-admin";
+@import "components/details-benefits";
+@import "components/login";
+@import "components/sign-up";
+
 
 @import "layout/footer";
 @import "layout/grid";
