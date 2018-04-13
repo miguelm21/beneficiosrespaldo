@@ -55,15 +55,13 @@ $('#owl-carousel2, #owl-carousel22').owlCarousel({
     600:{
       items:3,
       nav:false,
-      autoplay:true,
-      autoplayTimeout:3000
+      autoplay:false,
     },
     1000:{
       items:4,
       nav:false,
-      loop:false,
-      autoplay:true,
-      autoplayTimeout:3000
+      loop:true,
+      autoplay:false,
     }
   }
 })

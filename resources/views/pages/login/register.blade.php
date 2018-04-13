@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-	<div class="container">
+	<div class="container container-edit">
 		<div class="row">
 			<div class="col-12 col-lg-6 m-lg-auto col-sm-8 m-sm-auto">
 				<div class="content content_sign-up">

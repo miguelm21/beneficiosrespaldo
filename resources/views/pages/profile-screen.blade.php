@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid container-edit">
 <!-- 	<div class="row">
 		<div class="col-12">
 			<div class="logo text-right">
@@ -13,23 +13,20 @@
 	</div> -->
 	<div class="row my-1">
 		<div class="col-lg-3 col-md-4 nopadding">
-			<div class="row m-0">
-				<div class="dashboard border-closest dashboard-profile">
-					<div class="col-12">
-						<div class="text-center">
-							<a href="">
-								<img src="images/hero.png" class="dashboard__image-profile" alt="Imagen Perfil Admin" class="img-profile m-2">
-							</a>
-						</div>
+			<div class="card m-3">
+				<div class="dashboard">
+					<div class="col-12 text-center">
+						<a href="">
+							<img src="images/hero.png" class="dashboard__image-profile" alt="Imagen Perfil Admin" class="img-profile m-2">
+						</a>
 						<hr>
 					</div>
 					<div class="col-12">
 						<div class="text-center my-4">
 							<label class="dashboard__label my-3"><b>Datos personales:</b></label>
 							<ul class="list-group dashboard__list">
-								<a href="" class=""><li class="dashboard__list__button list-group-item">Membresia</li></a>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Cupones utilizados</li></a>
-								<a href="" class=""><li class="dashboard__list__button list-group-item">Calculo ahorros(Opcional)</li></a>
+								<a href="" class=""><li class="dashboard__list__button list-group-item">Cálculo ahorros(Opcional)</li></a>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Noticias</li></a>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Ayuda</li></a>
 							</ul>
@@ -50,9 +47,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-9 col-md-8 col-12 border-closest2">
-			<div class="p-3">
-				<div class="container section_profile">
+		<div class="col-lg-9 col-md-8 col-12 ">
+			<div class="p-3 section_profile">
+				<div class="container ">
+					<h4>Perfil de usuario</h4>
 					<form action="" method="">
 						<div class="form-row">
 							<div class="form-group col-md-6">

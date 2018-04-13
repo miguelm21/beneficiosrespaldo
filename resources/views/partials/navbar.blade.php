@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light sticky-top nav-config">
 	<div class="container-fluid u-leftspacing-zero">
 		<div class="nav__logo-container">
-			<a href="{{ url('/') }}"><div class="nav__logo"><div class="nav__logo-text"><img src="img/logo/logo_1.png" alt=""></span></div></div></a>
+			<a href="{{ url('/') }}"><div class=""><img src="img/logo/logo_1.png" alt=""></div></a>
 		</div> 
 		<button class="navbar-toggler nav-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
 		</button>
 		<div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
 			<ul class="navbar-nav navbar-nav ml-auto">
-				<li class="nav-item text-center">
-					<a href="" class="navbar-nav__social"><i class="fab fa-facebook-f"></i></a>
-					<a href="" class="navbar-nav__social"><i class="fab fa-google-plus-g"></i></a>
-					<a href="" class="navbar-nav__social"><i class="fab fa-twitter"></i></a>
-					<a href="" class="navbar-nav__social"><i class="fab fa-instagram"></i></a>
-				</li>
+				<div id="social">
+					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-facebook-f"></i></a>
+					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-twitter"></i></a>
+					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-google"></i></a>
+					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-instagram"></i></a>
+				</div>
 				<li class="nav-item">
 					<form class="search-navbar">
 						<div class="input-group">

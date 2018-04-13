@@ -55,58 +55,59 @@ input.empty {
     background-size: cover;
     background-position: top;
 
-    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-     -webkit-clip-path: polygon(0 0, 100% 0, 100% 55vh, 70% 100%, 0 100%);
-     clip-path: polygon(0 0, 100% 0, 100% 83%, 73% 97%, 0 97%);
+    //  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+     //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 55vh, 70% 100%, 0 100%);
+     //   clip-path: polygon(0 0, 100% 0, 100% 83%, 73% 97%, 0 97%);
+     // }
    }
- }
 
- &__img-carousel{
+   &__img-carousel{
 
-  @include respond(medium-desktop){
-    height: 50vh;
+    @include respond(medium-desktop){
+      height: 50vh;
+    }
+    @include respond(desktop){
+      height: 580px;
+    }
+    @include respond(tab){
+      height: 500px;
+    }
+
+    @include respond(tab-port){
+      height: 470px;
+    }
+
+    @include respond(phone-land){
+      height: 370px;
+      max-height: 100%;
+    }
+    @include respond(m-phone){
+      height: 300px;
+      max-height: 100%;
+    }
+    @include respond(s-phone){
+      height: 286px;
+      max-height: 100%;
+    }
   }
-  @include respond(desktop){
-    height: 580px;
-  }
-  @include respond(tab){
-    height: 500px;
-  }
 
-  @include respond(tab-port){
-    height: 470px;
-  }
+  &__carousel-inner{
 
-  @include respond(phone-land){
-    height: 370px;
-    max-height: 100%;
-  }
-  @include respond(m-phone){
-    height: 300px;
-    max-height: 100%;
-  }
-  @include respond(s-phone){
-    height: 286px;
-    max-height: 100%;
-  }
-}
+   & .hero-section-text{
 
-&__carousel-inner{
+     &__btn {
+       width: 80%;
+       padding: 10px;
+       margin-top: 50px;
+       font-size: $m-size;
+       background: $color-secondary;
+       border-color: $color-secondary;
+       font-family: 'SuecaSemiBold', sans-serif;
+       position: relative;
 
- & .hero-section-text{
+       animation: moveInBottom 1s ease-out;
 
-   &__btn {
-     width: 80%;
-     padding: 10px;
-     margin-top: 50px;
-     font-size: $m-size;
-     background: $color-secondary;
-     border-color: $color-secondary;
-     font-family: 'SuecaSemiBold', sans-serif;
-     position: relative;
-
-     animation: moveInBottom 1s ease-out;
-
+     }
      &__btn::hover {
        background: $color-white;
        border-color: $color-white;
@@ -134,34 +135,33 @@ input.empty {
        transition: all .4s;
        background: $color-secondary
      }
+
+     position: absolute;
+     top: 35%;
+     left: 35%;
+     z-index: 1001;
+
+     @include absCenter();
+     color: $color-white;
+     text-align: center;
+     text-shadow: 1px 1px 2px #0a0a0a;
+     font-size: $xl-size /2;
+
+     & h1 {
+      font-family: 'SuecaSemiBold', sans-serif;
+      text-transform: uppercase;
+      font-size: $xl-size;
+      animation: moveInLeft 1s ease-in-out;
+
+      @include respond(s-phone){
+       font-size: $l-size;
+     }
    }
 
-   position: absolute;
-   top: 35%;
-   left: 35%;
-   z-index: 1001;
-
-   @include absCenter();
-   color: $color-white;
-   text-align: center;
-   text-shadow: 1px 1px 2px #0a0a0a;
-   font-size: $xl-size /2;
-
-   & h1 {
-    font-family: 'SuecaSemiBold', sans-serif;
-    text-transform: uppercase;
-    font-size: $xl-size;
-    animation: moveInLeft 1s ease-in-out;
-
-    @include respond(s-phone){
-     font-size: $l-size;
-   }
- }
-
- & h5 {
-  animation: moveInRight 1s ease-in-out;
-  font-size: $m-size;
-}
+   & h5 {
+    animation: moveInRight 1s ease-in-out;
+    font-size: $m-size;
+  }
 
 
 }
@@ -256,7 +256,6 @@ input.empty {
 
                   /* |||||||||||||||||||| Second Carousel |||||||||||||||||||||*/
 
-                  /* Carousel */
 
                   .box-title{
                     min-height: 52px;
@@ -268,58 +267,6 @@ input.empty {
                     overflow-y: auto;
                   }
 
-                  .owl-carousel .carousel-item {
-                    background: #fff;
-                    border: 1px solid #D9D7DA;
-                    text-align: center;
-                  }
-
-                  .owl-carousel .carousel-item-text {
-                    padding: 12px;
-                  }
-
-                  .owl-carousel .carousel-item .item-kicker {
-                    color: #9A5053;
-                    display: block;
-                    font-size: .8em;
-                    font-weight: 600;
-                    height: 30px;
-                    margin-bottom: 16px;
-                    overflow: hidden;
-                    text-transform: uppercase;
-                  }
-
-                  .owl-carousel .carousel-item .item-title {
-                    color: #646464;
-                    font-size: 1em;
-                    font-weight: 600;
-                    height: 38px;
-                    margin: 0;
-                    overflow: hidden;
-                  }
-
-                  .owl-dots {
-                    text-align: center;
-                    width: 100%;
-                    -webkit-backface-visibility: hidden;
-                    -moz-backface-visibility: hidden;
-                    -ms-backface-visibility: hidden;
-                    backface-visibility: hidden;
-                  }
-
-                  .owl-dot {
-                    border-radius: 50px;
-                    height: 10px;
-                    width: 10px;
-                    display: inline-block;
-                    background: rgba(127, 127, 127, 0.5);
-                    margin-left: 5px;
-                    margin-right: 5px;
-                  }
-
-                  .owl-dot.active {
-                    background: rgba(127, 127, 127, 1);
-                  }
 
 
                   /* Tabs */
@@ -485,211 +432,191 @@ input.empty {
                 }
 
                 /*||||||||||||||||||| Franchise |||||||||||||||||||||||*/
-                .over{
-                  max-height: 650px;
-                  overflow-x: hidden;
-                  transition: .3s;
+
+
+                .container-franchise{
+
+                  margin: 5% auto;
+
+                  &__limit-img{
+                    max-height: 360px;
+
+
+                    & img{
+                      max-height: 360px;
+                      max-width: 100%;
+                    }
+                  }
+
+                  &__star{
+                    font-size: 30px;
+                    cursor: pointer;
+                  }
+
                 }
 
-                .over:hover{
-                 overflow-y: auto;
-                 overflow-x: hidden;
-                 max-height: 650px;
-                 margin: auto 10%;
-               }
-
-               .container-franchise{
-
-                margin: 5% auto;
-
-                &__limit-img{
-                  max-height: 360px;
+                .card-style{
+                  margin: auto 5%;
 
 
-                  & img{
-                    max-height: 360px;
+                  &__separator{
+                    margin: 1em auto;
+                  }
+
+                  @include respond(tab){
+                    margin: auto 10%;
+                  }
+
+                  @include respond(m-phone){
+                    margin: auto;
+                  }
+
+                  &__limit-img{
+                   width: 100%;
+                   border-radius: 7px;
+                   height: 230px;
+
+
+                   & img{
+                    max-height: auto;
                     max-width: 100%;
+                  }
+
+                }
+
+                &__title{
+                  font-family: 'SuecaSemiBold', sans-serif;
+                  font-size: $m-size + .7;
+                  color: $color-primary-dark;
+                  text-align: start;
+                }
+
+                &__text{
+                  text-align: justify;
+                  font-size: $s-size + .3;
+                }
+
+                &__social{
+                  padding: 15px;
+                  border-left: 2px solid #c1c1c1;
+                  height: 100%;
+                  text-align: left;
+                  font-size: $s-size +.2;
+
+                  & label{
+                    color: $color-primary-dark;
                   }
                 }
 
-                &__star{
-                  font-size: 30px;
-                  cursor: pointer;
-                }
-
-              }
-
-              .card-style{
-                margin: auto 10%;
-
-
-                @include respond(tab){
-                  margin: auto 10%;
-                }
-
-                @include respond(m-phone){
-                  margin: auto;
-                }
-
-                &__limit-img{
-                 max-height: 100%;
-                 max-width: 100%;
-
-
-                 & img{
-                  max-height: auto;
-                  max-width: 100%;
-                }
-              }
-
-              &__title{
-                font-family: 'SuecaSemiBold', sans-serif;
-                font-size: $m-size + .7;
-                color: $color-primary-dark;
-                text-align: start;
-              }
-
-              &__text{
-                text-align: left;
-              }
-
-              &__more{
-                margin-top: -45px;
-                margin-right: 23px;
-                width: 100%;
-                z-index: 150;
-
-                @include respond(tab) {
-                  margin:auto;
-                  padding:5px 15px;
-                }
-
-                @include respond(m-phone) {
-                  margin:auto;
-                  padding:5px 15px;
-                }
-
-                & a{
-                  padding: 5px 5%;
-                  transition: .3s;
-                  color: $color-white;
-                  background: $color-primary-dark;
+                &__more{
+                  width: 100%;
+                  z-index: 150;
                   font-size: $m-size;
-                  border: 2px solid $color-primary-dark;
+                  background-color: $color-secondary;
+                  color: $color-white;
                   transition: .3s;
-                  @include respond(m-phone) {
-                   width:100%;
-                 }
-               }
-
-
-               & a:hover{
-                color: $color-primary-dark;
-                background: $color-white;
-                border: 2px solid $color-primary-dark;
+                  
+                  &:hover{
+                    background-color: $color-primary-dark;
+                    color: $color-white;
+                    letter-spacing: 1.5px;
+                  }
+                }
               }
 
 
 
-            }
-          }
 
-
-
-
-          // .edit-section2{
-            //   margin: 5% 15%;
-            // }
-
-            // .box-description2{
-              //   overflow-y: auto;
-              //   word-wrap: break-word;
-              //   height: 100px;
-
-              //   @include respond(tab-land) {
-                //     height: 60px;
-                //   }
-
+              // .edit-section2{
+                //   margin: 5% 15%;
                 // }
 
-                // .card-footer2{
-                  //   border: none;
-                  //   padding: 0;
-                  // }
+                // .box-description2{
+                  //   overflow-y: auto;
+                  //   word-wrap: break-word;
+                  //   height: 100px;
 
-                  // .img-franchise{
-                    //   max-height: 350px;
-                    //   width: 100%;
+                  //   @include respond(tab-land) {
+                    //     height: 60px;
+                    //   }
+
                     // }
 
-                    // .img-publicist{
-                      //   max-height: 250px;
+                    // .card-footer2{
+                      //   border: none;
+                      //   padding: 0;
                       // }
 
-                      /*||||||||||||||||||| Closest Benefits |||||||||||||||||||||||*/
+                      // .img-franchise{
+                        //   max-height: 350px;
+                        //   width: 100%;
+                        // }
 
-                      .center-km{
-                        width: 65%;
-                        margin: auto;
-                        text-align: center;
-                      }
+                        // .img-publicist{
+                          //   max-height: 250px;
+                          // }
 
-                      .box-panel-closest{
-                        max-height: 500px;
-                        overflow-y: scroll;
-                        overflow-x: hidden;
-                      }
+                          /*||||||||||||||||||| Closest Benefits |||||||||||||||||||||||*/
 
-                      .border-closest{
-                        border-top: 1px solid #000066;
-                        border-bottom: 1px solid #000066;
+                          .center-km{
+                            width: 65%;
+                            margin: auto;
+                            text-align: center;
+                          }
 
-                        @include respond(tab-port) {
-                          border: none;
-                        }
-                      }
+                          .box-panel-closest{
+                            overflow-y: scroll;
+                            overflow-x: hidden;
+                          }
 
-                      .border-closest2{
-                        border-top: 1px solid #000066;
-                        border-left: 1px solid #000066;
+                          .border-closest{
+                            border-bottom: 1px solid #000066;
 
-                        @include respond(tab-port) {
-                          border: none;
-                        }
-                      }
+                            @include respond(tab-port) {
+                              border: none;
+                            }
+                          }
+
+                          .border-closest2{
+                            border-left: 1px solid #000066;
+
+                            @include respond(tab-port) {
+                              border: none;
+                            }
+                          }
 
 
-                      /* Code maps */
+                          /* Code maps */
 
 
 
-                      #panel, #flip {
-                        padding: 5px;
-                        text-align: center;
-                        background-color: #e5eecc;
-                        border: solid 1px #c3c3c3;
-                      }
+                          #panel, #flip {
+                            padding: 5px;
+                            text-align: center;
+                            background-color: #e5eecc;
+                            border: solid 1px #c3c3c3;
+                          }
 
-                      #panel {
-                        padding: 50px;
-                        display: none;
-                      }
+                          #panel {
+                            padding: 50px;
+                            display: none;
+                          }
 
-                      .section__title {
-                        color: $color-white;
-                        background: $color-black;
-                        font-family: 'SuecaSemiBold', sans-serif;
-                        border-left: 1px solid $color-grey-light-1;
-                        border-right: 1px solid $color-grey-light-1;
-                        border-top: 1px solid $color-grey-light-1;
-                        text-align: center;
-                        width: fit-content;
-                        padding: 5px;
-                        margin: 50px auto 0px;
+                          .section__title {
+                            color: $color-white;
+                            background: $color-black;
+                            font-family: 'SuecaSemiBold', sans-serif;
+                            border-left: 1px solid $color-grey-light-1;
+                            border-right: 1px solid $color-grey-light-1;
+                            border-top: 1px solid $color-grey-light-1;
+                            text-align: center;
+                            width: fit-content;
+                            padding: 5px;
+                            margin: 50px auto 0px;
 
-                        &-separator {
-                          margin-top: 0;
-                          margin-bottom: 0;
-                          background: $color-grey-light-1;
-                        }
-                      }
+                            &-separator {
+                              margin-top: 0;
+                              margin-bottom: 0;
+                              background: $color-grey-light-1;
+                            }
+                          }

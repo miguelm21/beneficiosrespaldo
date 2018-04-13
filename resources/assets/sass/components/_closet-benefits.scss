@@ -1,3 +1,9 @@
+.closet-container{
+	@include respond(big-desktop){
+		margin: auto 5%;
+	}
+}
+
 .box-km{
 	& button{
 		background-color: $color-primary-dark;
@@ -14,7 +20,10 @@
 }
 
 .box-panel-closest{
-	
+	max-height: 650px;
+	@include respond(m-phone){
+
+	}
 	&__title{
 		font-family: 'SuecaSemiBold', sans-serif;
 		font-size: $m-size;
@@ -36,5 +45,24 @@
 		color: $color-primary-dark;
 		border: 2px solid $color-primary-dark;
 		font-size: $s-size;
+	}
+}
+
+.box-img-gps{
+	#map_canvas{
+		height: 100% !important;
+		@include respond(big-desktop){
+			height: 55% !important;
+			width: 85% !important;
+		}
+		@include respond(tab-land){
+			height: 55% !important;
+		}
+		@include respond(tab){
+			height: 50vh !important;
+		}
+		@include respond(s-phone){
+			height: 50vh !important;
+		}
 	}
 }

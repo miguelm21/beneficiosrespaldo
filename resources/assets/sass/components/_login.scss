@@ -11,6 +11,23 @@
     color: $greyColor;
   }
 
+  .container-edit{
+    min-height: auto;
+
+    @include respond(big-desktop){
+      min-height: 1116px;
+    }
+    @include respond(tab-land){
+      min-height: 1084px;
+    }
+    @include respond(tab-port){
+      min-height: 760px;
+    }
+    @include respond(m-phone){
+      min-height: auto;
+    }
+  }
+
 
   .content:before {
     content: "";
@@ -42,200 +59,192 @@
     margin: 20% auto;
     padding: 4%;
 
-    @include respond (big-desktop){
-      margin: 57% auto;
-    }
-    @include respond(tab-land){
-      margin: 65% auto;
-    }
-    @include respond(tab-port){
-     margin: 20% auto;
-   }
+    //  @include respond (big-desktop){
+     //    margin: 57% auto;
+     //  }
+     //  @include respond(tab-land){
+       //    margin: 65% auto;
+       //  }
+       //  @include respond(tab-port){
+         //   margin: 20% auto;
+         // }
 
-   @include respond(m-phone){
-    margin: 5% auto;
-    padding: 10px;
-  }
-
-
-  .title {
-   font-family: 'SuecaSemiBold', sans-serif;
-   text-align: center;
-   font-size: $l-size;
-   font-weight: 600;
-   color: $color-white;
-   padding-bottom: 30px;
-   @include respond(m-phone){
-    font-size: $m-size + 1;
-  }
-  } // .title
-
-  input {
-    width: 100%;
-    font-size: $m-size;
-    font-family: 'Open Sans', sans-serif;
-
-    margin: 10px 0px;
-
-    border: none;
-    padding: 10px;
-
-
-    } // input
-
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    label {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-
-      cursor: pointer;
-      position: relative;
-
-      margin-left: 5px;
-      margin-right: 10px;
-      top: 5px;
-
-      &:before {
-        content: "";
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        position: relative;
-        left: 0;
-        bottom: 1px;
-        background-color: $color-white;
-
-      }
-      } // label
-
-      input[type="checkbox"]:checked + label:before {
-        content: "\2713";
-        font-size: 20px;
-        color: $color-primary-dark;
-        text-align: center;
-        line-height: 20px;
-        font-weight: 550;
-      }
-
-      span {
-        font-size: $s-size + .4;
-        color: $color-white;
-      }
-
-      button {
-        width: 100%;
-        font-size: $m-size;
-        padding: 15px;
-        margin: 20px 0px;
-        background: $color-secondary;
-        color: $color-white;
-        border: 0;
-        cursor: pointer;
-        transition: .3s;
-
-        &:hover{
-          background-color: $color-primary-dark;
-          color: $color_white;
-          font-size: $m-size;
-          letter-spacing: 2px;
-
+         @include respond(m-phone){
+          margin: 5% auto;
+          padding: 10px;
         }
-      }
 
-      .social {
-        width: 100%;
-        color: $color-white;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        font-size: $m-size;
 
-        span {
-          display: inline-block;
-          vertical-align: baseline;
-          padding: 0 20px;
-
-          &:before,
-          &:after {
-            content: "";
-            display: block;
-            width: 500px;
-            position: absolute;
-            top: 0.9em;
-            border-top: 1px solid $textColor;
-          }
-
-          &:before {
-            right: 75%;
-          }
-
-          &:after {
-            left: 75%;
-          }
+        .title {
+         font-family: 'SuecaSemiBold', sans-serif;
+         text-align: center;
+         font-size: $l-size;
+         font-weight: 600;
+         color: $color-white;
+         padding-bottom: 30px;
+         @include respond(m-phone){
+          font-size: $m-size + 1;
         }
-      }
+        } // .title
 
-
-
-      .buttons {
-        width: 100%;
-        margin: 30px 0px;
-
-        button {
-          float: left;
-          width: 47%;
-          margin: 0px 1.5%;
+        input {
+          width: 100%;
           font-size: $m-size;
+          font-family: 'Open Sans', sans-serif;
 
-          i {
-            padding-right: 7px;
+          margin: 10px 0px;
+
+          border: none;
+          padding: 10px;
+
+
+          } // input
+
+          input[type="checkbox"] {
+            display: none;
           }
 
-          &.facebook {
-            background-color: #4464b2;
-          }
+          label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
 
-          &.twitter {
-            background-color: #28a9e0;
-          }
+            cursor: pointer;
+            position: relative;
 
-          &.google {
-            background-color: #da4735;
-          }
-          } // button
+            margin-left: 5px;
+            margin-right: 10px;
+            top: 5px;
 
-          &:after {
-            content: "";
-            display: block;
-            clear: both;
-          }
-          } // .buttons
+            &:before {
+              content: "";
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              position: relative;
+              left: 0;
+              bottom: 1px;
+              background-color: $color-white;
 
-          } // .content
-
-
-          .content_login{
-
-            &__button{
-             font-size: $m-size + 0.3;
-             margin: 2% auto;
-             color: $color-white;
-
-             &:hover{
-              color: $color-secondary;
-              text-decoration: none;
             }
-          }
-        }
+            } // label
+
+            input[type="checkbox"]:checked + label:before {
+              content: "\2713";
+              font-size: 20px;
+              color: $color-primary-dark;
+              text-align: center;
+              line-height: 20px;
+              font-weight: 550;
+            }
+
+            span {
+              font-size: $s-size + .4;
+              color: $color-white;
+            }
+
+            button {
+              width: 100%;
+              font-size: $m-size;
+              padding: 15px;
+              margin: 20px 0px;
+              background: $color-secondary;
+              color: $color-white;
+              border: 0;
+              cursor: pointer;
+              transition: .3s;
+
+              &:hover{
+                background-color: $color-primary-dark;
+                color: $color_white;
+                font-size: $m-size;
+                letter-spacing: 2px;
+
+              }
+            }
+
+            .social {
+              width: 100%;
+              color: $color-white;
+              position: relative;
+              overflow: hidden;
+              text-align: center;
+              font-size: $m-size;
+
+              span {
+                display: inline-block;
+                vertical-align: baseline;
+                padding: 0 20px;
+
+                &:before,
+                &:after {
+                  content: "";
+                  display: block;
+                  width: 500px;
+                  position: absolute;
+                  top: 0.9em;
+                  border-top: 1px solid $textColor;
+                }
+
+                &:before {
+                  right: 75%;
+                }
+
+                &:after {
+                  left: 75%;
+                }
+              }
+            }
 
 
 
-        @media screen and (min-width: 1365px) and (max-width: 1023px) { 
-          .content_login{
-            margin: 65% auto;
-          }
-        }
+            .buttons {
+              width: 100%;
+              margin: 30px 0px;
+
+              button {
+                float: left;
+                width: 47%;
+                margin: 0px 1.5%;
+                font-size: $m-size;
+
+                i {
+                  padding-right: 7px;
+                }
+
+                &.facebook {
+                  background-color: #4464b2;
+                }
+
+                &.twitter {
+                  background-color: #28a9e0;
+                }
+
+                &.google {
+                  background-color: #da4735;
+                }
+                } // button
+
+                &:after {
+                  content: "";
+                  display: block;
+                  clear: both;
+                }
+                } // .buttons
+
+                } // .content
+
+
+                .content_login{
+
+                  &__button{
+                   font-size: $m-size + 0.3;
+                   margin: 2% auto;
+                   color: $color-white;
+
+                   &:hover{
+                    color: $color-secondary;
+                    text-decoration: none;
+                  }
+                }
+              }

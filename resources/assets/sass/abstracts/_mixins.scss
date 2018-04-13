@@ -66,7 +66,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
         @media only screen and (max-width: 63.5em) { @content }; // 1016px
     }
     @if $breakpoint == desktop {
-        @media only screen and (min-width: 68em) { @content };    //1088
+        @media only screen and (min-width: 68em) { @content };    //1088px
     }
 
     @if $breakpoint == tab-land {

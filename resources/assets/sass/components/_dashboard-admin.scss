@@ -1,5 +1,5 @@
 .dashboard{
-	padding-top: 20%;
+	padding-top: 10%;
 	width: 100%;
 
 	@include respond(s-phone) {
@@ -15,44 +15,47 @@
 		border-radius: 50%;
 		border: 2px solid $color-primary-dark;
 		@include respond(tab) {
-			width: 135px;
-			height: 135px;
+			max-width: 135px;
+			max-height: 135px;
 		}
 	}
 
 	&__label{
-		color: $color-primary;
-
+		color: $color-secondary;
+		font-family: 'SuecaSemiBold', sans-serif;
 	}
 
 	&__list{
-
+		text-align: left;
+		margin: auto 5%;
 		& a{
 			text-decoration: none;
+			color: $color-black;
 		}
 		& a:hover{
 			text-decoration:none;
+			color:$color-white;
 		}
 
-
 		&__button{
-			margin: 1px auto;
 			border: none;
-			color: $color-black;
 			transition: .3s;
 			text-decoration:none;
+			cursor: pointer;
+			font-size: $m-size;
+
+			&:hover{
+				background: $color-primary-dark;
+				color: $color-white;
+				letter-spacing: 1.5px;
+			}
 			@include respond(tab) {
-				font-size: $s-size;
+				font-size: $m-size;
 			}
 			@include respond(s-phone) {
 				font-size: $m-size;
 			}
 			
-		}
-
-		&__button:hover{
-			color: $color-secondary;
-			text-decoration: none;
 		}
 	}
 
@@ -83,7 +86,7 @@
 
 .content-admin{
 	
-	padding: 5% 5%;
+	padding: 10% 5px;
 	@include respond(s-phone) {
 		padding: 0;
 	}	
@@ -95,114 +98,147 @@
 		text-decoration:none;
 	}
 
-	&__circle{
+	&__img{
+		max-width:100%;
+	}
+
+	&__title{
 		font-family: 'SuecaSemiBold', sans-serif;
-		position: relative;
-		left: 8%;
-		display: inline-block;
-		width: 80%;
-		height: 0;
-		padding: 40% 0;
-		border-radius: 50%;
-		color: white;
-		text-align: center;
-		box-shadow: 3px 3px 3px #888888;
-
-		& h5{
-			margin-top: -5px;
-			font-size: $m-size+.3;
-
-			@include respond(tab) {
-				margin-top: -13px;
-				font-size: $s-size+.1;
-			}
-		}
-	}
-
-	&__button-circle{
-		color: $color-white;
+		color: $color-secondary;
 		font-size: $m-size;
-		padding: 15px 0;
-
-	}
-
-	&__button{
-		font-size: $m-size;
-		padding: 15px 0;
-		color: $color-white;
-		text-decoration: none;
-		transition: .3s;
-		
-		@include respond(tab){
-			font-size: $s-size;
-		}
-		@include respond(s-phone) {
-			font-size: $s-size + .2;
-		}
-		@include respond(tab-port){
-			font-size: $s-size;
-			padding: 10px 0;
-		}
-	}
-
-	&__button:hover{
-		background: $color-white;
-		color: $color-primary-dark;
-		text-decoration: none;
-	}
-
-}
-
-.dashboard-profile{
-
-	padding-top: 20%;
-
-	@include respond(tab-port){
-		padding-top:45%;
-	}
-	@include respond(m-phone){
-		padding-top: 10%;
-	}
-
-}
-
-.section_profile{
-	margin:15% auto;
-
-	@include respond(mediu-desktop){
-		margin: 20% auto;
-	}
-
-	@include respond(tab-port){
-		margin: 35% auto;
-	}
-
-	@include respond(m-phone){
-		margin: 5% auto;
-	}
-
-	&__input{
-		font-size: $m-size;
-	}
-
-	&__button{
-		background: $color-primary-dark;
-		color: $color-white;
-		font-size: $m-size;
-		border: 2px solid $color-primary-dark;
-		padding:5px 15px;
-		@include respond(m-phone){
+		@include respond(tab-port) {
 			font-size: $m-size;
-			width: 100%;
-			margin-top: 2%;
+		}	
+		@include respond(s-phone) {
+			margin-bottom: 5%;
+		}	
+	}
+
+	& .box-admin{
+
+		@include respond(m-phone) {
+			margin: auto;
+			padding: 0;
 		}
 	}
 
-	&__button:hover{
-		border: 2px solid $color-primary-dark;
-		padding:5px 15px;
-		background: $color-white;
-		color: $color-primary-dark;
-		font-size: $m-size;
-	}
-}
+	// &__circle{
+		// 	font-family: 'SuecaSemiBold', sans-serif;
+		// 	position: relative;
+		// 	left: 8%;
+		// 	display: inline-block;
+		// 	width: 80%;
+		// 	height: 0;
+		// 	padding: 40% 0;
+		// 	border-radius: 50%;
+		// 	color: white;
+		// 	text-align: center;
+		// 	box-shadow: 3px 3px 3px #888888;
+
+		// 	& h5{
+			// 		margin-top: -5px;
+			// 		font-size: $m-size+.3;
+
+			// 		@include respond(tab) {
+				// 			margin-top: -13px;
+				// 			font-size: $s-size+.1;
+				// 		}
+				// 	}
+				// }
+
+				// &__button-circle{
+					// 	color: $color-white;
+					// 	font-size: $m-size;
+					// 	padding: 15px 0;
+
+					// }
+
+					&__button{
+						font-size: $m-size;
+						padding: 15px 0;
+						color: $color-white;
+						text-decoration: none;
+						transition: .3s;
+						font-size: $m-size;
+
+						@include respond(tab){
+							font-size: $s-size;
+						}
+						@include respond(s-phone) {
+							font-size: $s-size + .2;
+						}
+						@include respond(tab-port){
+							font-size: $s-size;
+							padding: 10px 0;
+						}
+					}
+
+					&__button:hover{
+						background: $color-white;
+						color: $color-primary-dark;
+						text-decoration: none;
+					}
+
+				}
+
+				.dashboard-profile{
+
+					padding-top: 20%;
+
+					@include respond(tab-port){
+						padding-top:45%;
+					}
+					@include respond(m-phone){
+						padding-top: 10%;
+					}
+
+				}
+
+				.section_profile{
+					margin:5% auto;
+
+					// @include respond(mediu-desktop){
+					// 	margin: 20% auto;
+					// }
+
+					// @include respond(tab-port){
+					// 	margin: 35% auto;
+					// }
+
+					// @include respond(m-phone){
+					// 	margin: 5% auto;
+					// }
+					
+					& h4 {
+						font-size: $xl-size - 2;
+						text-align: center;
+						color: $color-secondary;
+						margin-bottom: 10%;
+						font-family: 'SuecaSemiBold', sans-serif;
+					}
+
+					&__input{
+						font-size: $m-size;
+					}
+
+					&__button{
+						background: $color-primary-dark;
+						color: $color-white;
+						font-size: $m-size;
+						border: 2px solid $color-primary-dark;
+						padding:5px 15px;
+						@include respond(m-phone){
+							font-size: $m-size;
+							width: 100%;
+							margin-top: 2%;
+						}
+					}
+
+					&__button:hover{
+						border: 2px solid $color-primary-dark;
+						padding:5px 15px;
+						background: $color-white;
+						color: $color-primary-dark;
+						font-size: $m-size;
+					}
+				}
