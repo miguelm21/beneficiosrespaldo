@@ -35,7 +35,7 @@
 						<hr>
 						<div class="box-panel-closest">
 							<div class="row">
-								<div class="col-lg-12 col-sm-6 col-12 my-2">
+								<div class="col-lg-12 col-sm-4 col-12 my-2">
 									<div class="card">
 										<img class="card-img-top" height="160"  src="img/category/gastro_1.jpg" alt="Card image cap">
 										<div class="card-body">
@@ -46,7 +46,7 @@
 									</div>
 									<hr>
 								</div>
-								<div class="col-lg-12 col-sm-6 col-12 my-2">
+								<div class="col-lg-12 col-sm-4 col-12 my-2">
 									<div class="card">
 										<img class="card-img-top" height="160"  src="img/category/entertaiment_1.jpg" alt="Card image cap">
 										<div class="card-body">
@@ -57,7 +57,7 @@
 									</div>
 									<hr>
 								</div>
-								<div class="col-lg-12 col-sm-6 col-12 my-2">
+								<div class="col-lg-12 col-sm-4 col-12 my-2">
 									<div class="card">
 										<img class="card-img-top" height="160"  src="img/category/tourism_1.jpg" alt="Card image cap">
 										<div class="card-body">
@@ -68,7 +68,7 @@
 									</div>
 									<hr>
 								</div>
-								<div class="col-lg-12 col-sm-6 col-12 my-2">
+								<div class="col-lg-12 col-sm-4 col-12 my-2">
 									<div class="card">
 										<img class="card-img-top" height="160"  src="img/category/beauty_1.jpg" alt="Card image cap">
 										<div class="card-body">
@@ -85,10 +85,54 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-9 col-12 nopadding">
-			<div class="box-img-gps p-4">
-				<!-- <img src="images/gps-2.jpg" class="gps-img" alt=""> -->
-				<div class="box-img-gps__gps"><?php echo $map['html']; ?></div>
+		<div class="col-lg-9 col-12">
+			<div class="row my-5">
+				<div class="col-sm-12 m-sm-auto col-lg-11 m-lg-auto">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-1">
+								<label for="box-1">Gastronomia</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-2">
+								<label for="box-2">Entretenimiento</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-3">
+								<label for="box-3">Turismo</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-4">
+								<label for="box-4">Turismo</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-5">
+								<label for="box-5">Belleza</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-6">
+								<label for="box-6">Moda</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-7">
+								<label for="box-7">Entretenimiento</label>
+							</div>
+							<div class="col-lg-3 col-sm-4 col-12 my-1">
+								<input type="checkbox" class="checkbox-edit" id="box-8">
+								<label for="box-8">Turismo</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="box-img-gps">
+						<!-- <img src="images/gps-2.jpg" class="gps-img" alt=""> -->
+						<div class="box-img-gps__gps"><?php echo $map['html']; ?></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

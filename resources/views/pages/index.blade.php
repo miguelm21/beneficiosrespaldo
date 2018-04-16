@@ -13,7 +13,7 @@
 			<div class="carousel-inner carousel-father__carousel-inner">
 				<div class="hero-section-text">
 					<h1>club uno</h1>
-					<h5>Expertos en OCIO, pedi tu tarjeta ya.</h5>
+					<h5> Pedi tu tarjeta ya.</h5>
 					<a class="hero-section-text__btn btn btn-primary" href="{{ url('closet-benefits') }}" role="button">Cercanos a mí</a>
 				</div>
 				<div class="carousel-item carousel-father__carousel-item active">

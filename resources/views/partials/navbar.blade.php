@@ -8,12 +8,14 @@
 		</button>
 		<div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
 			<ul class="navbar-nav navbar-nav ml-auto">
-				<div id="social">
-					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-facebook-f"></i></a>
-					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-twitter"></i></a>
-					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-google"></i></a>
-					<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-instagram"></i></a>
-				</div>
+				<li class="nav-item">
+					<div id="social">
+						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-facebook-f"></i></a>
+						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-twitter"></i></a>
+						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-google"></i></a>
+						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-instagram"></i></a>
+					</div>
+				</li>
 				<li class="nav-item">
 					<form class="search-navbar">
 						<div class="input-group">
@@ -32,11 +34,9 @@
 
 
 			<ul class="navbar-nav navbar-nav mt-lg-0 navbar-category">
-				<li class="nav-item">
-					
-				</li>
+
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-utensils nav-icon"> </i> Gastronomia
 					</a>
 <!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -48,7 +48,7 @@
 					</div> -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-film nav-icon"> </i> Entretenimiento
 					</a>
 <!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -66,7 +66,7 @@
 					</div> -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-plane nav-icon"> </i> Turismo
 					</a>
 <!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -80,7 +80,7 @@
 					</div> -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-cut nav-icon"> </i> Moda
 					</a>
 <!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -98,7 +98,7 @@
 					</div> -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-female nav-icon"> </i> Belleza
 					</a>
 <!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -112,7 +112,7 @@
 					</div> -->
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-home nav-icon"> </i> Deco y hogar
 					</a>
 					<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -129,6 +129,18 @@
 						<a class="dropdown-item" href="#">Pinturerias</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Seguros</a>
+					</div> -->
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-utensils nav-icon"> </i> Varios y otros
+					</a>
+<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Restaurantes y bares</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Heladerias</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Deliverys and take away</a>
 					</div> -->
 				</li>
 			</ul>
