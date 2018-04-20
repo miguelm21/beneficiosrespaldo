@@ -8,11 +8,30 @@
 			<div class="col-12 col-lg-6 m-lg-auto col-sm-8 m-sm-auto">
 				<div class="content content_login">
 					<div class="title">Iniciar sesión</div>
-					<input type="text" placeholder="E-mail"/>
-					<input type="password" placeholder="Password"/>
-					<input type="checkbox" id="rememberMe"/>
-					<label for="rememberMe"></label><span>Recordar mi contraseña</span>
-					<button>Iniciar sesión</button>
+					@if(Session::Has('message'))
+					<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						{{Session::get('message')}}
+					</div>
+					@endif
+					@if (count($errors) > 0)
+				    <div class="alert alert-danger">
+				        Errores<br><br>
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				            <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+				    </div>
+				    @endif
+					<form action="{{ route('auth') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="text" name="email" placeholder="E-mail"/>
+						<input type="password" name="password" placeholder="Password"/>
+						<input type="checkbox" name="remember" id="rememberMe"/>
+						<label for="rememberMe"></label><span>Recordar mi contraseña</span>
+						<button type="submit">Iniciar sesión</button>
+					</form>
 					<div class="social">¿No tienes cuenta aún? ¡Registrate aquí!</div>
 					<div class="row">
 						<div class="col-12 text-center">

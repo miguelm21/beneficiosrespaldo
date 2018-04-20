@@ -13,7 +13,7 @@
 		width: 180px;
 		height: 180px;
 		border-radius: 50%;
-		border: 2px solid $color-primary-dark;
+		border: 2px solid $color-primary;
 		@include respond(tab) {
 			max-width: 135px;
 			max-height: 135px;
@@ -22,7 +22,7 @@
 
 	&__label{
 		color: $color-secondary;
-		font-family: 'SuecaSemiBold', sans-serif;
+		font-family: 'Montserrat', sans-serif;
 	}
 
 	&__list{
@@ -47,7 +47,6 @@
 			&:hover{
 				background: $color-primary-dark;
 				color: $color-white;
-				letter-spacing: 1.5px;
 			}
 			@include respond(tab) {
 				font-size: $m-size;

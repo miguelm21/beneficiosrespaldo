@@ -1,5 +1,5 @@
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before{
-	background-color: $color-primary-dark;
+	background-color: $color-primary;
 }
 
 .box-dashboard-list{
@@ -9,14 +9,14 @@
 
 	&__title{
 		color: $color-secondary;
-		font-size: $m-size;
-		font-family: 'SuecaSemiBold', sans-serif;
+		font-family: 'Montserrat', sans-serif;
+		 font-size: $title-size;
 		text-align: center;
 	}
 
 	&__search{
 		font-size: $m-size;
-		border-color: $color-primary-dark;
+		border-color: $color-primary;
 	}
 
 	&__custom-label::before{
@@ -31,18 +31,19 @@
 	}
 	
 	& button{
-		background-color: $color-primary-dark;
+		background-color: $color-primary;
 		color: $color-white;
-		border: 2px solid $color-primary-dark;
+		font-size: $m-size;
+		border: 2px solid $color-primary;
 	}
 	& button:hover{
 		background-color: $color-white ;
-		color: $color-primary-dark;
-		border: 2px solid $color-primary-dark;
+		color: $color-primary;
+		border: 2px solid $color-primary;
 	}
 
 	&__select{
-		border-color: $color-primary-dark;
+		border-color: $color-primary;
 	}
 }
 
@@ -51,31 +52,36 @@
 	border-radius: 1rem;
 	box-shadow: 0px 2px 5px 0.5px #e9ecef;
 	border: none;
-	border-top: 5px solid $color-primary-dark;
+	border-top: 5px solid $color-primary;
 
 	&__title {
-		font-family: 'SuecaSemiBold', sans-serif;
-		font-size: $m-size;
+		font-family: 'Montserrat', sans-serif;
+		font-size: $title-size;
 		text-align: start;
+		color: $color-primary;
 
 		@include respond(phone-land) {
 			font-size: $m-size/1.1;
 		}
 	}
 	&__text{
-		text-align: justify;
+		font-family: 'SuecaMedium', sans-serif; 
+		font-size: $text-size;
+		 color: $color-grey-dark;
+		text-align: start;
 	}
 
 	& a {
-		background-color: $color-primary-dark;
+		background-color: $color-primary;
 		color: $color-white;
-		border: 2px solid $color-primary-dark;
+		font-size: $m-size;
+		border: 2px solid $color-primary;
 	}
 
 	& a:hover{
 		background-color: $color-white ;
-		color: $color-primary-dark;
-		border: 2px solid $color-primary-dark;
+		color: $color-primary;
+		border: 2px solid $color-primary;
 	}
 }
 
@@ -100,7 +106,7 @@
 		margin-bottom: 20px;
 		font-family: 'SuecaSemiBold', sans-serif;
 		font-size: $m-size;
-		color: $color-primary-dark;
+		color: $color-primary;
 		cursor: pointer;
 		-webkit-user-select: none;
 		-moz-user-select: none;

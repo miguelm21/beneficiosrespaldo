@@ -1,3 +1,25 @@
+//Nav-scroll index
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    document.getElementById("navbar").style.display = "block";
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.display = "none";
+
+  }
+}
+
+// Search navbar-bounceInDown
+
+$(document).ready(function(){
+  $("#search-navbar").click(function(){
+    $("#input-search").slideToggle(200);
+  });
+});
+
+
 // Icon search navbar 
 
 $('#iconified').on('keyup', function() {
@@ -24,8 +46,12 @@ $(
   );
 
 
-//Google maps 
-
+// //sticker with hover
+// $(document).ready(function(){
+//   $("ranking-item").hover(function(){
+//     $("ranking-item").addClass("fast");
+//   });
+// });
 
 
 //dropdown list -list benefits-
@@ -49,7 +75,7 @@ $('#owl-carousel2, #owl-carousel22').owlCarousel({
       nav:false
     },
     400:{
-      items:1.5,
+      items:1,
       nav:false
     },
     600:{
@@ -62,10 +88,79 @@ $('#owl-carousel2, #owl-carousel22').owlCarousel({
       nav:false,
       loop:true,
       autoplay:false,
+    },
+    1200:{
+      items:4,
+      nav:false,
+      loop:true,
+      autoplay:false,
     }
   }
 })
 
+//owl navbar-category
+
+$('#owl-carousel3').owlCarousel({
+  loop:false,
+  margin:10,
+  responsiveClass:true,
+  responsive:{
+    0:{
+      items:1,
+      nav:false
+    },
+    400:{
+      items:1,
+      nav:false
+    },
+    600:{
+      items:3,
+      nav:false,
+      autoplay:false,
+    },
+    1000:{
+      items:4,
+      nav:false,
+      loop:false,
+      autoplay:false,
+    },
+    1200:{
+      items:6,
+      nav:false,
+      loop:false,
+      autoplay:false,
+    }
+  }
+})
+
+//owl navbar bounceInDown
+$('.owl-carousel').owlCarousel({
+  margin: 10,
+  loop:false,
+  nav:false,
+  responsive:{
+    0:{
+      items:1
+    },
+    600:{
+      items:3
+    },
+    1000:{
+      items:5
+    }
+  }
+})
+
+//Search-button
+
+$('.header').on('click', '.search-toggle', function(e) {
+  var selector = $(this).data('selector');
+
+  $(selector).toggleClass('show').find('.search-input').focus();
+  $(this).toggleClass('active');
+
+  e.preventDefault();
+});
 // Checkbox list-benefits 
 
 $(".area .input").click(function(e) {
@@ -142,4 +237,3 @@ if ($(this).hasClass('active-2')) {
 }
 
 });
-

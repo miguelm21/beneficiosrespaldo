@@ -27,6 +27,8 @@ mix.scripts([
 	'resources/assets/js/tether.js',
 	'resources/assets/js/bootstrap.js',
 	'resources/assets/js/toastr.js',
+	'resources/assets/js/jquery.easy-autocomplete.js',
+	'resources/assets/js/jquery.tagsinput.min.js',
 	'resources/assets/js/main.js'
 	], 'public/js/app.js')
 .sass(
@@ -41,5 +43,7 @@ mix.scripts([
 	'resources/assets/css/toastr.css',
 	'resources/assets/css/owl.carousel.min.css',
 	'resources/assets/css/owl.theme.default.min.css',
+	'resources/assets/css/easy-autocomplete.css',
+	'resources/assets/css/jquer.tagsinput.min.css',
 	'resources/assets/css/main.css'
 ], 'public/css/app.css');

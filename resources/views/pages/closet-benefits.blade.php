@@ -1,9 +1,10 @@
 @extends('template')
 
-<head><script type="text/javascript">var centreGot = false;</script>
+	<head><script type="text/javascript">var centreGot = false;</script>
 	<?php echo $map['js']; ?></head>
-
+	
 	@section('content')
+
 	<div class="container-fluid container-edit closet-container">
 		<div class="row">
 			<div class="col-12">
@@ -17,8 +18,8 @@
 	<div class="row">
 		<div class="col-lg-3 col-12">
 			<div class="row">
-				<div class="card box-benefits">
-					<div class="p-4">
+				<div class="card box-benefits mx-3">
+					<div class="p-3">
 						<div class="col-lg-10 m-lg-auto col-md-6 m-md-auto  box-km">
 							<div class="form-group form-inline">
 								<div class="col-lg-8 col-md-8 col-12">

@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,7 +177,20 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        /*
+        * Tymon JWTAuth Providers
+        */
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
+        /*
+        * Zizaco Entrust Providers
+        */
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
+        /*
+        * Collective Providers
+        */
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -228,8 +241,22 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+        * Tymon JWTAuth Aliases
+        */
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
+        /*
+        * Zizaco Entrust Aliases
+        */
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
+        /*
+        * Collective Aliases
+        */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -32,7 +32,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">Subway</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">Nulla cupiditate rerum fugit debitis saepe, cumque a magni delectus sit quos odit deserunt nam.</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -76,7 +76,7 @@
 							<div class="col-12 col-sm-6 col-lg-4">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">McDonald</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">Laudantium eaque, sapiente, blanditiis amet voluptates beatae porro rem enim facere explicabo,.unde, natus!</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -120,7 +120,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">Burger King</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">elit. Perspiciatis expedita delectus iusto rerum odio quis, quasi eaque assumenda fuga corporis.tempora suscipit error!</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -164,7 +164,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">Starbucks Coffee</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">velit at, aliquam, aspernatur veniam asperiores reiciendis officiis maiores,.aspernatur esse.</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -208,7 +208,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">Subway</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">Obcaecati eius sed, assumenda amet sunt numquam, labore iste. Vitae error debitis,.repellendus dolorum!</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -252,7 +252,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">McDonald</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">sint eligendi odio placeat sit eveniet animi voluptas, illo officiis voluptatum atque enim.p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">
@@ -296,7 +296,7 @@
 							<div class="col-12 col-sm-6 col-lg-4 nopadding">
 								<div class="card-body">
 									<h5 class="card-title card-style__title">Burger King</h5>
-									<p class="card-text card-style__text">This is a wider card asdasdasdasdasdasdasdasdasdasdasdasdasdasda  asd asd asd sasdasdas dasdasda asd asd asdaasd assdas.</p>			
+									<p class="card-text card-style__text">Porro id aspernatur eum, ipsa adipisci iusto quasi, officia saepe quam, laboriosam sapiente itaque.</p>			
 								</div>
 							</div>
 							<div class="col-12 col-sm-6 col-lg-4">

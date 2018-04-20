@@ -2,9 +2,10 @@
 	<div class="row">
 		<div class="col-2 col-sm-2">
 			<div class="footer__social-container">
-				<a class="footer__social" href="#"><i class="fab fa-instagram"></i></a>
-				<a class="footer__social" href="#"><i class="fab fa-twitter-square"></i></a>
-				<a class="footer__social" href="#"><i class="fab fa-facebook-f"></i></a>
+				<a class="footer__social" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+				<a class="footer__social" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter-square"></i></a>
+				<a class="footer__social" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
+				<a class="footer__social" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
 			</div>
 		</div>
 		<div class="col-10 col-sm-10 m-auto">

@@ -12,7 +12,7 @@
     border-radius: 1rem;
     box-shadow: 0px 2px 5px 0.5px #e9ecef;
     border: none;
-    border-top: 5px solid $color-primary-dark;
+    border-top: 5px solid $color-primary;
 
     .title_category{
 
@@ -115,16 +115,16 @@
 
 
                         &:hover > .ranking-item {
-                            transform: rotateY(-180deg);
+                            display:block;
                         }
 
                         &:hover > .ranking-item-back {
-                            transform: rotateY(0);
+                            display:block;
                         }
 
                         & > .ranking-item, & > .ranking-item-back {
-                            transition: all .8s ease;
-                            backface-visibility: hidden;
+                            transition: .3s ease;
+                           display: block;
                             height: 100%;
                             position: absolute;
                             top: 0;
@@ -156,7 +156,7 @@
                         }
 
                         & > .ranking-item-back {
-                            transform: rotateY(180deg);
+                           display:none;
                         }
 
                     }

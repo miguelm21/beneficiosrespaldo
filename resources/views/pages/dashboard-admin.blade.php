@@ -25,7 +25,13 @@
 						<div class="text-center my-4">
 							<label class="dashboard__label my-3"><b>Administrador home:</b></label>
 							<ul class="list-group dashboard__list">
-								<a href="" class=""><li class="dashboard__list__button list-group-item">Administrador 1</li></a>
+								<a href="#demo" data-toggle="collapse"><li class="dashboard__list__button list-group-item">Administrador 1
+								</li></a>
+									<div id="demo" class="collapse">
+										<ul class="list-group">
+											<li style="list-style: none;"><a href="#" class="ml-5">Beneficio 1</a></li>
+										</ul>
+									</div>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Administrador 2</li></a>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Administrador 3</li></a>
 								<a href="" class=""><li class="dashboard__list__button list-group-item">Administrador 4</li></a>

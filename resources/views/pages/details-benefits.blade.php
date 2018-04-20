@@ -8,7 +8,7 @@
 				<div class="card p-2">
 					<div class="card-body">
 						<h5 class="box-benefits__title mb-3">Turismo</h5> 
-						<p class="box-benefits__text">This is a widadasdasdasdasdassadasdasdasdeasdasdasdasdasdasdasdasdasdasdasdadasds sd asdasdasdasdasdasdasdasdassdsadasdasdasdasdasdadasdsaasdasdasdasdaasdasdasdasdasdasdasdasdasdasdasdasdasdasdasssssssssssssssssssssssssssssssssssssssssssssss</p>
+						<p class="box-benefits__text">This is a widadasdasdasdasdassadasdasdasdeasdasdasdasdasdasdasdasdasdasdasdadasds sd asdasdasdasdasdasdasdasdassdsadasdasdasdasdasdadasdsaasdasdasdas</p>
 					</div>
 					<div class="card-footer border-transparent bg-transparent">
 						<div class="d-flex">

@@ -4,11 +4,11 @@
 <div class="container-fluid">
 	<div class="row m-1">
 		<div class="col-lg-3 col-sm-3 col-12 mx-auto nopadding p-3">
-			<div class="card my-2">
+			<div class="card  my-2">
 				<div class="row">
-					<div class="box-dashboard-list  p-1">
-						<div class="row p-3">
-							<div class="col-lg-10 m-lg-auto my-2">
+					<div class="box-dashboard-list">
+						<div class="row">
+							<div class="col-10 m-auto col-lg-10 m-lg-auto">
 								<div class="form-group">
 									<label for="" class="box-dashboard-list__title mb-3">Nombre</label>
 									<input class="form-control form-control-lg mr-sm-2 box-dashboard-list__search" type="search" placeholder="" aria-label="Search">
@@ -35,8 +35,8 @@
 										<label for="box-6">Deco y hogar</label>
 									</div>
 								</div>
-								<div class="col-12 text-center nopadding">
-									<button class="btn btn-block  mt-2 btn-lg">Buscar</button>
+								<div class="col-12 text-center">
+									<button class="btn btn-block  mt-2">Buscar</button>
 								</div>
 							</div>
 							<!-- <div class="col-lg-9 m-auto my-2">

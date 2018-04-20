@@ -7,9 +7,8 @@
 
     &__social {
         color: $color-white;
-        
-        font-size: 20px;
         transition: 0.5s;
+        font-size: 20px;
 
         &:hover {
             color: $color-secondary;
@@ -38,7 +37,7 @@
     }
 
     &-links {
-        font-size: $s-size;
+        font-size: $m-size;
 
         &-container {
             border-right: 1px solid;
@@ -60,6 +59,7 @@
                 line-height: 3;
                 font-family: 'SuecaMedium', sans-serif;
                 font-weight: 100;
+                font-size: $m-size;
 
                 &:hover {
                     cursor: pointer;

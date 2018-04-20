@@ -65,6 +65,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
     @if $breakpoint == tab {
         @media only screen and (max-width: 63.5em) { @content }; // 1016px
     }
+    @if $breakpoint == ipad-pro {
+        @media only screen and (min-width: 1017px) and (max-width: 1077px) { @content }; // 1016px
+    }
     @if $breakpoint == desktop {
         @media only screen and (min-width: 68em) { @content };    //1088px
     }

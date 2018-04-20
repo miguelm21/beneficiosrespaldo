@@ -1,157 +1,428 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top nav-config">
+
+<nav class="navbar navbar-expand-lg navbar-light nav-config">
 	<div class="container-fluid u-leftspacing-zero">
-		<div class="nav__logo-container">
-			<a href="{{ url('/') }}"><div class=""><img src="img/logo/logo_1.png" alt=""></div></a>
-		</div> 
+		<div class="col nopadding">
+			<div class="nav__logo-container">
+				<a href="{{ url('/') }}"><div class=""><img src="img/logo/logo_1.png" alt=""></div></a>
+			</div> 
+		</div>
 		<button class="navbar-toggler nav-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
 		</button>
-		<div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
-			<ul class="navbar-nav navbar-nav ml-auto">
-				<li class="nav-item">
-					<div id="social">
-						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-facebook-f"></i></a>
-						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-twitter"></i></a>
-						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-google"></i></a>
-						<a class="nav-icon2 smGlobalBtn" href="#" ><i class="fab fa-instagram"></i></a>
+		<div class="collapse navbar-collapse mb-4 mb-lg-0" id="navbarSupportedContent" style="width: 80%;">
+			<div class="row" style="margin: auto 15px;">
+				<div class="col-11 nav-config__hide">
+					<ul class="navbar-nav" style="float: right;">
+						<li class="nav-item">
+							<div id="social">
+								<a class="nav-icon2 smGlobalBtn" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<form class="search-navbar">
+								<div class="input-group">
+									<input type="text" class="format-input no-border m-1 form-control " aria-describedby="basic-addon2">
+									<div class="input-group-append">
+										<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
+									</div>
+								</div>
+							</form>
+						</li>
+						<li class="nav-item">
+						@if(Auth::id())
+						<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
+						@else
+						<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
+						@endif
+					</li>
+					</ul>
+				</div>
+				<div class="col-12 nav-config__hide">
+					<div id="owl-carousel3" class="owl-carousel">
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Gastronomia</a>
+						</div>
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+						</div>
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Turismo</a>
+						</div>
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Moda</a>
+						</div>
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Belleza</a>
+						</div>
+						<div class="item nav-config__hide__item text-center">
+							<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+						</div>
 					</div>
-				</li>
-				<li class="nav-item">
-					<form class="search-navbar">
-						<div class="input-group">
-							<input type="text" class="format-input no-border m-1 form-control " aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
+				</div>
+				<div class="col-12 nopadding">
+					<div class="navbar-box-father">
+						<div class="row">
+							<div class="text-center navbar-box-father__col col-6">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-utensils"></i>
+									</div>
+									<div class="col-12">Gastronomia</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-6">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-film"></i>
+									</div>
+									<div class="col-12">Entretenimiento</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-4">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-plane"></i>
+									</div>
+									<div class="col-12">Turismo</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-4">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-cut"></i>
+									</div>
+									<div class="col-12">Moda</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-4">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-female"></i>
+									</div>
+									<div class="col-12">Belleza</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-6">
+								<button class="btn row">
+									<div class="col-12">
+										<i class="fa-2x fas fa-home"></i>
+									</div>
+									<div class="col-12">Deco y hogar</div>
+								</button>
+							</div>
+							<div class="text-center navbar-box-father__col col-6">
+								<button class="btn row" id="search-navbar">
+									<div class="col-12">
+										<i class="fa-2x fas fa-search"></i>
+									</div>
+									<div class="col-12">Buscar</div>
+								</button>
+							</div>
+							<div class="navbar-box-father__col col-12">					
+								<input type="search" class="form-control navbar-indown-father__input-search" id="input-search">
 							</div>
 						</div>
-					</form>
-				</li>
-				<li class="nav-item">
-					<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
-				</li>
-			</ul>
-			
-
-
-			<ul class="navbar-nav navbar-nav mt-lg-0 navbar-category">
-
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-utensils nav-icon"> </i> Gastronomia
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Restaurantes y bares</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Heladerias</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Deliverys and take away</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-film nav-icon"> </i> Entretenimiento
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Cine</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Teatro</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Recitales y conciertos</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Infantiles</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Aventura</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Discos y eventos</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-plane nav-icon"> </i> Turismo
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Hoteles</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Transporte</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Agencias turisticas</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Asistencia al viajero</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-cut nav-icon"> </i> Moda
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Mujer</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Hombre</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Niño</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Calzado y carteras</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Relojes y Accesorios</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Opticas</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-female nav-icon"> </i> Belleza
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Centros esteticos</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Peluquerias</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Gimnasios</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Perfumeria</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-home nav-icon"> </i> Deco y hogar
-					</a>
-					<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Tiendas</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Muebles</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Baño y cocina</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Jardin y Exterior</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Colchones</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Pinturerias</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Seguros</a>
-					</div> -->
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-utensils nav-icon"> </i> Varios y otros
-					</a>
-<!-- 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Restaurantes y bares</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Heladerias</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Deliverys and take away</a>
-					</div> -->
-				</li>
-			</ul>
-
+					</div>
+				</div>
+			</div>
 		</div>
-
-
-		
-
-
-
-
 	</div>
 </nav>
+
+<div class="navbar-indown-father">
+	<nav class="navbar navbar-expand-lg navbar-indown-father__navbar-indown animated bounceInDown" id="navbar">
+		<div class="row">
+			<div class="col-2">
+				<a href="{{ url('/') }}"><img src="img/logo/logo_1.png" alt=""></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
+				</button>
+			</div>
+
+			<div class="col-9">
+				<nav class="header-nav header" id="header-3">
+					<div class="search-button">
+						<a href="#" class="search-toggle" data-selector="#header-3"></a>
+					</div>
+					<ul class="menu">
+						<li>
+							<div class="owl-carousel owl-theme">
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Gastronomia</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Turismo</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Moda</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Belleza</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<form action="" class="search-box">
+						<input type="text" class="search-input" placeholder="" />
+					</form>
+				</nav>
+			</div>
+
+<!-- 				<div class="owl-carousel owl-theme">
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Gastronomia</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Turismo</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Moda</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Belleza</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+					</div>
+				</div> -->
+<!-- 			<div class="col-1">
+				<div class="search-box">
+					<div class="searchform">
+						<input id="s" type="text" value="Buscar"/>    
+						<div class="close">
+							<span class="front"></span>
+							<span class="back"></span>
+						</div>   
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</nav>
+</div>
+
+
+<!-- miguel -->
+
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light nav-config">
+	<div class="container-fluid u-leftspacing-zero">
+		<div class="col nopadding">
+			<div class="nav__logo-container">
+				<a href="{{ url('/') }}"><div class=""><img src="{{ asset('img/logo/logo_1.png') }}" alt=""></div></a>
+			</div> 
+		</div>
+		<button class="navbar-toggler nav-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
+		</button>
+		<div class="collapse navbar-collapse ml-auto mb-4 mb-lg-0" id="navbarSupportedContent"">
+			<div class="col-11 nav-config__hide">
+				<ul class="navbar-nav navbar-nav ml-auto">
+					<li class="nav-item">
+						<div id="social">
+							<a class="nav-icon2 smGlobalBtn" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+							<a class="nav-icon2 smGlobalBtn" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter"></i></a>
+							<a class="nav-icon2 smGlobalBtn" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
+							<a class="nav-icon2 smGlobalBtn" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<form class="search-navbar">
+							<div class="input-group">
+								<input type="text" class="format-input no-border m-1 form-control " aria-describedby="basic-addon2">
+								<div class="input-group-append">
+									<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
+								</div>
+							</div>
+						</form>
+					</li>
+					<li class="nav-item">
+						@if(Auth::id())
+						<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
+						@else
+						<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
+						@endif
+					</li>
+				</ul>
+			</div>
+			<div class="col-12 nav-config__hide">
+				<div id="owl-carousel3" class="owl-carousel">
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Gastronomia</a>
+					</div>
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+					</div>
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Turismo</a>
+					</div>
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Moda</a>
+					</div>
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Belleza</a>
+					</div>
+					<div class="item nav-config__hide__item text-center">
+						<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="navbar-box-father">
+					<div class="row">
+						<div class="text-center navbar-box-father__col col-6">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-utensils"></i>
+								</div>
+								<div class="col-12">Gastronomia</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-6">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-film"></i>
+								</div>
+								<div class="col-12">Entretenimiento</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-4">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-plane"></i>
+								</div>
+								<div class="col-12">Turismo</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-4">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-cut"></i>
+								</div>
+								<div class="col-12">Moda</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-4">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-female"></i>
+								</div>
+								<div class="col-12">Belleza</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-6">
+							<button class="btn row">
+								<div class="col-12">
+									<i class="fa-2x fas fa-home"></i>
+								</div>
+								<div class="col-12">Deco y hogar</div>
+							</button>
+						</div>
+						<div class="text-center navbar-box-father__col col-6">
+							<button class="btn row" id="search-navbar">
+								<div class="col-12">
+									<i class="fa-2x fas fa-search"></i>
+								</div>
+								<div class="col-12">Buscar</div>
+							</button>
+						</div>
+						<div class="navbar-box-father__col col-12">					
+							<input type="search" class="form-control navbar-indown-father__input-search" id="input-search">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<div class="navbar-indown-father">
+	<nav class="navbar navbar-expand-lg navbar-indown-father__navbar-indown animated bounceInDown" id="navbar">
+		<div class="row">
+			<div class="col-2">
+				<a href="{{ url('/') }}"><img src="img/logo/logo_1.png" alt=""></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
+				</button>
+			</div>
+
+			<div class="col-9">
+				<nav class="header-nav header" id="header-3">
+					<div class="search-button">
+						<a href="#" class="search-toggle" data-selector="#header-3"></a>
+					</div>
+					<ul class="menu">
+						<li>
+							<div class="owl-carousel owl-theme">
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Gastronomia</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Turismo</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Moda</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Belleza</a>
+								</div>
+								<div class="item nav-config__hide__item text-center">
+									<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<form action="" class="search-box">
+						<input type="text" class="search-input" placeholder="" />
+					</form>
+				</nav>
+			</div>
+
+<!-- 				<div class="owl-carousel owl-theme">
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Gastronomia</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Entretenimiento</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Turismo</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Moda</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Belleza</a>
+					</div>
+					<div class="item text-center">
+						<a href="#" class="nav-config__hide__category">Deco y hogar</a>
+					</div>
+				</div> -->
+<!-- 			<div class="col-1">
+				<div class="search-box">
+					<div class="searchform">
+						<input id="s" type="text" value="Buscar"/>    
+						<div class="close">
+							<span class="front"></span>
+							<span class="back"></span>
+						</div>   
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</nav>
+</div>
