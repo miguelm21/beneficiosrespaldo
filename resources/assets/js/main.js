@@ -86,13 +86,13 @@ $('#owl-carousel2, #owl-carousel22').owlCarousel({
     1000:{
       items:4,
       nav:false,
-      loop:true,
+      loop:false,
       autoplay:false,
     },
     1200:{
       items:4,
       nav:false,
-      loop:true,
+      loop:false,
       autoplay:false,
     }
   }
