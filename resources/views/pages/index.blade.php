@@ -73,7 +73,6 @@
 
 <div class="container-fluid my-5">
 
-	@if(!$categories->isEmpty())
 	@foreach($categories as $c)
 	<div class="card mt-3">
 		<div class="title-category">
@@ -85,14 +84,11 @@
 			</div>
 		</div>
 		<div class="owl-carousel" id="owl-carousel22">
-			{{ $benefits[$c->id]->count() }}
-			@foreach($benefits[$c->id] as $b)
-			@if($b)
 			<div class="ranking-item-father">
 				<div class="ranking-item">
 					<a href="#">
 						<div class="ranking-item__image-container">
-							<img class="ranking-item__image-container__image img-fluid" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
+							<img class="ranking-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
 							<div class="ranking-item__image-container__sticker">
 								<div class="ranking-item__image-container__sticker-text">
 									<span>30%</span>
@@ -107,24 +103,20 @@
 							<img class="ranking-item-back__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
 							<div class="ranking-item-back__image-container__sticker">
 								<div class="ranking-item-back__image-container__sticker-text">
-									<span>{{ $b->description }}</span>
+									<span>Beneficio descripcion corta. Pequeño preview</span>
 								</div>
 							</div>
 						</div>
 					</a>
 				</div>
 			</div>
-			@endif
-			@endforeach
-		</div>
-		<div class="ranking-item">
-			<a class="btn btn-primary mt-2" href="{{ url('list-benefits') }}" role="button">Ver más...</a>
 		</div>
 	</div>
-	
 	@endforeach
-	
-	@else
+</div>
+
+<!-- <div class="container-fluid my-5">
+
 	<div class="card mt-3">
 		<div class="title-category">
 			<div class="row">
@@ -1342,10 +1334,10 @@
 		<div class="ranking-item">
 			<a class="btn btn-primary mt-2" href="{{ url('list-benefits') }}" role="button">Ver más...</a>
 		</div>
-		@endif
+
 	</div>
 </div>
-
+ -->
 	
 <!-- 	<div class="box-index">
 		<div class="mt-5">

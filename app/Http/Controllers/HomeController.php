@@ -60,6 +60,7 @@ class HomeController extends Controller
         }
 
         $benefits = $a;
+        $benefits = Benefits::select('id', 'name', 'description', 'category_id')->get();
 
         return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits]);
     }
