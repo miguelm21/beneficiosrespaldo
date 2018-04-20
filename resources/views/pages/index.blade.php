@@ -14,7 +14,10 @@
 				<div class="hero-section-text">
 					<img src="{{ asset('img/logo/logo_1.png') }}" alt="Club Beneficio">
 					<h3>Pedí tu tarjeta YA!</h3>
-					<a class="hero-section-text__btn btn btn-primary" href="{{ url('closet-benefits') }}" role="button">Cercanos a mí</a>
+					<form action="{{ route('closet-benefits') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+						<button type="submit" class="hero-section-text__btn btn btn-primary">Cercanos a mí</button>
+					</form>
 				</div>
 				@if($fslider)
 				<div class="carousel-item carousel-father__carousel-item active">
@@ -84,14 +87,16 @@
 			</div>
 		</div>
 		<div class="owl-carousel" id="owl-carousel22">
+			@foreach($benefits as $b)
+			@if($c->id == $b->category_id)
 			<div class="ranking-item-father">
 				<div class="ranking-item">
 					<a href="#">
 						<div class="ranking-item__image-container">
-							<img class="ranking-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+							<img class="ranking-item__image-container__image img-fluid" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
 							<div class="ranking-item__image-container__sticker">
 								<div class="ranking-item__image-container__sticker-text">
-									<span>30%</span>
+									<span>{{ $c->percent }}</span>
 								</div>
 							</div>
 						</div>
@@ -100,16 +105,18 @@
 				<div class="ranking-item-back">
 					<a href="#">
 						<div class="ranking-item-back__image-container">
-							<img class="ranking-item-back__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+							<img class="ranking-item-back__image-container__image img-fluid" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
 							<div class="ranking-item-back__image-container__sticker">
 								<div class="ranking-item-back__image-container__sticker-text">
-									<span>Beneficio descripcion corta. Pequeño preview</span>
+									<span>{{ $b->description }}</span>
 								</div>
 							</div>
 						</div>
 					</a>
 				</div>
 			</div>
+			@endif
+			@endforeach
 		</div>
 	</div>
 	@endforeach

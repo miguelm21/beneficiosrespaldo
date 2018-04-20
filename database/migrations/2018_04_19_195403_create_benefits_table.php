@@ -24,6 +24,8 @@ class CreateBenefitsTable extends Migration
             $table->binary('image');
             $table->string('mime');
             $table->integer('size');
+            $table->float('percent');
+            $table->string('keywords');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

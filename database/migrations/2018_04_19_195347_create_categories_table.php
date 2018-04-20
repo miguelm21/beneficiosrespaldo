@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('iconweb');
             $table->string('iconapp');
+            $table->string('iconmap');
             $table->timestamps();
         });
     }

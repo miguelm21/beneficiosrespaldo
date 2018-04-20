@@ -67,7 +67,9 @@ class BenefitsController extends Controller
             'latitude' => 'required',
             'longitude' => 'required',
             'image' => 'required|mimes:doc,docx,pdf,png,jpeg,gif,jpg,svg',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'percent' => 'required|numeric',
+            'tags' => 'required',
         ]);
 
         $image = Input::file('image');
@@ -83,6 +85,8 @@ class BenefitsController extends Controller
         $benefit->mime = $image->getMimeType();
         $benefit->size = $image->getSize();
         $benefit->category_id = $request->category_id;
+        $benefit->percent = $request->percent;
+        $benefit->keywords = $request->tags;
         $benefit->save();
 
         return redirect('/benefits')->with('message','Beneficio Creado');
@@ -133,7 +137,9 @@ class BenefitsController extends Controller
             'dateend' => 'required|date',
             'latitude' => 'required',
             'longitude' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'percent' => 'required|numeric',
+            'tags' => 'required',
         ]);
 
         if(isset($request->image))
@@ -155,6 +161,8 @@ class BenefitsController extends Controller
             $benefit->size = $image->getSize();
         }
         $benefit->category_id = $request->category_id;
+        $benefit->percent = $request->percent;
+        $benefit->keywords = $request->tags;
         $benefit->save();
         return redirect('/benefits')->with('message','Beneficio Actualizado');
     }

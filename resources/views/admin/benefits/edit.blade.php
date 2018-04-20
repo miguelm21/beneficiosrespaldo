@@ -48,37 +48,56 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="Nombre">Nombre</label>
-								<input type="text" name="name" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="name" class="form-control form-control-lg section_profile__input" value="{{ $benefit->name }}">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="Descripcion">Descripcion</label>
-								<input type="text" name="description" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="description" class="form-control form-control-lg section_profile__input" value="{{ $benefit->description }}">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="FechaInicio">Fecha de Inicio</label>
-								<input type="date" name="datestart" class="form-control form-control-lg section_profile__input">
+								<input type="date" name="datestart" class="form-control form-control-lg section_profile__input" value="{{ $benefit->datestart }}">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="FechaCulminacion">Fecha de Culminacion</label>
-								<input type="date" name="dateend" class="form-control form-control-lg section_profile__input">
+								<input type="date" name="dateend" class="form-control form-control-lg section_profile__input" value="{{ $benefit->dateend }}">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="Latitude">Latitude</label>
-								<input type="text" name="latitude" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="latitude" class="form-control form-control-lg section_profile__input" value="{{ $benefit->latitude }}">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="Longitud">Longitud</label>
-								<input type="text" name="longitude" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="longitude" class="form-control form-control-lg section_profile__input" value="{{ $benefit->longitude }}">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
+								<label for="Categoria">Categoria</label>
+								<select name="category_id" class="form-control form-control-lg section_profile__input" value="{{ $benefit->category_id }}">
+									<option value="">Seleccione una Categoria</option>
+									@foreach ($categories as $c)
+										<option value="{{ $c->id}}">{{ $c->name }}</option>
+									@endforeach
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 								<label for="Imagen">Imagen</label>
 								<input type="file" name="image" class="form-control form-control-lg section_profile__input">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="Porcentaje">Porcentaje</label>
+								<input type="text" name="percent" class="form-control form-control-lg section_profile__input" value="{{ $benefit->percent }}">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="Longitud">Palabras Claves</label>
+								<input name="tags" id="tags" placeholder="Agregue una palabra clave" class="form-control form-control-lg section_profile__input" value="{{ $benefit->keywords }}" />
 							</div>
 						</div>
 						<div class="col-12 text-right nopadding">

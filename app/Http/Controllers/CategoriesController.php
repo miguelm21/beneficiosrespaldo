@@ -61,12 +61,14 @@ class CategoriesController extends Controller
             'name' => 'required',
             'iconweb' => 'required',
             'iconapp' => 'required',
+            'iconmap' => 'required'
         ]);
 
         $category = New Categories;
         $category->name = $request->name;
         $category->iconweb = $request->iconweb;
         $category->iconapp = $request->iconapp;
+        $category->iconmap = $request->iconmap;
         $category->save();
 
         return redirect('/categories')->with('message','Categoria Creada');
@@ -114,12 +116,14 @@ class CategoriesController extends Controller
             'name' => 'required',
             'iconweb' => 'required',
             'iconapp' => 'required',
+            'iconmap' => 'required'
         ]);
 
         $category = Categories::find($id);
         $category->name = $request->name;
         $category->iconweb = $request->iconweb;
         $category->iconapp = $request->iconapp;
+        $category->iconmap = $request->iconmap;
         $category->save();
 
         return redirect('/categories')->with('message','Categoria Actualizada');

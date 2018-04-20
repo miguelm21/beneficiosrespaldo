@@ -18,5 +18,5 @@ class Benefits extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'datestart', 'dateend', 'latitude', 'longitude', 'image', 'mime', 'size'];
+    protected $fillable = ['name', 'description', 'datestart', 'dateend', 'latitude', 'longitude', 'image', 'mime', 'size', 'percent', 'keywords'];
 }

@@ -90,6 +90,16 @@
 								<input type="file" name="image" class="form-control form-control-lg section_profile__input">
 							</div>
 						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="Porcentaje">Porcentaje</label>
+								<input type="text" name="percent" class="form-control form-control-lg section_profile__input">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="Longitud">Palabras Claves</label>
+								<input name="tags" id="tags" placeholder="Agregue una palabra clave" class="form-control form-control-lg section_profile__input" />
+							</div>
+						</div>
 						<div class="col-12 text-right nopadding">
 							<button type="submit" class="btn button-style section_profile__button">Crear</button>
 							<a href="{{ url('/benefits') }}" class="btn button-default">Regresar</a>

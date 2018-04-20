@@ -18,5 +18,5 @@ class Categories extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'iconweb', 'iconapp'];
+    protected $fillable = ['name', 'iconweb', 'iconapp', 'iconmap'];
 }

@@ -48,19 +48,7 @@ class HomeController extends Controller
             $slider = Cms_Slider::get();
         }
         $categories = categories::get();
-
-        $i = 0;
-        $a = [];
-        $j = 0;
-
-        foreach($categories as $c)
-        {
-            $benefits = Benefits::select('id', 'name', 'description', 'category_id')->where('category_id', '=', $c->id)->take(4)->orderBy('id', 'desc')->get();
-            $a[$c->id] = $benefits;
-        }
-
-        $benefits = $a;
-        $benefits = Benefits::select('id', 'name', 'description', 'category_id')->get();
+        $benefits = Benefits::get();
 
         return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits]);
     }
@@ -188,13 +176,41 @@ class HomeController extends Controller
         return redirect('/login')->with('message', 'Usuario registrado con exito');
     }
 
-    public function closetbenefits()
+    public function closetbenefits(Request $request)
     {
+        if(isset($request->km))
+        {
+            $km = $request->km;
+        }
+        elseif($request->km < 1)
+        {
+            $km = 1;
+        }
+        else
+        {
+            $km = 1;
+        }
+
         $facebook = Cms_SocialNetworks::find(1);
         $googleplus = Cms_SocialNetworks::find(2);
         $twitter = Cms_SocialNetworks::find(3);
         $instagram = Cms_SocialNetworks::find(4);
-        $categories = categories::get();
+        $categories = Categories::get();
+        $bene = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'categories.iconmap as iconmap')->get();
+
+        $a = [];
+        $i = 0;
+
+        foreach($bene as $b)
+        {
+            $d = $this->getDistance(-32.889459, -68.845839, $b->latitude, $b->longitude);
+            if($d <= $km)
+            {
+               $a[$i] = $b; 
+            }
+        }
+
+        $benef = collect($a);
 
         $config = array();
         $config['center'] = '-32.889459, -68.845839';
@@ -213,50 +229,177 @@ class HomeController extends Controller
         $marker = array();
         app('map')->add_marker($marker);
 
-        $marker = array();
+        foreach($benef as $b)
+        {
+            $name = $b->name;
+            $description = $b->description;
+            $distance = $b->latitude.', '.$b->longitude;
+            $icon = $b->iconmap;
+            
+            $marker = array();
+            $marker['position'] = $distance;
+            $marker['infowindow_content'] = '<h2>'.$name.'</h2><br><span>'.$description.'</span>';
+            $marker['icon'] = $icon;
+            
+            app('map')->add_marker($marker);
+        }
+
+
+        /*$marker = array();
         $marker['position'] = '-32.899569, -68.846949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505264-food-fork-kitchen-knife-meanns-restaurant_81404.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505264-food-fork-kitchen-knife-meanns-restaurant_81404.png';
         $marker['infowindow_content'] = 'Gastronomia 1';
         
         app('map')->add_marker($marker);
 
         $marker = array();
         $marker['position'] = '-32.879569, -68.816949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/1149/PNG/32/1486504374-clip-film-movie-multimedia-play-short-video_81330.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/1149/PNG/32/1486504374-clip-film-movie-multimedia-play-short-video_81330.png';
         $marker['infowindow_content'] = 'Entretenimiento 1';
         
         app('map')->add_marker($marker);
 
         $marker = array();
         $marker['position'] = '-32.909569, -68.876949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/1146/PNG/32/1486485566-airliner-rplane-flight-launch-rbus-plane_81166.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/1146/PNG/32/1486485566-airliner-rplane-flight-launch-rbus-plane_81166.png';
         $marker['infowindow_content'] = 'Turismo 1';
 
         app('map')->add_marker($marker);
 
         $marker = array();
         $marker['position'] = '-32.879569, -68.876949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/197/PNG/32/scissors_24029.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/197/PNG/32/scissors_24029.png';
         $marker['infowindow_content'] = 'Moda 1';
         
         app('map')->add_marker($marker);
 
         $marker = array();
         $marker['position'] = '-32.909569, -68.816949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/1130/PNG/32/womaninacircle_80046.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/1130/PNG/32/womaninacircle_80046.png';
         $marker['infowindow_content'] = 'Belleza 1';
         
         app('map')->add_marker($marker);
 
         $marker = array();
         $marker['position'] = '-32.869569, -68.846949';
-        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505259-estate-home-house-building-property-real_81428.png';;
+        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505259-estate-home-house-building-property-real_81428.png';
         $marker['infowindow_content'] = 'Deco y Hogar 1';
+        
+        app('map')->add_marker($marker);*/
+
+        $map = app('map')->create_map();
+        return view('pages.closet-benefits', ['map' => $map, 'facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'km' => $km]);
+    }
+
+    public function closetkm(Request $request)
+    {
+        if($request->km < $km)
+        {
+            $km = 1;
+        }
+        else
+        {
+            $km = $request->km;
+        }
+        $facebook = Cms_SocialNetworks::find(1);
+        $googleplus = Cms_SocialNetworks::find(2);
+        $twitter = Cms_SocialNetworks::find(3);
+        $instagram = Cms_SocialNetworks::find(4);
+        $categories = Categories::get();
+        $bene = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'categories.iconmap as iconmap')->get();
+
+        $a = [];
+        $i = 0;
+
+        foreach($bene as $b)
+        {
+            $d = $this->getDistance(-32.889459, -68.845839, $b->latitude, $b->longitude);
+            if($d <= $km)
+            {
+               $a[$i] = $b; 
+            }
+        }
+
+        $benef = collect($a);
+
+        $config = array();
+        $config['center'] = '-32.889459, -68.845839';
+        $config['onboundschanged'] = 'if (!centreGot) {
+                var mapCentre = map.getCenter();
+                marker_0.setOptions({
+                    position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+                });
+            }
+            centreGot = true;';
+
+        app('map')->initialize($config);
+
+        // set up the marker ready for positioning
+        // once we know the users location
+        $marker = array();
+        app('map')->add_marker($marker);
+
+        foreach($benef as $b)
+        {
+            $name = $b->name;
+            $description = $b->description;
+            $distance = $b->latitude.', '.$b->longitude;
+            $icon = $b->iconmap;
+            
+            $marker = array();
+            $marker['position'] = $distance;
+            $marker['infowindow_content'] = '<h2>'.$name.'</h2><br><span>'.$description.'</span>';
+            $marker['icon'] = $icon;
+            
+            app('map')->add_marker($marker);
+        }
+
+
+        /*$marker = array();
+        $marker['position'] = '-32.899569, -68.846949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505264-food-fork-kitchen-knife-meanns-restaurant_81404.png';
+        $marker['infowindow_content'] = 'Gastronomia 1';
         
         app('map')->add_marker($marker);
 
+        $marker = array();
+        $marker['position'] = '-32.879569, -68.816949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/1149/PNG/32/1486504374-clip-film-movie-multimedia-play-short-video_81330.png';
+        $marker['infowindow_content'] = 'Entretenimiento 1';
+        
+        app('map')->add_marker($marker);
+
+        $marker = array();
+        $marker['position'] = '-32.909569, -68.876949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/1146/PNG/32/1486485566-airliner-rplane-flight-launch-rbus-plane_81166.png';
+        $marker['infowindow_content'] = 'Turismo 1';
+
+        app('map')->add_marker($marker);
+
+        $marker = array();
+        $marker['position'] = '-32.879569, -68.876949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/197/PNG/32/scissors_24029.png';
+        $marker['infowindow_content'] = 'Moda 1';
+        
+        app('map')->add_marker($marker);
+
+        $marker = array();
+        $marker['position'] = '-32.909569, -68.816949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/1130/PNG/32/womaninacircle_80046.png';
+        $marker['infowindow_content'] = 'Belleza 1';
+        
+        app('map')->add_marker($marker);
+
+        $marker = array();
+        $marker['position'] = '-32.869569, -68.846949';
+        $marker['icon'] = 'https://icon-icons.com/icons2/1151/PNG/32/1486505259-estate-home-house-building-property-real_81428.png';
+        $marker['infowindow_content'] = 'Deco y Hogar 1';
+        
+        app('map')->add_marker($marker);*/
+
         $map = app('map')->create_map();
-        return view('pages.closet-benefits', ['map' => $map, 'facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories]);
+        /*return view('pages.closet-benefits', ['map' => $map, 'facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories]);*/
+        return redirect('closet-benefits');
     }
 
     public function dashboardadmin()
@@ -267,7 +410,7 @@ class HomeController extends Controller
         $instagram = Cms_SocialNetworks::find(4);
         $categories = categories::get();
 
-        return view('pages.dashboard-admin', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories]);
+        return view('pages.dashboard-admin', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories,]);
     }
 
     public function detailsbenefits()
@@ -336,5 +479,27 @@ class HomeController extends Controller
         $new = News::findOrFail($id);
 
         return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new]);
+    }
+
+
+    public function getDistance($lat1, $long1, $lat2, $long2)
+    {
+        //Distancia en kilometros en 1 grado distancia.
+        //Distancia en millas nauticas en 1 grado distancia: $mn = 60.098;
+        //Distancia en millas en 1 grado distancia: 69.174;
+        //Solo aplicable a la tierra, es decir es una constante que cambiaria en la luna, marte... etc.
+        $km = 111.302;
+        
+        //1 Grado = 0.01745329 Radianes    
+        $degtorad = 0.01745329;
+        
+        //1 Radian = 57.29577951 Grados
+        $radtodeg = 57.29577951; 
+        //La formula que calcula la distancia en grados en una esfera, llamada formula de Harvestine. Para mas informacion hay que mirar en Wikipedia
+        //http://es.wikipedia.org/wiki/F%C3%B3rmula_del_Haversine
+        $dlong = ($long1 - $long2); 
+        $dvalue = (sin($lat1 * $degtorad) * sin($lat2 * $degtorad)) + (cos($lat1 * $degtorad) * cos($lat2 * $degtorad) * cos($dlong * $degtorad)); 
+        $dd = acos($dvalue) * $radtodeg; 
+        return round(($dd * $km), 2);
     }
 }

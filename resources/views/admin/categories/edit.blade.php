@@ -54,13 +54,20 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="Font">Icon Web</label>
-								<input type="text" name="iconweb" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="iconweb" class="form-control form-control-lg section_profile__input" value="{{ $category->iconweb }}">
 								<a href="https://fontawesome.com/icons?d=gallery" target="_blank">Font Awesome Icons</a>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="Font">Icon App</label>
-								<input type="text" name="iconapp" class="form-control form-control-lg section_profile__input">
+								<input type="text" name="iconapp" class="form-control form-control-lg section_profile__input" value="{{ $category->iconapp }}">
 								<a href="https://ionicframework.com/docs/ionicons/" target="_blank">Ionic Icons</a>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="Font">Icon Map</label>
+									<input type="text" name="iconmap" class="form-control form-control-lg section_profile__input">
+									<a href="https://icon-icons.com" target="_blank">Icon Icons</a>
+								</div>
 							</div>
 						</div>
 						<div class="col-12 text-right nopadding">

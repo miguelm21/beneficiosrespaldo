@@ -63,6 +63,13 @@
 								<a href="https://ionicframework.com/docs/ionicons/" target="_blank">Ionic Icons</a>
 							</div>
 						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="Font">Icon Map</label>
+								<input type="text" name="iconmap" class="form-control form-control-lg section_profile__input">
+								<a href="https://icon-icons.com" target="_blank">Icon Icons</a>
+							</div>
+						</div>
 						<div class="col-12 text-right nopadding">
 							<button type="submit" class="btn button-style section_profile__button">Crear</button>
 							<a href="{{ url('/categories') }}" class="btn button-default">Regresar</a>
