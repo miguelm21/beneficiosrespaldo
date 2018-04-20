@@ -21540,7 +21540,7 @@ $(document).ready(function(){
 // OWL CAROUSEL
 
 $('#owl-carousel2, #owl-carousel22').owlCarousel({
-  loop:true,
+  loop:false,
   margin:10,
   responsiveClass:true,
   responsive:{
