@@ -23,11 +23,13 @@
 						</li>
 						<li class="nav-item">
 							<form class="search-navbar">
-								<div class="input-group">
-									<input type="text" class="format-input no-border m-1 form-control " aria-describedby="basic-addon2">
+								<div class="input-group">				
+								<div id="remote">
+									<input type="text" class="typeahead" aria-describedby="basic-addon2">
 									<div class="input-group-append">
 										<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
 									</div>
+								</div>
 								</div>
 							</form>
 						</li>

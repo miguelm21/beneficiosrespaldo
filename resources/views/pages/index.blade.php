@@ -14,10 +14,11 @@
 				<div class="hero-section-text">
 					<img src="{{ asset('img/logo/logo_1.png') }}" alt="Club Beneficio">
 					<h3>Pedí tu tarjeta YA!</h3>
-					<form action="{{ route('closet-benefits') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-						<button type="submit" class="hero-section-text__btn btn btn-primary">Cercanos a mí</button>
-					</form>
+					<!-- <form action="{{ route('closet-benefits') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8"> -->
+						<!-- <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+						<button type="submit" class="hero-section-text__btn btn btn-primary">Cercanos a mí</button> -->
+					<!-- </form> -->
+					<a href="{{ route('closet-benefits') }}" class="hero-section-text__btn btn btn-primary">Cercanos a mí</a>
 				</div>
 				@if($fslider)
 				<div class="carousel-item carousel-father__carousel-item active">

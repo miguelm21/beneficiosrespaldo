@@ -19,8 +19,8 @@ class CreateBenefitsTable extends Migration
             $table->string('description');
             $table->date('datestart');
             $table->date('dateend');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->float('latitude');
+            $table->float('longitude');
             $table->binary('image');
             $table->string('mime');
             $table->integer('size');

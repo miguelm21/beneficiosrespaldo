@@ -1,5 +1,41 @@
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/typeahead.bundle.js') }}"></script>
+<script>
 
+/*var bestPictures = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: '/data/countries.json'
+});
+
+$('#remote .typeahead').typeahead({
+  hint: false,
+  highlight: false,
+  minLength: 1
+},
+{
+  name: 'best-pictures',
+  display: 'value',
+  source: bestPictures
+});*/
+
+var bestPictures = new Bloodhound({
+  datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: 'getBenefits.json'
+});
+
+$('#remote .typeahead').typeahead({
+  hint: false,
+  highlight: false,
+  minLength: 1
+},
+{
+  name: 'best-pictures',
+  display: 'name',
+  source: bestPictures
+});
+</script>
 <script type="text/javascript">
     // Second Carousel
     $('#slider-carousel').owlCarousel({
@@ -45,3 +81,4 @@
     	}
     });
 </script>
+
