@@ -3513,41 +3513,10 @@ body {
   position: relative;
   -webkit-perspective: 150rem;
           perspective: 150rem;
-  height: 20rem;
-}
-
-@media only screen and (min-width: 68em) {
-  .ranking-item-father {
-    height: 18rem;
-  }
-}
-
-@media only screen and (min-width: 87.5em) {
-  .ranking-item-father {
-    height: 20rem;
-  }
-}
-
-@media only screen and (max-width: 75em) {
-  .ranking-item-father {
-    height: 18rem;
-  }
-}
-
-@media only screen and (max-width: 30em) {
-  .ranking-item-father {
-    height: 20rem;
-  }
-}
-
-@media only screen and (max-width: 22.5em) {
-  .ranking-item-father {
-    height: 19rem;
-  }
 }
 
 .ranking-item-father:hover > .ranking-item {
-  display: block;
+  display: none;
 }
 
 .ranking-item-father:hover > .ranking-item-back {
@@ -3555,11 +3524,14 @@ body {
 }
 
 .ranking-item-father > .ranking-item, .ranking-item-father > .ranking-item-back {
+  width: 95%;
+  max-width: 220px;
+  margin: 0 auto;
   -webkit-transition: .3s ease;
   transition: .3s ease;
   display: block;
   height: 100%;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 }
@@ -3629,7 +3601,13 @@ body {
 
 .ranking-item__image-container {
   position: relative;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.ranking-item__image-container__image {
   height: 100%;
+  width: 100%;
 }
 
 .ranking-item__image-container__sticker {
@@ -3659,35 +3637,36 @@ body {
           transform: translate(40%, -50%);
   color: #fff;
   text-shadow: 1px 1px 2px #0a0a0a;
-  font-size: 4.8rem;
-  font-family: 'PrumoBold', sans-serif;
+  font-size: 3.6rem;
+  font-family: 'Monserrat', sans-serif;
 }
 
 @media only screen and (min-width: 112.5em) {
   .ranking-item__image-container__sticker-text {
-    font-size: 4.8rem;
+    font-size: 3.6rem;
   }
 }
 
 @media only screen and (max-width: 75em) {
   .ranking-item__image-container__sticker-text {
-    font-size: 4.8rem;
+    font-size: 3.6rem;
   }
 }
 
 @media only screen and (max-width: 56.25em) {
   .ranking-item__image-container__sticker-text {
-    font-size: 3.2rem;
+    font-size: 2.93333333rem;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .ranking-item__image-container__sticker-text {
-    font-size: 4.8rem;
+    font-size: 3.6rem;
   }
 }
 
 .ranking-item-back {
+  width: 95%;
   margin-bottom: 1.2rem;
   height: 100%;
 }
@@ -3725,8 +3704,9 @@ body {
 }
 
 .ranking-item-back__image-container {
-  position: relative;
-  height: 100%;
+  width: 95%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .ranking-item-back__image-container__sticker {
@@ -4152,7 +4132,13 @@ body {
 }
 
 .box-panel-closest {
-  max-height: 650px;
+  max-height: 100%;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .box-panel-closest {
+    max-height: 53%;
+  }
 }
 
 .box-panel-closest__title {
@@ -4453,6 +4439,127 @@ body {
   background: #fff;
   color: #001e42;
   font-size: 1.6rem;
+}
+
+#leftnav6 h5 {
+  font-size: 2.2rem;
+  text-align: center;
+  font-family: "Monserrat";
+  color: #133f6d;
+}
+
+.list-group i.fa {
+  margin-right: 10px;
+}
+
+.list-group .alt-background a.list-group-item {
+  color: #00aeef !important;
+  background: #f5f5f5;
+}
+
+.list-group .alt-background .list-group-submenu a.list-group-item {
+  background: #fff;
+}
+
+.list-group a {
+  color: #333;
+}
+
+.list-group .list-group-submenu {
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.list-group.no-seperator > .list-group-item {
+  border-bottom: none;
+}
+
+.list-group .collapsing {
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+}
+
+.list-group .list-group-item:first-child,
+.list-group .list-group-item:last-child {
+  border-radius: 0;
+}
+
+.list-group > .list-group-submenu a {
+  border-left: 4px solid #00aeef;
+}
+
+.list-group > .list-group-submenu .list-group-submenu a .list-group-item {
+  background: #f5f5f5;
+}
+
+.list-group > .list-group-submenu .list-group-submenu a.selected.themed-bg {
+  background: #7e9ba5;
+}
+
+.list-group > .list-group-submenu.alt-background a.list-group-item {
+  background: #f5f5f5;
+}
+
+.list-group > .list-group-submenu.alt-background .list-group-submenu a.list-group-item {
+  background: #fff;
+}
+
+.list-group .list-group-item {
+  border: none;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.list-group .list-group-item.active {
+  background: #fff;
+  color: #133f6d;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.list-group .list-group-item.active.highlight {
+  border-color: #001e42;
+}
+
+.list-group .list-group-item.selected {
+  border-left: 4px solid #001e42 !important;
+  font-weight: bold;
+}
+
+.list-group.indicator-plus a[data-toggle="collapse"]:after {
+  font-family: 'FontAwesome';
+  content: "\F067";
+  float: right;
+  font-size: 12px;
+  color: #00aeef;
+}
+
+.list-group.indicator-plus a[data-toggle="collapse"][aria-expanded="true"] {
+  font-weight: bold;
+}
+
+.list-group.indicator-plus a[data-toggle="collapse"][aria-expanded="true"]:after {
+  content: "\F068";
+}
+
+.list-group.indicator-fancy a[data-toggle="collapse"]:after {
+  font-family: 'FontAwesome';
+  content: "\F067";
+  float: right;
+  font-size: 12px;
+  color: #333;
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.list-group.indicator-fancy a[data-toggle="collapse"][aria-expanded="true"] {
+  font-weight: bold;
+}
+
+.list-group.indicator-fancy a[data-toggle="collapse"][aria-expanded="true"]:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  content: "\F00D";
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
@@ -5276,15 +5383,14 @@ a {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  width: 32.5px;
-  height: 32.5px;
+  width: 25px;
+  height: 25px;
   text-decoration: none;
   text-align: center;
   color: #fff;
-  font-size: 17px;
-  margin: 5px 10px;
+  font-size: 14px;
+  margin: 2px 10px;
   font-weight: normal;
-  line-height: 2em;
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -5300,7 +5406,7 @@ a {
 }
 
 .nav-icon2 svg {
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 .nav-icon2:hover {
@@ -5397,6 +5503,12 @@ input.empty {
 @media only screen and (min-width: 87.5em) {
   .carousel-father__img-carousel {
     height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 1017px) and (max-width: 1077px) {
+  .carousel-father__img-carousel {
+    height: 470px;
   }
 }
 

@@ -30,24 +30,24 @@
 
    }
 
-       &__svg{
-        color: $color-white;
-        background: $color-primary;
-        border-radius: 50px;
-        padding: 11px;
-        width: 50px!important;
-        height: 50px;
-        margin: .6%;
-        margin-left: 25px;
-        @include respond(s-phone){
-            margin: 2% 3%;
-        }
+   &__svg{
+    color: $color-white;
+    background: $color-primary;
+    border-radius: 50px;
+    padding: 11px;
+    width: 50px!important;
+    height: 50px;
+    margin: .6%;
+    margin-left: 25px;
+    @include respond(s-phone){
+        margin: 2% 3%;
     }
+}
 
-        &__svg:hover {
-            background: $color-secondary;
-        }
-    }
+&__svg:hover {
+    background: $color-secondary;
+}
+}
 }
 
 // .card {
@@ -92,256 +92,268 @@
 
                         position: relative;
                         perspective: 150rem;
-                        height: 20rem;
-                        @include respond(desktop) {
-                            height: 18rem;
-                        }
 
-                        @include respond(medium-desktop) {
-                            height: 20rem;
-                        }
-                        @include respond(tab-land) {
-                            height: 18rem;
-                        }
-
-                        @include respond(m-phone) {
-                            height: 20rem;
-                        }
-                        @include respond(s-phone) {
-                            height: 19rem;
-                        }
-
-
-
-
-                        &:hover > .ranking-item {
-                            display:block;
-                        }
-
-                        &:hover > .ranking-item-back {
-                            display:block;
-                        }
-
-                        & > .ranking-item, & > .ranking-item-back {
-                            transition: .3s ease;
-                           display: block;
-                            height: 100%;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-
-                            // @include respond(desktop) {
-                            //     height: 100%;
+                        // max-height:;
+                        // @include respond(desktop) {
+                            //     height: 16rem;
                             // }
 
                             // @include respond(medium-desktop) {
-                            //     height: 100%;
-                            // }
+                                //     height: 18rem;
+                                // }
+                                // @include respond(tab-land) {
+                                    //     height: 16rem;
+                                    // }
 
-                            // @include respond(tab-port) {
-                            //     height: 100%;
-                            // }
-
-                            // @include respond(big-desktop) {
-                            //     height: 100%;
-                            // }
-                            // @include respond(m-phone) {
-                            //     height: 100%;
-                            // }
-
-                            // @include respond(s-phone) {
-                            //     height: 100%;
-                            // }
-
-                        }
-
-                        & > .ranking-item-back {
-                           display:none;
-                        }
-
-                    }
+                                    // @include respond(m-phone) {
+                                        //     height: 18rem;
+                                        // }
+                                        // @include respond(s-phone) {
+                                            //     height: 17rem;
+                                            // }
 
 
-                    .ranking-item {
-
-                        margin-bottom: $s-size;
-                        height: 100%;
-
-                        & a:hover .ranking-item__title {
-                            color: $color-primary;
-                        }
-
-                        &__title {
-                            color: $color-black;
-                            padding-top: 5px;
-                            padding-right: 5px;
-                            text-align: right;
-                            display: none;
-
-                            @include respond(tab-land) {
-                                display: block;
-                            }
-                        }
-
-                        & a {
-                            font-size: $m-size;
-                            background: $color-primary;
-                            border-color: $color-primary;
-
-                            &:hover {
-                                color: $color-primary;
-                                background: $color-white;
-                            }
-                        }
-
-                        .btn-primary {
-
-                            padding: 5px 15px;
-                            font-size: $m-size + .2;
-                            @include respond(phone-land) {
-                                width: 100%;
-                                margin-right: 0;
-                            }
-                            @include respond(tab-port) {
-                                margin-right: 0;
-                            }
-                            @include respond(s-phone) {
-                                width: 100%;
-                                margin-right: 0;
-                            }
-                        }
-
-                        &__image-container {
-                            position: relative;
-                            height: 100%;
 
 
-                            &__sticker {
-                                height: 100%;
-                                width: 100%;
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                background-image: linear-gradient(
-                                    to right bottom,
-                                    rgba($color-secondary, 0.5),
-                                    rgba($color-secondary, 1));
-                                background-size: cover;
-                                background-position: top;
+                                            &:hover > .ranking-item {
+                                                display:none;
+                                            }
 
-                                @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-                                    -webkit-clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
-                                    clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
-                                }
+                                            &:hover > .ranking-item-back {
+                                                display:block;
+                                            }
 
-                                &-text {
-                                    @include absCenterCustom(40%, -50%);
-                                    color: $color-white;
-                                    text-shadow: 1px 1px 2px #0a0a0a;
-                                    font-size: $xl-size;
-                                    font-family: 'PrumoBold', sans-serif;
+                                            & > .ranking-item, & > .ranking-item-back {
+                                                width: 95%;
+                                                max-width: 220px;
+                                                margin: 0 auto;
+                                                transition: .3s ease;
+                                                display: block;
+                                                height: 100%;
+                                                position: relative;
+                                                top: 0;
+                                                left: 0;
 
-                                    @include respond(big-desktop) {
-                                        font-size: $xl-size;
-                                    }
+                                                // @include respond(desktop) {
+                                                    //     height: 100%;
+                                                    // }
 
-                                    @include respond(tab-land) {
-                                        font-size: $xl-size;
-                                    }
+                                                    // @include respond(medium-desktop) {
+                                                        //     height: 100%;
+                                                        // }
 
-                                    @include respond(tab-port) {
-                                        font-size: $xl-size/1.5;
-                                    }
+                                                        // @include respond(tab-port) {
+                                                            //     height: 100%;
+                                                            // }
 
-                                    @include respond(phone) {
-                                        font-size: $xl-size;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                                                            // @include respond(big-desktop) {
+                                                                //     height: 100%;
+                                                                // }
+                                                                // @include respond(m-phone) {
+                                                                    //     height: 100%;
+                                                                    // }
 
-                    .ranking-item-back {
+                                                                    // @include respond(s-phone) {
+                                                                        //     height: 100%;
+                                                                        // }
 
-                        margin-bottom: $s-size;
-                        height: 100%;
+                                                                    }
 
-                        @include respond(big-desktop) {
-                            height: 15rem;
-                        }
+                                                                    & > .ranking-item-back {
+                                                                       display:none;
+                                                                   }
 
-                        & a:hover .ranking-item__title {
-                            color: $color-primary;
-                        }
+                                                               }
 
-                        &__title {
-                            color: $color-black;
-                            padding-top: 5px;
-                            padding-right: 5px;
-                            text-align: right;
-                        }
 
-                        & a {
-                            font-size: $m-size;
-                            background: $color-primary;
-                            border-color: $color-primary;
+                                                               .ranking-item {
 
-                            &:hover {
-                                color: $color-primary;
-                                background: $color-white;
-                            }
-                        }
+                                                                margin-bottom: $s-size;
+                                                                height: 100%;
 
-                        .btn-primary {
-                            margin-right: 50px;
-                        }
+                                                                & a:hover .ranking-item__title {
+                                                                    color: $color-primary;
+                                                                }
 
-                        &__image-container {
-                            position: relative;
-                            height:100%;
+                                                                &__title {
+                                                                    color: $color-black;
+                                                                    padding-top: 5px;
+                                                                    padding-right: 5px;
+                                                                    text-align: right;
+                                                                    display: none;
 
-                            &__sticker {
-                                height: 100%;
-                                width: 100%;
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                background-image: linear-gradient(
-                                    to right bottom,
-                                    rgba($color-secondary, 0.5),
-                                    rgba($color-secondary, 1));
-                                background-size: cover;
-                                background-position: top;
+                                                                    @include respond(tab-land) {
+                                                                        display: block;
+                                                                    }
+                                                                }
 
-                                @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-                                    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
-                                    clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
-                                }
+                                                                & a {
+                                                                    font-size: $m-size;
+                                                                    background: $color-primary;
+                                                                    border-color: $color-primary;
 
-                                &-text {
-                                    color: $color-white;
-                                    text-shadow: 1px 1px 2px #0a0a0a;
-                                    font-size: 2.5rem;
-                                    font-family: 'PrumoBold', sans-serif;
-                                    text-align: center;
-                                    margin: 5% 3%;
+                                                                    &:hover {
+                                                                        color: $color-primary;
+                                                                        background: $color-white;
+                                                                    }
+                                                                }
 
-                                    @include respond(big-desktop) {
-                                        font-size: 2.5rem;
-                                    }
+                                                                .btn-primary {
 
-                                    @include respond(tab-land) {
-                                        font-size: 2.5rem;
-                                    }
+                                                                    padding: 5px 15px;
+                                                                    font-size: $m-size + .2;
+                                                                    @include respond(phone-land) {
+                                                                        width: 100%;
+                                                                        margin-right: 0;
+                                                                    }
+                                                                    @include respond(tab-port) {
+                                                                        margin-right: 0;
+                                                                    }
+                                                                    @include respond(s-phone) {
+                                                                        width: 100%;
+                                                                        margin-right: 0;
+                                                                    }
+                                                                }
 
-                                    @include respond(tab-port) {
-                                        font-size: 2rem;
-                                    }
+                                                                &__image-container {
+                                                                    position: relative;
+                                                                    width: 95%;
+                                                                    margin: 0 auto;
 
-                                    @include respond(phone) {
-                                        font-size: 2.5rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                                                                    &__image{
+                                                                        height: 100%;
+                                                                        width: 100%;
+                                                                    }
+
+
+                                                                    &__sticker {
+                                                                       height: 100%;
+                                                                       width: 100%;
+                                                                       position: absolute;
+                                                                       top: 0;
+                                                                       left: 0;
+                                                                       background-image: linear-gradient(
+                                                                        to right bottom,
+                                                                        rgba($color-secondary, 0.5),
+                                                                        rgba($color-secondary, 1));
+                                                                       background-size: cover;
+                                                                       background-position: top;
+
+                                                                       @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+                                                                        -webkit-clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
+                                                                        clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
+                                                                    }
+
+                                                                    &-text {
+                                                                        @include absCenterCustom(40%, -50%);
+                                                                        color: $color-white;
+                                                                        text-shadow: 1px 1px 2px #0a0a0a;
+                                                                        font-size: $m-size + 2;
+                                                                        font-family: 'Monserrat', sans-serif;
+
+                                                                        @include respond(big-desktop) {
+                                                                            font-size: $m-size + 2;
+                                                                        }
+
+                                                                        @include respond(tab-land) {
+                                                                            font-size: $m-size + 2;
+                                                                        }
+
+                                                                        @include respond(tab-port) {
+                                                                            font-size: $m-size + 2/1.5;
+                                                                        }
+
+                                                                        @include respond(phone) {
+                                                                            font-size: $m-size + 2;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        .ranking-item-back {
+                                                            width: 95%;
+                                                            margin-bottom: $s-size;
+                                                            height: 100%;
+
+                                                            @include respond(big-desktop) {
+                                                                height: 15rem;
+                                                            }
+
+                                                            & a:hover .ranking-item__title {
+                                                                color: $color-primary;
+                                                            }
+
+                                                            &__title {
+                                                                color: $color-black;
+                                                                padding-top: 5px;
+                                                                padding-right: 5px;
+                                                                text-align: right;
+                                                            }
+
+                                                            & a {
+                                                                font-size: $m-size;
+                                                                background: $color-primary;
+                                                                border-color: $color-primary;
+
+                                                                &:hover {
+                                                                    color: $color-primary;
+                                                                    background: $color-white;
+                                                                }
+                                                            }
+
+                                                            .btn-primary {
+                                                                margin-right: 50px;
+                                                            }
+
+                                                            &__image-container {
+                                                                width: 95%;
+                                                                max-width: 100%;
+                                                                margin: 0 auto;
+
+
+                                                                &__sticker {
+                                                                  height: 100%;
+                                                                 width: 100%;
+                                                                  position: absolute;
+                                                                  top: 0;
+                                                                  left: 0;
+                                                                  background-image: linear-gradient(
+                                                                    to right bottom,
+                                                                    rgba($color-secondary, 0.5),
+                                                                    rgba($color-secondary, 1));
+                                                                  background-size: cover;
+                                                                  background-position: top;
+
+                                                                  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+                                                                    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
+                                                                    clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);
+                                                                }
+
+                                                                &-text {
+                                                                    color: $color-white;
+                                                                    text-shadow: 1px 1px 2px #0a0a0a;
+                                                                    font-size: 2.5rem;
+                                                                    font-family: 'PrumoBold', sans-serif;
+                                                                    text-align: center;
+                                                                    margin: 5% 3%;
+
+                                                                    @include respond(big-desktop) {
+                                                                        font-size: 2.5rem;
+                                                                    }
+
+                                                                    @include respond(tab-land) {
+                                                                        font-size: 2.5rem;
+                                                                    }
+
+                                                                    @include respond(tab-port) {
+                                                                        font-size: 2rem;
+                                                                    }
+
+                                                                    @include respond(phone) {
+                                                                        font-size: 2.5rem;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }

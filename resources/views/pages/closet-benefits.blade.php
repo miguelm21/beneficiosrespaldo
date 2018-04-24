@@ -26,11 +26,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-3 col-12">
+		<div class="col-lg-3 col-sm-3 col-12">
 			<div class="row">
 				<div class="card box-benefits mx-3">
 					<div class="p-3">
-						<div class="col-lg-10 m-lg-auto col-md-6 m-md-auto  box-km">
+						<div class="col-lg-10 col-sm-6 m-lg-auto col-md-12 nopadding  box-km">
 							<!-- <form action="{{ route('closet-benefits') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8"> -->
 								<div class="form-group form-inline">
 									<!-- <input name="_token" type="hidden" value="{{ csrf_token() }}"/> -->
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-9 col-12">
+		<div class="col-lg-9 col-sm-9 col-12">
 			<div class="row my-5">
 				<div class="col-sm-12 m-sm-auto col-lg-11 m-lg-auto">
 					<div class="form-group">

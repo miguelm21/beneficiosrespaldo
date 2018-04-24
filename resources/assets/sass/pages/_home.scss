@@ -66,6 +66,9 @@
       @include respond(medium-desktop){
         height: 50vh;
       }
+      @include respond(ipad-pro){
+        height: 470px;
+      }
       @include respond(desktop){
         height: 580px;
       }

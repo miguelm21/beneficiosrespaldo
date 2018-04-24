@@ -360,21 +360,18 @@
     display: inline-block;
     position: relative;
     cursor: pointer;
-    width: 32.5px;
-    height: 32.5px;
+    width: 25px;
+    height: 25px;
     text-decoration: none;
     text-align: center;
     color: #fff;
-    font-size: 17px;
-    margin: 5px 10px;
+    font-size: 14px;
+    margin: 2px 10px;
     font-weight: normal;
-    line-height: 2em;
     border-radius: 25px;
     -moz-border-radius:25px;
     -webkit-border-radius:25px;
 }
-
-
 
 /* twitter button class*/
 .nav-icon2{
@@ -383,7 +380,7 @@
     border-color: $color-primary;
     transition: .3s;
         svg{
-            margin-top: 7px;
+            margin-top: 5px;
         }
 }
 

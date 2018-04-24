@@ -10,7 +10,7 @@
 			<span class=""><i class="fas fa-bars fa-2x p-1"></i></span>
 		</button>
 		<div class="collapse navbar-collapse mb-4 mb-lg-0" id="navbarSupportedContent" style="width: 80%;">
-			<div class="row" style="margin: auto 15px;">
+			<div class="row" style="width: 100% !important; margin: auto;">
 				<div class="col-11 nav-config__hide">
 					<ul class="navbar-nav" style="float: right;">
 						<li class="nav-item">
@@ -23,23 +23,21 @@
 						</li>
 						<li class="nav-item">
 							<form class="search-navbar">
-								<div class="input-group">				
-								<div id="remote">
-									<input type="text" class="typeahead" aria-describedby="basic-addon2">
+								<div class="input-group form-inline" id="remote">				
+									<input type="text" class="format-input no-border m-1 form-control typeahead" aria-describedby="basic-addon2">
 									<div class="input-group-append">
 										<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
 									</div>
 								</div>
-								</div>
 							</form>
 						</li>
 						<li class="nav-item">
-						@if(Auth::id())
-						<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
-						@else
-						<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
-						@endif
-					</li>
+							@if(Auth::id())
+							<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
+							@else
+							<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
+							@endif
+						</li>
 					</ul>
 				</div>
 				<div class="col-12 nav-config__hide">
@@ -64,7 +62,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 nopadding">
+				<div class="col-12">
 					<div class="navbar-box-father">
 						<div class="row">
 							<div class="text-center navbar-box-father__col col-6">

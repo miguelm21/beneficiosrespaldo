@@ -75,7 +75,7 @@
 
 <!-- Main -->
 
-<div class="container-fluid my-5">
+<div class="container my-5">
 
 	@foreach($categories as $c)
 	<div class="card mt-3">
@@ -94,7 +94,7 @@
 				<div class="ranking-item">
 					<a href="#">
 						<div class="ranking-item__image-container">
-							<img class="ranking-item__image-container__image img-fluid" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
+							<img class="ranking-item__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="1" >
 							<div class="ranking-item__image-container__sticker">
 								<div class="ranking-item__image-container__sticker-text">
 									<span>{{ $c->percent }}</span>
@@ -106,7 +106,7 @@
 				<div class="ranking-item-back">
 					<a href="#">
 						<div class="ranking-item-back__image-container">
-							<img class="ranking-item-back__image-container__image img-fluid" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
+							<img class="ranking-item-back__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
 							<div class="ranking-item-back__image-container__sticker">
 								<div class="ranking-item-back__image-container__sticker-text">
 									<span>{{ $b->description }}</span>

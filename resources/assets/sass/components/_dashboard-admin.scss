@@ -241,3 +241,147 @@
 						font-size: $m-size;
 					}
 				}
+
+
+// SIDEBAR //
+#leftnav6{
+	h5{
+		font-size: $l-size - 1;
+		text-align: center;
+		font-family: "Monserrat";
+		color: $color-primary;
+	}
+}
+
+.list-group {
+	i.fa {
+		margin-right: 10px;
+	}
+	.alt-background {
+		a.list-group-item {
+			color:$color-secondary !important;
+			background: #f5f5f5;
+		}
+		.list-group-submenu {
+			a.list-group-item {
+				background: #fff;
+			}
+		}
+	}	
+	// .themed-bg {
+	// 	background: #7e9ba5!important;
+	// }	
+	a {
+		color: #333;
+	}
+	.list-group-submenu {
+		margin-left: 20px;
+		font-size: 15px;
+	}
+	&.no-seperator {
+		> .list-group-item {
+			border-bottom: none;
+		}
+	}
+	// speed up the collapse
+	.collapsing {
+		transition: height 0.3s;
+	}
+	// remove rounded corners
+	.list-group-item:first-child,
+	.list-group-item:last-child{
+		border-radius: 0;
+	}
+	> .list-group-submenu {
+		a {
+			border-left: 4px solid $color-secondary;
+		}
+		.list-group-submenu {
+			a {
+				.list-group-item {
+					background: #f5f5f5;
+				}
+				&.selected.themed-bg {
+					background: #7e9ba5;
+					
+				}				
+			}
+		}
+		&.alt-background {
+			a.list-group-item {
+				background: #f5f5f5;
+			}
+			.list-group-submenu {
+				a.list-group-item {
+					background: #fff;
+				}
+			}
+		}
+	}
+	
+	.list-group-item {
+		border: none;
+		margin-top: 1px;
+		margin-bottom: 1px;
+
+		&.active {
+			// font-weight: bold;
+			background: #fff;
+			color: $color-primary;
+			font-size: $m-size;
+			font-weight: bold;
+			&.highlight {
+				border-color: $color-primary-dark;
+			}
+		}
+		&.selected {
+			border-left: 4px solid $color-primary-dark!important;
+			font-weight: bold;
+		}
+	}	
+
+	&.indicator-plus {
+		a {
+			&[data-toggle="collapse"] {
+				// color: green!important;
+				&:after {
+					font-family: 'FontAwesome';  
+					content: "\f067";
+					float: right;
+					font-size: 12px;
+					color: $color-secondary;
+				}			
+				&[aria-expanded="true"] {
+					// background: goldenrod!important;
+					font-weight: bold;
+					&:after {
+						content: "\f068";
+					}				
+				}
+			}
+		}
+	}
+	
+	&.indicator-fancy {
+		a {
+			&[data-toggle="collapse"] {
+				// color: green!important;
+				&:after {
+					font-family: 'FontAwesome';  
+					content: "\f067";
+					float: right;
+					font-size: 12px;
+					color: #333;
+					transition: .25s ease-in-out;
+				}			
+				&[aria-expanded="true"] {
+					font-weight: bold;
+					&:after {
+						transform: rotate(180deg);
+						content: "\f00d";
+					}				
+				}
+			}
+		}
+	}	
+}

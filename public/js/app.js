@@ -21713,4 +21713,3 @@ if ($(this).hasClass('active-2')) {
 });
 
 $('#tags').tagsInput();
-

@@ -20,9 +20,15 @@
 }
 
 .box-panel-closest{
-	max-height: 650px;
-	@include respond(m-phone){
+	max-height: 100%;
+	@include respond(phone-land){
+
 	}
+	@include respond(tab-port){
+	max-height: 53%;
+	}
+
+
 	
 	&__title{
 		font-family: 'Montserrat', sans-serif;
