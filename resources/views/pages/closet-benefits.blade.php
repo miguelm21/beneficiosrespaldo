@@ -13,12 +13,12 @@
       }
     </style>
 	
-	@section('content')
+@section('content')
 
-	<div class="container-fluid container-edit closet-container">
-		<div class="row">
-			<div class="col-12">
-				<div class="logo text-right">
+<div class="container-fluid container-edit closet-container">
+	<div class="row">
+		<div class="col-12">
+			<div class="logo text-right">
 				<!-- <a href="">
 					<img src="img/Penguins.jpg" width="80px" height="80px" class="rounded back-img my-4" alt="">
 				</a> -->
@@ -132,13 +132,6 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <script>
-$(function(){
-	
-
-	
-});
-</script>
-<script>
 var map;
 var markers = [];
 
@@ -169,12 +162,39 @@ function initMap() {
 		    var benefits = {!! json_encode($benefs) !!}
 
 			benefits.forEach(function(data) {
+
+				var contentString = 
+			      '<div class="container">' +
+				    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+				    '<div class="card-body">' +
+				      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+				      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+					  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+				    '</div>' +
+				  '</div>';
+
+				var infowindow = new google.maps.InfoWindow({
+				    content: contentString
+				});
 				var marker = new google.maps.Marker({
 		      		position: { lat: data.latitude, lng: data.longitude },
 		      		map: map,
 		      		icon: data.iconmap
 		    	});
+		    	marker.addListener('click', function() {
+		    		if(infowindow)
+		    		{
+		    			infowindow.close();
+		    			infowindow.open(map, marker);
+		    		}
+		    		else
+		    		{
+		    			infowindow.open(map, marker);
+		    		}
+				    
+				});
 		    	markers.push(marker);
+
 
 		    	var template = [
 		    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
@@ -183,7 +203,7 @@ function initMap() {
 							'<div class="card-body">',
 								'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 								'<p class="box-panel-closest__text">' + data.description +'</p>',
-								'<a href="#" class="btn button-style pull-right">Ver más</a>',
+								'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 							'</div>',
 						'</div>',
 						'<hr>',
@@ -218,11 +238,36 @@ function initMap() {
 	     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
 	     					if($('#km').val() < 1)
 	     					{
-	     						var marker = new google.maps.Marker({
-						      		position: new google.maps.LatLng(data.latitude, data.longitude),
+	     						var contentString = 
+							      '<div class="container">' +
+								    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+								    '<div class="card-body">' +
+								      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+								      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+									  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+								    '</div>' +
+								  '</div>';
+
+								var infowindow = new google.maps.InfoWindow({
+								    content: contentString
+								});
+								var marker = new google.maps.Marker({
+						      		position: { lat: data.latitude, lng: data.longitude },
 						      		map: map,
 						      		icon: data.iconmap
 						    	});
+						    	marker.addListener('click', function() {
+						    		if(infowindow)
+						    		{
+						    			infowindow.close();
+						    			infowindow.open(map, marker);
+						    		}
+						    		else
+						    		{
+						    			infowindow.open(map, marker);
+						    		}
+								    
+								});
 						    	markers.push(marker);
 
 						    	var template = [
@@ -232,7 +277,7 @@ function initMap() {
 											'<div class="card-body">',
 												'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 												'<p class="box-panel-closest__text">' + data.description +'</p>',
-												'<a href="#" class="btn button-style pull-right">Ver más</a>',
+												'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 											'</div>',
 										'</div>',
 										'<hr>',
@@ -259,7 +304,7 @@ function initMap() {
 												'<div class="card-body">',
 													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="#" class="btn button-style pull-right">Ver más</a>',
+													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 												'</div>',
 											'</div>',
 											'<hr>',
@@ -285,11 +330,36 @@ function initMap() {
 								var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
 								if($('#km').val() < 1)
 	     						{	
+									var contentString = 
+								      '<div class="container">' +
+									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+									    '<div class="card-body">' +
+									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+									    '</div>' +
+									  '</div>';
+
+									var infowindow = new google.maps.InfoWindow({
+									    content: contentString
+									});
 									var marker = new google.maps.Marker({
-							      		position: new google.maps.LatLng(data.latitude, data.longitude),
+							      		position: { lat: data.latitude, lng: data.longitude },
 							      		map: map,
 							      		icon: data.iconmap
 							    	});
+							    	marker.addListener('click', function() {
+							    		if(infowindow)
+							    		{
+							    			infowindow.close();
+							    			infowindow.open(map, marker);
+							    		}
+							    		else
+							    		{
+							    			infowindow.open(map, marker);
+							    		}
+									    
+									});
 							    	markers.push(marker);
 
 							    	var template = [
@@ -299,7 +369,7 @@ function initMap() {
 												'<div class="card-body">',
 													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="#" class="btn button-style pull-right">Ver más</a>',
+													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 												'</div>',
 											'</div>',
 											'<hr>',
@@ -326,7 +396,7 @@ function initMap() {
 													'<div class="card-body">',
 														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="#" class="btn button-style pull-right">Ver más</a>',
+														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 													'</div>',
 												'</div>',
 												'<hr>',
@@ -361,11 +431,36 @@ function initMap() {
 		     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
 		     					if($('#km').val() < 1)
 	     						{
+									var contentString = 
+								      '<div class="container">' +
+									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+									    '<div class="card-body">' +
+									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+									    '</div>' +
+									  '</div>';
+
+									var infowindow = new google.maps.InfoWindow({
+									    content: contentString
+									});
 									var marker = new google.maps.Marker({
-							      		position: new google.maps.LatLng(data.latitude, data.longitude),
+							      		position: { lat: data.latitude, lng: data.longitude },
 							      		map: map,
 							      		icon: data.iconmap
 							    	});
+							    	marker.addListener('click', function() {
+							    		if(infowindow)
+							    		{
+							    			infowindow.close();
+							    			infowindow.open(map, marker);
+							    		}
+							    		else
+							    		{
+							    			infowindow.open(map, marker);
+							    		}
+									    
+									});
 							    	markers.push(marker);
 
 							    	var template = [
@@ -375,7 +470,7 @@ function initMap() {
 												'<div class="card-body">',
 													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="#" class="btn button-style pull-right">Ver más</a>',
+													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 												'</div>',
 											'</div>',
 											'<hr>',
@@ -402,7 +497,7 @@ function initMap() {
 													'<div class="card-body">',
 														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="#" class="btn button-style pull-right">Ver más</a>',
+														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 													'</div>',
 												'</div>',
 												'<hr>',
@@ -437,11 +532,36 @@ function initMap() {
  					}
 					if(distance <= km)
 					{
+						var contentString = 
+					      '<div class="container">' +
+						    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+						    '<div class="card-body">' +
+						      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+						      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+							  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+						    '</div>' +
+						  '</div>';
+
+						var infowindow = new google.maps.InfoWindow({
+						    content: contentString
+						});
 						var marker = new google.maps.Marker({
 				      		position: { lat: data.latitude, lng: data.longitude },
 				      		map: map,
 				      		icon: data.iconmap
 				    	});
+				    	marker.addListener('click', function() {
+				    		if(infowindow)
+				    		{
+				    			infowindow.close();
+				    			infowindow.open(map, marker);
+				    		}
+				    		else
+				    		{
+				    			infowindow.open(map, marker);
+				    		}
+						    
+						});
 				    	markers.push(marker);
 
 				    	var template = [
@@ -451,7 +571,7 @@ function initMap() {
 									'<div class="card-body">',
 										'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 										'<p class="box-panel-closest__text">' + data.description +'</p>',
-										'<a href="#" class="btn button-style pull-right">Ver más</a>',
+										'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 									'</div>',
 								'</div>',
 								'<hr>',
@@ -493,11 +613,36 @@ function initMap() {
 		     					}
 								if(distance <= km)
 								{
+									var contentString = 
+								      '<div class="container">' +
+									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+									    '<div class="card-body">' +
+									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+									    '</div>' +
+									  '</div>';
+
+									var infowindow = new google.maps.InfoWindow({
+									    content: contentString
+									});
 									var marker = new google.maps.Marker({
-							      		position: new google.maps.LatLng(data.latitude, data.longitude),
+							      		position: { lat: data.latitude, lng: data.longitude },
 							      		map: map,
 							      		icon: data.iconmap
 							    	});
+							    	marker.addListener('click', function() {
+							    		if(infowindow)
+							    		{
+							    			infowindow.close();
+							    			infowindow.open(map, marker);
+							    		}
+							    		else
+							    		{
+							    			infowindow.open(map, marker);
+							    		}
+									    
+									});
 							    	markers.push(marker);
 
 							    	var template = [
@@ -507,7 +652,7 @@ function initMap() {
 												'<div class="card-body">',
 													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="#" class="btn button-style pull-right">Ver más</a>',
+													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 												'</div>',
 											'</div>',
 											'<hr>',
@@ -538,11 +683,36 @@ function initMap() {
 			     					}
 									if(distance <= km)
 									{
+										var contentString = 
+									      '<div class="container">' +
+										    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+										    '<div class="card-body">' +
+										      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+										      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+											  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+										    '</div>' +
+										  '</div>';
+
+										var infowindow = new google.maps.InfoWindow({
+										    content: contentString
+										});
 										var marker = new google.maps.Marker({
 								      		position: { lat: data.latitude, lng: data.longitude },
 								      		map: map,
 								      		icon: data.iconmap
 								    	});
+								    	marker.addListener('click', function() {
+								    		if(infowindow)
+								    		{
+								    			infowindow.close();
+								    			infowindow.open(map, marker);
+								    		}
+								    		else
+								    		{
+								    			infowindow.open(map, marker);
+								    		}
+										    
+										});
 								    	markers.push(marker);
 
 								    	var template = [
@@ -552,7 +722,7 @@ function initMap() {
 													'<div class="card-body">',
 														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="#" class="btn button-style pull-right">Ver más</a>',
+														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 													'</div>',
 												'</div>',
 												'<hr>',
@@ -592,11 +762,36 @@ function initMap() {
 			     					}
 									if(distance <= km)
 									{
+										var contentString = 
+									      '<div class="container">' +
+										    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+										    '<div class="card-body">' +
+										      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+										      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+											  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+										    '</div>' +
+										  '</div>';
+
+										var infowindow = new google.maps.InfoWindow({
+										    content: contentString
+										});
 										var marker = new google.maps.Marker({
-								      		position: new google.maps.LatLng(data.latitude, data.longitude),
+								      		position: { lat: data.latitude, lng: data.longitude },
 								      		map: map,
 								      		icon: data.iconmap
 								    	});
+								    	marker.addListener('click', function() {
+								    		if(infowindow)
+								    		{
+								    			infowindow.close();
+								    			infowindow.open(map, marker);
+								    		}
+								    		else
+								    		{
+								    			infowindow.open(map, marker);
+								    		}
+										    
+										});
 								    	markers.push(marker);
 
 								    	var template = [
@@ -606,7 +801,7 @@ function initMap() {
 													'<div class="card-body">',
 														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
 														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="#" class="btn button-style pull-right">Ver más</a>',
+														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
 													'</div>',
 												'</div>',
 												'<hr>',

@@ -282,6 +282,17 @@ class HomeController extends Controller
         return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new]);
     }
 
+    public function benefit($id)
+    {
+        $facebook = Cms_SocialNetworks::find(1);
+        $googleplus = Cms_SocialNetworks::find(2);
+        $twitter = Cms_SocialNetworks::find(3);
+        $instagram = Cms_SocialNetworks::find(4);
+        $categories = categories::get();
+        $benefit = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'benefits.image as image', 'categories.iconmap')->where('benefits.id', '=', $id)->first();
+
+        return view('pages.benefit', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'benefit' => $benefit]);
+    }
 
     public function getDistance($lat1, $long1, $lat2, $long2)
     {

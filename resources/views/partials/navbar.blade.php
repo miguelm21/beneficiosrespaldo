@@ -3,7 +3,7 @@
 	<div class="container-fluid u-leftspacing-zero">
 		<div class="col nopadding">
 			<div class="nav__logo-container">
-				<a href="{{ url('/') }}"><div class=""><img src="img/logo/logo_1.png" alt=""></div></a>
+				<a href="{{ url('/') }}"><div class=""><img src="{{ asset('img/logo/logo_1.png') }}" alt=""></div></a>
 			</div> 
 		</div>
 		<button class="navbar-toggler nav-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
