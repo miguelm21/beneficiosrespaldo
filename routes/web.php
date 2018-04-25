@@ -31,6 +31,8 @@ Route::get('category/{id}', array('as' => 'category', 'uses' => 'HomeController@
 Route::get('benefit/{id}', array('as' => 'benefit', 'uses' => 'HomeController@benefit'));
 Route::get('getBenefits.json', array('as' => 'getBenefits.json', 'uses' => 'BenefitsController@getBenefits'));
 
+Route::get('{id}/getBenefits.json', array('as' => '{id}/getBenefits.json', 'uses' => 'BenefitsController@getBenefitsId'));
+
 Route::group(['middleware' => 'auth'], function () {
     
     Route::resource('news', 'NewsController');

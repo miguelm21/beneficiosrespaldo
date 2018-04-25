@@ -1,24 +1,6 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/typeahead.bundle.js') }}"></script>
 <script>
-
-/*var bestPictures = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '/data/countries.json'
-});
-
-$('#remote .typeahead').typeahead({
-  hint: false,
-  highlight: false,
-  minLength: 1
-},
-{
-  name: 'best-pictures',
-  display: 'value',
-  source: bestPictures
-});*/
-
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -52,6 +34,45 @@ $('#remote .typeahead').typeahead({
   name: 'best-pictures',
   display: 'name',
   source: bestPictures.ttAdapter()
+});
+
+$('#selectCategory').on('change', function(){
+  console.log($('#selectCategory').val());
+  $('.typeahead').typeahead('destroy');
+  var bestPictures2 = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: { 
+      url: $('#selectCategory').val() + '/getBenefits.json',
+      cache: false,
+    },
+    /*remote: {
+      url: 'getBenefits.json',
+      wildcard: '%QUERY',
+      filter: function(bestPictures) {
+        return $.map(bestPictures, function(data) {
+            return {
+              tokens: data.tokens,
+              description: data.description,
+              name: data.name
+            }
+        });
+      }
+    }*/
+  });
+
+  bestPictures2.initialize();
+
+  $('#remote .typeahead').typeahead({
+    hint: false,
+    highlight: false,
+    minLength: 1
+  },
+  {
+    name: 'best-pictures',
+    display: 'name',
+    source: bestPictures2.ttAdapter()
+  });
 });
 </script>
 <script type="text/javascript">

@@ -47,12 +47,11 @@
 							<form class="search-navbar">
 								<div class="input-group form-inline" id="remote">
 									<div class="form-group dropdown-father">
-										<select class="form-control dropdown-father__select" id="exampleFormControlSelect1">
-											<option>Gastronomia</option>
-											<option>Turismo</option>
-											<option>Moda</option>
-											<option>Entretenimiento</option>
-											<option>5</option>
+										<select class="form-control dropdown-father__select" id="selectCategory">
+											<option>Seleccione una categoria</option>
+											@foreach($categories as $c)
+											<option value="{{ $c->id }}">{{ $c->name }}</option>
+											@endforeach
 										</select>
 									</div>			
 									<input type="text" class="format-input form-control no-border typeahead" aria-describedby="basic-addon2">
