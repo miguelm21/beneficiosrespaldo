@@ -27,6 +27,7 @@ Route::get('profile-screen', array('as' => 'profile-screen', 'uses' => 'HomeCont
 Route::get('profile-screen', array('as' => 'profile-screen', 'uses' => 'HomeController@profilescreen'));
 Route::get('blog', array('as' => 'blog', 'uses' => 'HomeController@blog'));
 Route::get('article/{article}', array('as' => 'article', 'uses' => 'HomeController@article'));
+Route::get('category/{id}', array('as' => 'category', 'uses' => 'HomeController@category'));
 Route::get('benefit/{id}', array('as' => 'benefit', 'uses' => 'HomeController@benefit'));
 Route::get('getBenefits.json', array('as' => 'getBenefits.json', 'uses' => 'BenefitsController@getBenefits'));
 
