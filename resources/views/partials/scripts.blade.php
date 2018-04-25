@@ -22,12 +22,26 @@ $('#remote .typeahead').typeahead({
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  /*prefetch: 'getBenefits.json',*/
-  remote: {
+  prefetch: { 
     url: 'getBenefits.json',
-    wildcard: '%QUERY'
-  }
+    cache: false,
+  },
+  /*remote: {
+    url: 'getBenefits.json',
+    wildcard: '%QUERY',
+    filter: function(bestPictures) {
+      return $.map(bestPictures, function(data) {
+          return {
+            tokens: data.tokens,
+            description: data.description,
+            name: data.name
+          }
+      });
+    }
+  }*/
 });
+
+bestPictures.initialize();
 
 $('#remote .typeahead').typeahead({
   hint: false,
@@ -37,7 +51,7 @@ $('#remote .typeahead').typeahead({
 {
   name: 'best-pictures',
   display: 'name',
-  source: bestPictures
+  source: bestPictures.ttAdapter()
 });
 </script>
 <script type="text/javascript">
