@@ -67,7 +67,7 @@
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="Latitude">Latitude</label>
+								<label for="Latitude">Latitud</label>
 								<input type="text" name="latitude" class="form-control form-control-lg section_profile__input">
 							</div>
 							<div class="form-group col-md-6">

@@ -192,6 +192,11 @@ return [
         */
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+        * Unisharp Ckeditor Prodivers
+        */
+        Unisharp\Ckeditor\ServiceProvider::class,
+
     ],
 
     /*
