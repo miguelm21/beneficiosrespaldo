@@ -15277,6 +15277,7 @@ a {
   color: #133f6d;
   font-weight: 700;
   font-size: 1.3rem;
+  vertical-align: middle !important;
 }
 
 @media only screen and (max-width: 61.95em) {
@@ -15471,8 +15472,63 @@ a {
   }
 }
 
+.dropdown-father__body {
+  right: 0;
+  left: auto;
+  width: 215px;
+  text-align: center;
+}
+
+.dropdown-father__button {
+  font-size: 1.6rem;
+  color: #133f6d;
+  font-weight: 550;
+}
+
+.dropdown-father__button:hover {
+  background: #00aeef;
+  color: #fff;
+}
+
+.dropdown-father__select {
+  font-size: 1.6rem;
+  height: 100% !important;
+  padding: 2px;
+  color: #fff;
+  background: #133f6d;
+}
+
+.dropdown-father__select option {
+  text-align: center !important;
+  background: transparend;
+  border: 1px solid #fff;
+}
+
+.dropdown-father__button-profile {
+  color: #00aeef;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  padding: 1px 8px;
+  margin-top: 3px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
+.dropdown-father__button-profile:hover {
+  background: #00aeef;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-father2 {
+  position: relative;
+}
+
 #social {
-  margin: auto 10px;
+  margin: 4px 10px 0 10px;
   text-align: center;
 }
 

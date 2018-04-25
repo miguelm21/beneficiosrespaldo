@@ -11,35 +11,6 @@
 		</button>
 		<div class="collapse navbar-collapse mb-4 mb-lg-0" id="navbarSupportedContent" style="width: 80%;">
 			<div class="row" style="width: 100% !important; margin: auto;">
-				<div class="col-11 nav-config__hide">
-					<ul class="navbar-nav" style="float: right;">
-						<li class="nav-item">
-							<div id="social">
-								<a class="nav-icon2 smGlobalBtn" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-								<a class="nav-icon2 smGlobalBtn" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter"></i></a>
-								<a class="nav-icon2 smGlobalBtn" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
-								<a class="nav-icon2 smGlobalBtn" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<form class="search-navbar">
-								<div class="input-group form-inline" id="remote">				
-									<input type="text" class="format-input no-border m-1 form-control typeahead" aria-describedby="basic-addon2">
-									<div class="input-group-append">
-										<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
-									</div>
-								</div>
-							</form>
-						</li>
-						<li class="nav-item">
-							@if(Auth::id())
-							<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
-							@else
-							<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
-							@endif
-						</li>
-					</ul>
-				</div>
 				<div class="col-12 nav-config__hide">
 					<div id="owl-carousel3" class="owl-carousel">
 						<div class="item nav-config__hide__item text-center">
@@ -61,6 +32,57 @@
 							<a href="#" class="nav-config__hide__category">Deco y hogar</a>
 						</div>
 					</div>
+				</div>
+				<div class="col-12 nav-config__hide">
+					<ul class="navbar-nav" style="float: right;">
+						<li class="nav-item">
+							<div id="social">
+								<a class="nav-icon2 smGlobalBtn" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
+								<a class="nav-icon2 smGlobalBtn" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<form class="search-navbar">
+								<div class="input-group form-inline" id="remote">
+									<div class="form-group dropdown-father">
+										<select class="form-control dropdown-father__select" id="exampleFormControlSelect1">
+											<option>Gastronomia</option>
+											<option>Turismo</option>
+											<option>Moda</option>
+											<option>Entretenimiento</option>
+											<option>5</option>
+										</select>
+									</div>			
+									<input type="text" class="format-input form-control no-border typeahead" aria-describedby="basic-addon2">
+									<div class="input-group-append">
+										<button class="btn-search btn bg-transparent nav-link" type="button"> <i class="fas fa-search fa-2x"></i></button>
+									</div>
+								</div>
+							</form>
+						</li>
+						<li class="nav-item">
+							<div class="input-group">
+								<div class="input-group-prepend dropdown dropdown-father">
+									@if(Auth::id())
+									<a href="" class=" dropdown-father__button-profile" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{!!Auth::user()->name!!}</a>
+									@else
+									<a href="{!!url('login')!!}" class=" dropdown-father__button-profile">Ingresar</a>
+									@endif
+									<div class="dropdown-menu dropdown-father__body" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item dropdown-father__button" href="#"><i class="fas fa-cogs mr-2"></i>Panel</a>
+										<a class="dropdown-item dropdown-father__button" href="{!!url('logout')!!}"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
+									</div>
+								</div>
+							</div>
+<!-- 							@if(Auth::id())
+							<a href="{!!url('logout')!!}" class="btn-edit-login btn-block">Salir </a>
+							@else
+							<a href="{!!url('login')!!}" class="btn-edit-login btn-block">Ingresar </a>
+							@endif -->
+						</li>
+					</ul>
 				</div>
 				<div class="col-12">
 					<div class="navbar-box-father">
@@ -172,6 +194,17 @@
 						</li>
 					</ul>
 					<form action="" class="search-box">
+						<div class="input-group form-inline dropdown-father" id="remote">
+						<div class="form-group ">
+							<select class="form-control dropdown-father__select" id="exampleFormControlSelect1">
+								<option>Gastronomia</option>
+								<option>Turismo</option>
+								<option>Moda</option>
+								<option>Entretenimiento</option>
+								<option>5</option>
+							</select>
+						</div>			
+					</div>
 						<input type="text" class="search-input" placeholder="" />
 					</form>
 				</nav>
