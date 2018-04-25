@@ -22,7 +22,11 @@ $('#remote .typeahead').typeahead({
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'getBenefits.json'
+  /*prefetch: 'getBenefits.json',*/
+  remote: {
+    url: 'getBenefits.json',
+    wildcard: '%QUERY'
+  }
 });
 
 $('#remote .typeahead').typeahead({

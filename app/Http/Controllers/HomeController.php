@@ -282,7 +282,7 @@ class HomeController extends Controller
         return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new]);
     }
 
-    public function benefit($id)
+    public function category($id)
     {
         $facebook = Cms_SocialNetworks::find(1);
         $googleplus = Cms_SocialNetworks::find(2);
