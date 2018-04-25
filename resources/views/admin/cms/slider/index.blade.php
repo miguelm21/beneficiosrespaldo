@@ -83,11 +83,9 @@
 		</div>
 	</div>
 </div>
-@endsection
-
 <script type="text/javascript">
 function confirmDelete() {
-	var result = confirm('¿Esta seguro de borrar esta noticia?');
+	var result = confirm('¿Esta seguro de borrar esta imagen?');
 
 	if (result) {
 	    return true;
@@ -96,3 +94,4 @@ function confirmDelete() {
 	}
 }
 </script>
+@endsection
