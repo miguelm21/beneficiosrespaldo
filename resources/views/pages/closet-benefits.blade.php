@@ -228,13 +228,14 @@ function initMap() {
 					    benef = [];
 
 					    jQuery.grep(benefits, function( b ) {
-					    	if(jQuery.inArray((b.id).toString(), a) !== -1)
+					    	if(jQuery.inArray((b.category_id).toString(), a) !== -1)
 					    	{
 					    		benef.push(b)
 					    	}
 						});
 
 	     				benef.forEach(function(data) {
+	     					console.log(data);
 	     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
 	     					if($('#km').val() < 1)
 	     					{
