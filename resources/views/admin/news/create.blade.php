@@ -52,6 +52,11 @@
 								<input type="file" name="image" class="form-control form-control-lg section_profile__input">
 							</div>
 						</div>
+						<div class="form-group col-md-6">
+							<div class="form-group col-md-6">
+								{!!Form::textarea('text',null,['class'=>'form-control', 'id'=>'editor', 'placeholder'=>'Ingrese el texto', 'style'=>'-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;'])!!}
+							</div>
+						</div>
 						<div class="col-12 text-right nopadding">
 							<button type="submit" class="btn button-style section_profile__button">Crear</button>
 							<a href="{{ url('/news') }}" class="btn button-default">Regresar</a>

@@ -1,5 +1,6 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/typeahead.bundle.js') }}"></script>
+
 <script>
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
