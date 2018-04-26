@@ -15141,6 +15141,49 @@ a {
   background: #00aeef;
 }
 
+.benefit-father {
+  background: #edf0f9;
+  padding: 3% 0;
+}
+
+.benefit-father__container {
+  min-height: 720px;
+}
+
+.benefit-father__container-image {
+  width: 100%;
+  height: auto;
+}
+
+.benefit-father__container-image__image {
+  max-height: 180px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .benefit-father__container-image__image {
+    max-height: 220px;
+  }
+}
+
+.benefit-father__title {
+  font-size: 1.9rem;
+  color: #133f6d;
+  font-family: "Monserrat", sans-serif;
+}
+
+.benefit-father__text {
+  color: #4d4d4f;
+  font-family: "Sueca", sans-serif;
+  font-size: 18.3px;
+}
+
+.benefit-father__card-benefit {
+  background: #fff;
+  -webkit-box-shadow: 3px 3px 3px #c1c1c1;
+          box-shadow: 3px 3px 3px #c1c1c1;
+}
+
 .footer {
   font-family: 'SuecaSemiBold', sans-serif;
   color: #fff;
