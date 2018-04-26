@@ -13,7 +13,12 @@
 			<div class="row" style="width: 100% !important; margin: auto;">
 				<div class="col-12 nav-config__hide">
 					<div id="owl-carousel3" class="owl-carousel">
+						@foreach($categories as $c)
 						<div class="item nav-config__hide__item text-center">
+							<a href="{{ route('category', $c->id) }}" class="nav-config__hide__category">{{ $c->name }}</a>
+						</div>
+						@endforeach
+						<!-- <div class="item nav-config__hide__item text-center">
 							<a href="#" class="nav-config__hide__category">Gastronomia</a>
 						</div>
 						<div class="item nav-config__hide__item text-center">
@@ -30,7 +35,7 @@
 						</div>
 						<div class="item nav-config__hide__item text-center">
 							<a href="#" class="nav-config__hide__category">Deco y hogar</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-12 nav-config__hide">
@@ -86,7 +91,17 @@
 				<div class="col-12">
 					<div class="navbar-box-father">
 						<div class="row">
+							@foreach($categories as $c)
 							<div class="text-center navbar-box-father__col col-6">
+								<a href="{{ route('category', $c->id) }}" class="btn row">
+									<div class="col-12">
+										<i class="fa-2x {{ $c->iconweb}}"></i>
+									</div>
+									<div class="col-12">{{ $c->name }}</div>
+								</a>
+							</div>
+							@endforeach
+							<!-- <div class="text-center navbar-box-father__col col-6">
 								<button class="btn row">
 									<div class="col-12">
 										<i class="fa-2x fas fa-utensils"></i>
@@ -133,7 +148,7 @@
 									</div>
 									<div class="col-12">Deco y hogar</div>
 								</button>
-							</div>
+							</div> -->
 							<div class="text-center navbar-box-father__col col-6">
 								<button class="btn row" id="search-navbar">
 									<div class="col-12">
@@ -171,7 +186,12 @@
 					<ul class="menu">
 						<li>
 							<div class="owl-carousel owl-theme">
+								@foreach($categories as $c)
 								<div class="item nav-config__hide__item text-center">
+									<a href="{{ route('category', $c->id) }}" class="nav-config__hide__category">{{ $c->name }}</a>
+								</div>
+								@endforeach
+								<!-- <div class="item nav-config__hide__item text-center">
 									<a href="#" class="nav-config__hide__category">Gastronomia</a>
 								</div>
 								<div class="item nav-config__hide__item text-center">
@@ -188,7 +208,7 @@
 								</div>
 								<div class="item nav-config__hide__item text-center">
 									<a href="#" class="nav-config__hide__category">Deco y hogar</a>
-								</div>
+								</div> -->
 							</div>
 						</li>
 					</ul>
@@ -196,11 +216,10 @@
 						<div class="input-group form-inline dropdown-father" id="remote">
 						<div class="form-group ">
 							<select class="form-control dropdown-father__select" id="exampleFormControlSelect1">
-								<option>Gastronomia</option>
-								<option>Turismo</option>
-								<option>Moda</option>
-								<option>Entretenimiento</option>
-								<option>5</option>
+								<option>Seleccione una categoria</option>
+								@foreach($categories as $c)
+								<option value="{{ $c->id }}">{{ $c->name }}</option>
+								@endforeach
 							</select>
 						</div>			
 					</div>

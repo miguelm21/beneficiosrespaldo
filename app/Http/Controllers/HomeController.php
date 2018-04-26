@@ -354,8 +354,9 @@ class HomeController extends Controller
         $instagram = Cms_SocialNetworks::find(4);
         $categories = categories::get();
         $category = Categories::findOrFail($id);
+        $benefits = Benefits::where('category_id', '=', $id)->paginate(10);
 
-        return view('pages.category', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'category' => $category]);
+        return view('pages.category', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'category' => $category, 'benefits' => $benefits]);
     }
 
     public function benefit($id)

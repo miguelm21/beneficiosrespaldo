@@ -100,7 +100,7 @@
 			@if($c->id == $b->category_id)
 			<div class="ranking-item-father">
 				<div class="ranking-item">
-					<a href="#">
+					<a href="{{ route('benefit', $b->id) }}">
 						<div class="ranking-item__image-container">
 							<img class="ranking-item__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="1" >
 							<div class="ranking-item__image-container__sticker">
@@ -112,12 +112,12 @@
 					</a>
 				</div>
 				<div class="ranking-item-back">
-					<a href="#">
+					<a href="{{ route('benefit', $b->id) }}">
 						<div class="ranking-item-back__image-container">
 							<img class="ranking-item-back__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
 							<div class="ranking-item-back__image-container__sticker">
 								<div class="ranking-item-back__image-container__sticker-text">
-									<span>{{ $b->description }}</span>
+									<span>{{ $b->name }}</span>
 								</div>
 							</div>
 						</div>

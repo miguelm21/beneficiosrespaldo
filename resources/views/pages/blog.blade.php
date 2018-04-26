@@ -26,6 +26,7 @@
 				</div>
 			</div>
 			@endforeach
+			{!!$news->render()!!}
 			@else
 			<div class="col-sm-6 mt-4">
 				<div class="blog-father__card-blog">
