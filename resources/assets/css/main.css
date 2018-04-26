@@ -4916,6 +4916,116 @@ a {
   letter-spacing: 3px;
 }
 
+.blog-father {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background: #edf0f9;
+}
+
+.blog-father__card-blog {
+  background: #fff;
+  -webkit-box-shadow: 3px 3px 3px #c1c1c1;
+          box-shadow: 3px 3px 3px #c1c1c1;
+}
+
+.blog-father__card-blog__container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.blog-father__card-blog__container__image {
+  width: 100%;
+  max-height: 320px;
+}
+
+.blog-father__card-blog__container__sticker {
+  position: absolute;
+  bottom: 44px;
+  left: 15px;
+  right: 15px;
+  height: auto;
+  background-color: rgba(19, 63, 109, 0.8);
+}
+
+@media only screen and (max-width: 56.25em) {
+  .blog-father__card-blog__container__sticker {
+    bottom: 90px;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .blog-father__card-blog__container__sticker {
+    bottom: 67px;
+    width: auto;
+  }
+}
+
+.blog-father__card-blog__container__sticker__text {
+  font-family: "Monserrat", sans-serif;
+  font-size: 2.05rem;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .blog-father__card-blog__container__sticker__text {
+    font-size: 1.45rem;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  .blog-father__card-blog__container__sticker__text {
+    font-size: 1.6rem;
+  }
+}
+
+.blog-father__footer-card {
+  font-family: "Monserrat", sans-serif;
+  font-size: 1.6rem;
+  background: #fff;
+  height: auto;
+  padding: 10px 5px;
+}
+
+.blog-father__footer-card__autor {
+  color: #4d4d4f;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+.blog-father__footer-card__date {
+  color: #4d4d4f;
+  font-size: 1.6rem;
+  text-align: right;
+}
+
+.category-father {
+  margin: 5% auto;
+}
+
+.category-father__title {
+  font-size: 3.2rem;
+  color: #133f6d;
+  font-family: "Monserrat", sans-serif;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.category-father__icon {
+  background: #133f6d;
+  color: #fff;
+  margin: 0 10px;
+  border-radius: 50%;
+  padding: 10px;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.category-father__icon:hover {
+  background: #00aeef;
+}
+
 .footer {
   font-family: 'SuecaSemiBold', sans-serif;
   color: #fff;
@@ -6185,4 +6295,110 @@ input.empty {
   opacity: 1;
   -webkit-transition: all 0.3s 0.3s;
   transition: all 0.3s 0.3s;
+}
+
+.service-box {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.service-icon {
+  width: 100%;
+  height: 220px;
+  text-align: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.service-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0 auto;
+  opacity: 0;
+  width: 100%;
+  height: 220px;
+  padding: 20px;
+  text-align: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  background-color: #474747;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateY(110px) rotateX(-90deg);
+  transform: translateY(110px) rotateX(-90deg);
+}
+
+.service-box .service-icon .front-content {
+  position: relative;
+  height: 100%;
+  top: 60px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.service .service-icon .front-content {
+  height: 100%;
+}
+
+.service-box .service-icon .front-content img {
+  height: 100%;
+}
+
+.service-box .service-icon .front-content i {
+  font-size: 28px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.service-box .service-icon .front-content h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  margin: 6% auto;
+  text-transform: uppercase;
+}
+
+.service-box .service-content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.service-box .service-content p {
+  font-size: 13px;
+  color: #b1b1b1;
+  margin: 0;
+}
+
+.span-box {
+  font-size: 3.7rem;
+  color: #fff;
+  position: relative;
+  top: 10px;
+}
+
+.background-box {
+  background-color: #133f6d;
+}
+
+.service-box:hover .service-icon {
+  opacity: 0;
+  -webkit-transform: translateY(-110px) rotateX(90deg);
+  transform: translateY(-110px) rotateX(90deg);
+}
+
+.service-box:hover .service-content {
+  opacity: 1;
+  -webkit-transform: rotateX(0);
+  transform: rotateX(0);
 }

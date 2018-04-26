@@ -1,0 +1,24 @@
+.category-father{
+	margin: 5% auto;
+
+
+	&__title{
+		font-size: $l-size;
+		color: $color-primary;
+		font-family: "Monserrat", sans-serif;
+		text-transform: uppercase;
+		margin-top: 4px;
+	}
+	&__icon{
+		background: $color-primary;
+		color: $color-white;
+		margin: 0 10px;
+		border-radius: 50%;
+		padding: 10px;
+		transition: .3s ease;
+	}
+
+	&__icon:hover{
+		background: $color-secondary;
+	}
+}
