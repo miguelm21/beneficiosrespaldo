@@ -126,6 +126,8 @@
 		</div>
 	</div>
 </div>
+
+@endsection
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -862,4 +864,3 @@ function calculateDistance(lat1, long1, lat2, long2) {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3O3jpRiWG7XwLYU0YRXS9aCsJJF9OKiw&callback=initMap"
 async defer></script>
-@endsection
