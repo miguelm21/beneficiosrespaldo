@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Session;
+use Redirect;
 use Mail;
 use Hash;
 use App\User;
@@ -107,6 +108,8 @@ class HomeController extends Controller
 
                 Auth::login($user);
                 $roleu = User_Role::where('user_id', '=', Auth::id())->first();
+                $role = Roles::find($roleu->role_id);
+                Session::put('role', $role->id);
 
                 if($roleu->role_id == 1)
                 {
@@ -127,6 +130,67 @@ class HomeController extends Controller
             return redirect()->back()->with('message', 'Usuario incorrecto');
         }
         
+    }
+
+    public function editprofile($id)
+    {
+        $facebook = Cms_SocialNetworks::find(1);
+        $googleplus = Cms_SocialNetworks::find(2);
+        $twitter = Cms_SocialNetworks::find(3);
+        $instagram = Cms_SocialNetworks::find(4);
+        $categories = categories::get();
+        $user = User::findOrFail($id);
+
+        return view('pages.profile-screen', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'user' => $user]);
+    }
+
+    public function editpassword()
+    {
+        $facebook = Cms_SocialNetworks::find(1);
+        $googleplus = Cms_SocialNetworks::find(2);
+        $twitter = Cms_SocialNetworks::find(3);
+        $instagram = Cms_SocialNetworks::find(4);
+        $categories = categories::get();
+        $user = User::findOrFail(Auth::id());
+
+        return view('pages.password-screen', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'user' => $user]);
+    }
+
+    public function password(Request $request, $id)
+    {
+        $messages = [
+            'regex'    => ':attribute debe contener al menos 1 Letra, 1 Numero y 1 Simbolo Especial'
+        ];
+
+        $validator =  Validator::make($request->all(),[ 
+            'old_password' => 'required|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
+            'password' => 'required|confirmed|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
+            'password_confirmation' => 'required|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/'
+
+        ]);
+
+        $validator->setAttributeNames([
+            'old_password' => 'Contraseña Actual',
+            'password' => 'Contraseña',
+            'password_confirmation' => 'Confirmar Contraseña'
+        ]);
+
+        $user = User::find($id);
+
+        $password = bcrypt($request->password);
+
+        if(Hash::check($request->old_password, $user->password))
+        {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            Auth::logout();
+            Session::flush();
+            return Redirect::to('/login')->with('message', 'Su contraseña se cambio correctamente');
+        }
+        else
+        {
+            return Redirect::back()->with('err', 'La contraseña actual es incorrecta');
+        }
     }
 
     public function signup()
@@ -291,7 +355,7 @@ class HomeController extends Controller
         $categories = categories::get();
         $category = Categories::findOrFail($id);
 
-        return view('pages.benefit', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'category' => $category]);
+        return view('pages.category', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'category' => $category]);
     }
 
     public function benefit($id)

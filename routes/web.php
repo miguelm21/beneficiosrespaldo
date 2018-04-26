@@ -41,6 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('cmssocialnetworks', 'Cms_SocialNetworksController');
     Route::resource('cmsslider', 'Cms_SliderController');
 
+    Route::get('editprofile/{id}', array('as' => 'editprofile', 'uses' => 'HomeController@editprofile'));
+    Route::get('editpassword', array('as' => 'editpassword', 'uses' => 'HomeController@editpassword'));
+    Route::put('password/{id}', array('as' => 'password', 'uses' => 'HomeController@password'));
+
     Route::get('logout', function()
     {
         Auth::logout();

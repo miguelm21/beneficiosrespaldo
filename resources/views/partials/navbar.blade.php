@@ -70,8 +70,8 @@
 									<a href="{!!url('login')!!}" class=" dropdown-father__button-profile">Ingresar</a>
 									@endif
 									<div class="dropdown-menu dropdown-father__body" aria-labelledby="dropdownMenuButton">
-										<a class="dropdown-item dropdown-father__button" href="#"><i class="fas fa-cogs mr-2"></i>Panel</a>
-										<a class="dropdown-item dropdown-father__button" href="{!!url('logout')!!}"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
+										<a class="dropdown-item dropdown-father__button" href="{{ route('dashboard-admin') }}"><i class="fas fa-cogs mr-2"></i>Panel</a>
+										<a class="dropdown-item dropdown-father__button" href="{{ url('logout') }}"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
 									</div>
 								</div>
 							</div>
