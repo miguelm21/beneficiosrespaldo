@@ -126,7 +126,6 @@
 		</div>
 	</div>
 </div>
-@endsection
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -137,693 +136,693 @@ var markers = [];
 
 function initMap() {
 
-	var a = [];
-	var cats = {!! json_encode($categories) !!}
+  var a = [];
+  var cats = {!! json_encode($categories) !!}
 
-  	if (navigator.geolocation) {
-      	navigator.geolocation.getCurrentPosition(function(position) {
-	        var pos = {
-	          lat: position.coords.latitude,
-	          lng: position.coords.longitude
-	        };
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
 
-	        var center = { lat: -32.889459, lng: -68.845839 };
-		    map = new google.maps.Map(document.getElementById('map'), {
-		      center: pos,
-		      zoom: 13
-		    });
+          var center = { lat: -32.889459, lng: -68.845839 };
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pos,
+          zoom: 13
+        });
 
-		    var marker = new google.maps.Marker({
-		      position: pos,
-		      map: map
-		    });
-		    markers.push(marker);
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map
+        });
+        markers.push(marker);
 
-		    var benefits = {!! json_encode($benefs) !!}
+        var benefits = {!! json_encode($benefs) !!}
 
-			benefits.forEach(function(data) {
+      benefits.forEach(function(data) {
 
-				var contentString = 
-			      '<div class="container">' +
-				    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-				    '<div class="card-body">' +
-				      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-				      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-					  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-				    '</div>' +
-				  '</div>';
+        var contentString = 
+            '<div class="container">' +
+            '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+            '<div class="card-body">' +
+              '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+              '<p class="box-panel-closest__text">' + data.description +'</p>' +
+            '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+            '</div>' +
+          '</div>';
 
-				var infowindow = new google.maps.InfoWindow({
-				    content: contentString
-				});
-				var marker = new google.maps.Marker({
-		      		position: { lat: data.latitude, lng: data.longitude },
-		      		map: map,
-		      		icon: data.iconmap
-		    	});
-		    	marker.addListener('click', function() {
-		    		if(infowindow)
-		    		{
-		    			infowindow.close();
-		    			infowindow.open(map, marker);
-		    		}
-		    		else
-		    		{
-		    			infowindow.open(map, marker);
-		    		}
-				    
-				});
-		    	markers.push(marker);
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
+              position: { lat: data.latitude, lng: data.longitude },
+              map: map,
+              icon: data.iconmap
+          });
+          marker.addListener('click', function() {
+            if(infowindow)
+            {
+              infowindow.close();
+              infowindow.open(map, marker);
+            }
+            else
+            {
+              infowindow.open(map, marker);
+            }
+            
+        });
+          markers.push(marker);
 
 
-		    	var template = [
-		    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-						'<div class="card">',
-							'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-							'<div class="card-body">',
-								'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-								'<p class="box-panel-closest__text">' + data.description +'</p>',
-								'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-							'</div>',
-						'</div>',
-						'<hr>',
-					'</div>'
-				].join("\n");
+          var template = [
+            '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+            '<div class="card">',
+              '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+              '<div class="card-body">',
+                '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                '<p class="box-panel-closest__text">' + data.description +'</p>',
+                '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+              '</div>',
+            '</div>',
+            '<hr>',
+          '</div>'
+        ].join("\n");
 
-				$("#box-panel").append(template);
-			});
+        $("#box-panel").append(template);
+      });
 
-			cats.forEach(function(data) {
-				$('#box-' + data.id).click(function() {
-					if($('#box-' + data.id).is(':checked')) { 
-			            a.push(this.value);
-			    		$("div.box-panel2").remove();
-	     				deleteMarkers();
-						var marker = new google.maps.Marker({
-					      position: pos,
-					      map: map
-					    });
-					    markers.push(marker);
+      cats.forEach(function(data) {
+        $('#box-' + data.id).click(function() {
+          if($('#box-' + data.id).is(':checked')) { 
+                  a.push(this.value);
+              $("div.box-panel2").remove();
+              deleteMarkers();
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+              });
+              markers.push(marker);
 
-					    benef = [];
+              benef = [];
 
-					    jQuery.grep(benefits, function( b ) {
-					    	if(jQuery.inArray((b.category_id).toString(), a) !== -1)
-					    	{
-					    		benef.push(b)
-					    	}
-						});
+              jQuery.grep(benefits, function( b ) {
+                if(jQuery.inArray((b.category_id).toString(), a) !== -1)
+                {
+                  benef.push(b)
+                }
+            });
 
-	     				benef.forEach(function(data) {
-	     					console.log(data);
-	     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-	     					if($('#km').val() < 1)
-	     					{
-	     						var contentString = 
-							      '<div class="container">' +
-								    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-								    '<div class="card-body">' +
-								      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-								      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-									  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-								    '</div>' +
-								  '</div>';
+              benef.forEach(function(data) {
+                console.log(data);
+                var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                if($('#km').val() < 1)
+                {
+                  var contentString = 
+                    '<div class="container">' +
+                    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                    '<div class="card-body">' +
+                      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                      '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                    '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                    '</div>' +
+                  '</div>';
 
-								var infowindow = new google.maps.InfoWindow({
-								    content: contentString
-								});
-								var marker = new google.maps.Marker({
-						      		position: { lat: data.latitude, lng: data.longitude },
-						      		map: map,
-						      		icon: data.iconmap
-						    	});
-						    	marker.addListener('click', function() {
-						    		if(infowindow)
-						    		{
-						    			infowindow.close();
-						    			infowindow.open(map, marker);
-						    		}
-						    		else
-						    		{
-						    			infowindow.open(map, marker);
-						    		}
-								    
-								});
-						    	markers.push(marker);
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                var marker = new google.maps.Marker({
+                      position: { lat: data.latitude, lng: data.longitude },
+                      map: map,
+                      icon: data.iconmap
+                  });
+                  marker.addListener('click', function() {
+                    if(infowindow)
+                    {
+                      infowindow.close();
+                      infowindow.open(map, marker);
+                    }
+                    else
+                    {
+                      infowindow.open(map, marker);
+                    }
+                    
+                });
+                  markers.push(marker);
 
-						    	var template = [
-						    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-										'<div class="card">',
-											'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-											'<div class="card-body">',
-												'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-												'<p class="box-panel-closest__text">' + data.description +'</p>',
-												'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-											'</div>',
-										'</div>',
-										'<hr>',
-									'</div>'
-								].join("\n");
+                  var template = [
+                    '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                    '<div class="card">',
+                      '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                      '<div class="card-body">',
+                        '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                        '<p class="box-panel-closest__text">' + data.description +'</p>',
+                        '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                      '</div>',
+                    '</div>',
+                    '<hr>',
+                  '</div>'
+                ].join("\n");
 
-								$("#box-panel").append(template);
-	     					}
-	     					else
-	     					{
-	     						if(distance <= $('#km').val())
-								{
-									var marker = new google.maps.Marker({
-							      		position: new google.maps.LatLng(data.latitude, data.longitude),
-							      		map: map,
-							      		icon: data.iconmap
-							    	});
-							    	markers.push(marker);
+                $("#box-panel").append(template);
+                }
+                else
+                {
+                  if(distance <= $('#km').val())
+                {
+                  var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(data.latitude, data.longitude),
+                        map: map,
+                        icon: data.iconmap
+                    });
+                    markers.push(marker);
 
-							    	var template = [
-							    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-											'<div class="card">',
-												'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-												'<div class="card-body">',
-													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-												'</div>',
-											'</div>',
-											'<hr>',
-										'</div>'
-									].join("\n");
+                    var template = [
+                      '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                      '<div class="card">',
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                        '<div class="card-body">',
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                          '<p class="box-panel-closest__text">' + data.description +'</p>',
+                          '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                        '</div>',
+                      '</div>',
+                      '<hr>',
+                    '</div>'
+                  ].join("\n");
 
-									$("#box-panel").append(template);
-								}
-	     					}	
-					    });
-			        } else if($('#box-' + data.id).not(':checked')) {
-			        	$("div.box-panel2").remove();
-			        	const index = a.indexOf(this.value);
-			        	a.splice(index, 1)
-			        	if(a.length < 1)
-			        	{
-			        		var marker = new google.maps.Marker({
-						      position: pos,
-						      map: map
-						    });
-						    markers.push(marker);
-							benefits.forEach(function(data) {
-								var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-								if($('#km').val() < 1)
-	     						{	
-									var contentString = 
-								      '<div class="container">' +
-									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-									    '<div class="card-body">' +
-									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-									    '</div>' +
-									  '</div>';
+                  $("#box-panel").append(template);
+                }
+                } 
+              });
+              } else if($('#box-' + data.id).not(':checked')) {
+                $("div.box-panel2").remove();
+                const index = a.indexOf(this.value);
+                a.splice(index, 1)
+                if(a.length < 1)
+                {
+                  var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map
+                });
+                markers.push(marker);
+              benefits.forEach(function(data) {
+                var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                if($('#km').val() < 1)
+                  { 
+                  var contentString = 
+                      '<div class="container">' +
+                      '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                      '<div class="card-body">' +
+                        '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                        '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                      '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                      '</div>' +
+                    '</div>';
 
-									var infowindow = new google.maps.InfoWindow({
-									    content: contentString
-									});
-									var marker = new google.maps.Marker({
-							      		position: { lat: data.latitude, lng: data.longitude },
-							      		map: map,
-							      		icon: data.iconmap
-							    	});
-							    	marker.addListener('click', function() {
-							    		if(infowindow)
-							    		{
-							    			infowindow.close();
-							    			infowindow.open(map, marker);
-							    		}
-							    		else
-							    		{
-							    			infowindow.open(map, marker);
-							    		}
-									    
-									});
-							    	markers.push(marker);
+                  var infowindow = new google.maps.InfoWindow({
+                      content: contentString
+                  });
+                  var marker = new google.maps.Marker({
+                        position: { lat: data.latitude, lng: data.longitude },
+                        map: map,
+                        icon: data.iconmap
+                    });
+                    marker.addListener('click', function() {
+                      if(infowindow)
+                      {
+                        infowindow.close();
+                        infowindow.open(map, marker);
+                      }
+                      else
+                      {
+                        infowindow.open(map, marker);
+                      }
+                      
+                  });
+                    markers.push(marker);
 
-							    	var template = [
-							    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-											'<div class="card">',
-												'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-												'<div class="card-body">',
-													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-												'</div>',
-											'</div>',
-											'<hr>',
-										'</div>'
-									].join("\n");
+                    var template = [
+                      '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                      '<div class="card">',
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                        '<div class="card-body">',
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                          '<p class="box-panel-closest__text">' + data.description +'</p>',
+                          '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                        '</div>',
+                      '</div>',
+                      '<hr>',
+                    '</div>'
+                  ].join("\n");
 
-									$("#box-panel").append(template);
-								}
-								else
-	     						{
-		     						if(distance <= $('#km').val())
-									{
-										var marker = new google.maps.Marker({
-								      		position: new google.maps.LatLng(data.latitude, data.longitude),
-								      		map: map,
-								      		icon: data.iconmap
-								    	});
-								    	markers.push(marker);
+                  $("#box-panel").append(template);
+                }
+                else
+                  {
+                    if(distance <= $('#km').val())
+                  {
+                    var marker = new google.maps.Marker({
+                          position: new google.maps.LatLng(data.latitude, data.longitude),
+                          map: map,
+                          icon: data.iconmap
+                      });
+                      markers.push(marker);
 
-								    	var template = [
-								    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-												'<div class="card">',
-													'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-													'<div class="card-body">',
-														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-													'</div>',
-												'</div>',
-												'<hr>',
-											'</div>'
-										].join("\n");
+                      var template = [
+                        '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                        '<div class="card">',
+                          '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                          '<div class="card-body">',
+                            '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                            '<p class="box-panel-closest__text">' + data.description +'</p>',
+                            '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                          '</div>',
+                        '</div>',
+                        '<hr>',
+                      '</div>'
+                    ].join("\n");
 
-										$("#box-panel").append(template);
-									}
-		     					}
-							});
-			        	}
-			        	else
-			        	{
-			        		$("div.box-panel2").remove();
-		     				deleteMarkers();
-							var marker = new google.maps.Marker({
-						      position: pos,
-						      map: map
-						    });
-						    markers.push(marker);
+                    $("#box-panel").append(template);
+                  }
+                  }
+              });
+                }
+                else
+                {
+                  $("div.box-panel2").remove();
+                deleteMarkers();
+              var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map
+                });
+                markers.push(marker);
 
-							benef = [];
+              benef = [];
 
-						    jQuery.grep(benefits, function( b ) {
-						    	if(jQuery.inArray((b.id).toString(), a) !== -1)
-						    	{
-						    		benef.push(b)
-						    	}
-							});
+                jQuery.grep(benefits, function( b ) {
+                  if(jQuery.inArray((b.id).toString(), a) !== -1)
+                  {
+                    benef.push(b)
+                  }
+              });
 
-		     				benef.forEach(function(data) {
-		     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-		     					if($('#km').val() < 1)
-	     						{
-									var contentString = 
-								      '<div class="container">' +
-									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-									    '<div class="card-body">' +
-									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-									    '</div>' +
-									  '</div>';
+                benef.forEach(function(data) {
+                  var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                  if($('#km').val() < 1)
+                  {
+                  var contentString = 
+                      '<div class="container">' +
+                      '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                      '<div class="card-body">' +
+                        '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                        '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                      '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                      '</div>' +
+                    '</div>';
 
-									var infowindow = new google.maps.InfoWindow({
-									    content: contentString
-									});
-									var marker = new google.maps.Marker({
-							      		position: { lat: data.latitude, lng: data.longitude },
-							      		map: map,
-							      		icon: data.iconmap
-							    	});
-							    	marker.addListener('click', function() {
-							    		if(infowindow)
-							    		{
-							    			infowindow.close();
-							    			infowindow.open(map, marker);
-							    		}
-							    		else
-							    		{
-							    			infowindow.open(map, marker);
-							    		}
-									    
-									});
-							    	markers.push(marker);
+                  var infowindow = new google.maps.InfoWindow({
+                      content: contentString
+                  });
+                  var marker = new google.maps.Marker({
+                        position: { lat: data.latitude, lng: data.longitude },
+                        map: map,
+                        icon: data.iconmap
+                    });
+                    marker.addListener('click', function() {
+                      if(infowindow)
+                      {
+                        infowindow.close();
+                        infowindow.open(map, marker);
+                      }
+                      else
+                      {
+                        infowindow.open(map, marker);
+                      }
+                      
+                  });
+                    markers.push(marker);
 
-							    	var template = [
-							    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-											'<div class="card">',
-												'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-												'<div class="card-body">',
-													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-												'</div>',
-											'</div>',
-											'<hr>',
-										'</div>'
-									].join("\n");
+                    var template = [
+                      '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                      '<div class="card">',
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                        '<div class="card-body">',
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                          '<p class="box-panel-closest__text">' + data.description +'</p>',
+                          '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                        '</div>',
+                      '</div>',
+                      '<hr>',
+                    '</div>'
+                  ].join("\n");
 
-									$("#box-panel").append(template);
-								}
-								else
-	     						{
-		     						if(distance <= $('#km').val())
-									{
-										var marker = new google.maps.Marker({
-								      		position: new google.maps.LatLng(data.latitude, data.longitude),
-								      		map: map,
-								      		icon: data.iconmap
-								    	});
-								    	markers.push(marker);
+                  $("#box-panel").append(template);
+                }
+                else
+                  {
+                    if(distance <= $('#km').val())
+                  {
+                    var marker = new google.maps.Marker({
+                          position: new google.maps.LatLng(data.latitude, data.longitude),
+                          map: map,
+                          icon: data.iconmap
+                      });
+                      markers.push(marker);
 
-								    	var template = [
-								    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-												'<div class="card">',
-													'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-													'<div class="card-body">',
-														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-													'</div>',
-												'</div>',
-												'<hr>',
-											'</div>'
-										].join("\n");
+                      var template = [
+                        '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                        '<div class="card">',
+                          '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                          '<div class="card-body">',
+                            '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                            '<p class="box-panel-closest__text">' + data.description +'</p>',
+                            '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                          '</div>',
+                        '</div>',
+                        '<hr>',
+                      '</div>'
+                    ].join("\n");
 
-										$("#box-panel").append(template);
-									}
-		     					}
-						    });
-			        	}
-			        }
-				});
-			});
+                    $("#box-panel").append(template);
+                  }
+                  }
+                });
+                }
+              }
+        });
+      });
 
-			$('#apply').click(function() {
-				$("div.box-panel2").remove();
-				deleteMarkers();
-				var marker = new google.maps.Marker({
-			      position: pos,
-			      map: map
-			    });
-			    markers.push(marker);
+      $('#apply').click(function() {
+        $("div.box-panel2").remove();
+        deleteMarkers();
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map
+          });
+          markers.push(marker);
 
-				benefits.forEach(function(data) {
-					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-					var km = $('#km').val();
- 					if(km < 1)
- 					{
- 						km = 1;
- 						$('#km').val(1);
- 					}
-					if(distance <= km)
-					{
-						var contentString = 
-					      '<div class="container">' +
-						    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-						    '<div class="card-body">' +
-						      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-						      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-							  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-						    '</div>' +
-						  '</div>';
+        benefits.forEach(function(data) {
+          var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+          var km = $('#km').val();
+          if(km < 1)
+          {
+            km = 1;
+            $('#km').val(1);
+          }
+          if(distance <= km)
+          {
+            var contentString = 
+                '<div class="container">' +
+                '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                '<div class="card-body">' +
+                  '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                  '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                '</div>' +
+              '</div>';
 
-						var infowindow = new google.maps.InfoWindow({
-						    content: contentString
-						});
-						var marker = new google.maps.Marker({
-				      		position: { lat: data.latitude, lng: data.longitude },
-				      		map: map,
-				      		icon: data.iconmap
-				    	});
-				    	marker.addListener('click', function() {
-				    		if(infowindow)
-				    		{
-				    			infowindow.close();
-				    			infowindow.open(map, marker);
-				    		}
-				    		else
-				    		{
-				    			infowindow.open(map, marker);
-				    		}
-						    
-						});
-				    	markers.push(marker);
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var marker = new google.maps.Marker({
+                  position: { lat: data.latitude, lng: data.longitude },
+                  map: map,
+                  icon: data.iconmap
+              });
+              marker.addListener('click', function() {
+                if(infowindow)
+                {
+                  infowindow.close();
+                  infowindow.open(map, marker);
+                }
+                else
+                {
+                  infowindow.open(map, marker);
+                }
+                
+            });
+              markers.push(marker);
 
-				    	var template = [
-				    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-								'<div class="card">',
-									'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-									'<div class="card-body">',
-										'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-										'<p class="box-panel-closest__text">' + data.description +'</p>',
-										'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-									'</div>',
-								'</div>',
-								'<hr>',
-							'</div>'
-						].join("\n");
+              var template = [
+                '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                '<div class="card">',
+                  '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                  '<div class="card-body">',
+                    '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                    '<p class="box-panel-closest__text">' + data.description +'</p>',
+                    '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                  '</div>',
+                '</div>',
+                '<hr>',
+              '</div>'
+            ].join("\n");
 
-						$("#box-panel").append(template);
-					}
-				});
+            $("#box-panel").append(template);
+          }
+        });
 
-				cats.forEach(function(data) {
-					$('#box-' + data.id).click(function() {
-						if($('#box-' + data.id).is(':checked')) { 
-				            a.push(this.value);
-				    		$("div.box-panel2").remove();
-		     				deleteMarkers();
-							var marker = new google.maps.Marker({
-						      position: pos,
-						      map: map
-						    });
-						    markers.push(marker);
+        cats.forEach(function(data) {
+          $('#box-' + data.id).click(function() {
+            if($('#box-' + data.id).is(':checked')) { 
+                    a.push(this.value);
+                $("div.box-panel2").remove();
+                deleteMarkers();
+              var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map
+                });
+                markers.push(marker);
 
-						    benef = [];
+                benef = [];
 
-						    jQuery.grep(benefits, function( b ) {
-						    	if(jQuery.inArray((b.id).toString(), a) !== -1)
-						    	{
-						    		benef.push(b)
-						    	}
-							});
+                jQuery.grep(benefits, function( b ) {
+                  if(jQuery.inArray((b.id).toString(), a) !== -1)
+                  {
+                    benef.push(b)
+                  }
+              });
 
-		     				benef.forEach(function(data) {
-		     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-		     					var km = $('#km').val();
-		     					if(km < 1)
-		     					{
-		     						km = 1;
-		     						$('#km').val(1);
-		     					}
-								if(distance <= km)
-								{
-									var contentString = 
-								      '<div class="container">' +
-									    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-									    '<div class="card-body">' +
-									      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-									      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-										  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-									    '</div>' +
-									  '</div>';
+                benef.forEach(function(data) {
+                  var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                  var km = $('#km').val();
+                  if(km < 1)
+                  {
+                    km = 1;
+                    $('#km').val(1);
+                  }
+                if(distance <= km)
+                {
+                  var contentString = 
+                      '<div class="container">' +
+                      '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                      '<div class="card-body">' +
+                        '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                        '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                      '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                      '</div>' +
+                    '</div>';
 
-									var infowindow = new google.maps.InfoWindow({
-									    content: contentString
-									});
-									var marker = new google.maps.Marker({
-							      		position: { lat: data.latitude, lng: data.longitude },
-							      		map: map,
-							      		icon: data.iconmap
-							    	});
-							    	marker.addListener('click', function() {
-							    		if(infowindow)
-							    		{
-							    			infowindow.close();
-							    			infowindow.open(map, marker);
-							    		}
-							    		else
-							    		{
-							    			infowindow.open(map, marker);
-							    		}
-									    
-									});
-							    	markers.push(marker);
+                  var infowindow = new google.maps.InfoWindow({
+                      content: contentString
+                  });
+                  var marker = new google.maps.Marker({
+                        position: { lat: data.latitude, lng: data.longitude },
+                        map: map,
+                        icon: data.iconmap
+                    });
+                    marker.addListener('click', function() {
+                      if(infowindow)
+                      {
+                        infowindow.close();
+                        infowindow.open(map, marker);
+                      }
+                      else
+                      {
+                        infowindow.open(map, marker);
+                      }
+                      
+                  });
+                    markers.push(marker);
 
-							    	var template = [
-							    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-											'<div class="card">',
-												'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-												'<div class="card-body">',
-													'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-													'<p class="box-panel-closest__text">' + data.description +'</p>',
-													'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-												'</div>',
-											'</div>',
-											'<hr>',
-										'</div>'
-									].join("\n");
+                    var template = [
+                      '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                      '<div class="card">',
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                        '<div class="card-body">',
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                          '<p class="box-panel-closest__text">' + data.description +'</p>',
+                          '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                        '</div>',
+                      '</div>',
+                      '<hr>',
+                    '</div>'
+                  ].join("\n");
 
-									$("#box-panel").append(template);
-								}
-						    });
-				        } else if($('#box-' + data.id).not(':checked')) {
-				        	$("div.box-panel2").remove();
-				        	const index = a.indexOf(this.value);
-				        	a.splice(index, 1)
-				        	if(a.length < 1)
-				        	{
-				        		var marker = new google.maps.Marker({
-							      position: pos,
-							      map: map
-							    });
-							    markers.push(marker);
-								benefits.forEach(function(data) {
-									var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-									var km = $('#km').val();
-			     					if(km < 1)
-			     					{
-			     						km = 1;
-			     						$('#km').val(1);
-			     					}
-									if(distance <= km)
-									{
-										var contentString = 
-									      '<div class="container">' +
-										    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-										    '<div class="card-body">' +
-										      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-										      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-											  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-										    '</div>' +
-										  '</div>';
+                  $("#box-panel").append(template);
+                }
+                });
+                } else if($('#box-' + data.id).not(':checked')) {
+                  $("div.box-panel2").remove();
+                  const index = a.indexOf(this.value);
+                  a.splice(index, 1)
+                  if(a.length < 1)
+                  {
+                    var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                  });
+                  markers.push(marker);
+                benefits.forEach(function(data) {
+                  var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                  var km = $('#km').val();
+                    if(km < 1)
+                    {
+                      km = 1;
+                      $('#km').val(1);
+                    }
+                  if(distance <= km)
+                  {
+                    var contentString = 
+                        '<div class="container">' +
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                        '<div class="card-body">' +
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                          '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                        '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                        '</div>' +
+                      '</div>';
 
-										var infowindow = new google.maps.InfoWindow({
-										    content: contentString
-										});
-										var marker = new google.maps.Marker({
-								      		position: { lat: data.latitude, lng: data.longitude },
-								      		map: map,
-								      		icon: data.iconmap
-								    	});
-								    	marker.addListener('click', function() {
-								    		if(infowindow)
-								    		{
-								    			infowindow.close();
-								    			infowindow.open(map, marker);
-								    		}
-								    		else
-								    		{
-								    			infowindow.open(map, marker);
-								    		}
-										    
-										});
-								    	markers.push(marker);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    var marker = new google.maps.Marker({
+                          position: { lat: data.latitude, lng: data.longitude },
+                          map: map,
+                          icon: data.iconmap
+                      });
+                      marker.addListener('click', function() {
+                        if(infowindow)
+                        {
+                          infowindow.close();
+                          infowindow.open(map, marker);
+                        }
+                        else
+                        {
+                          infowindow.open(map, marker);
+                        }
+                        
+                    });
+                      markers.push(marker);
 
-								    	var template = [
-								    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-												'<div class="card">',
-													'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-													'<div class="card-body">',
-														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-													'</div>',
-												'</div>',
-												'<hr>',
-											'</div>'
-										].join("\n");
+                      var template = [
+                        '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                        '<div class="card">',
+                          '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                          '<div class="card-body">',
+                            '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                            '<p class="box-panel-closest__text">' + data.description +'</p>',
+                            '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                          '</div>',
+                        '</div>',
+                        '<hr>',
+                      '</div>'
+                    ].join("\n");
 
-										$("#box-panel").append(template);
-									}
-								});
-				        	}
-				        	else
-				        	{
-				        		$("div.box-panel2").remove();
-			     				deleteMarkers();
-								var marker = new google.maps.Marker({
-							      position: pos,
-							      map: map
-							    });
-							    markers.push(marker);
+                    $("#box-panel").append(template);
+                  }
+                });
+                  }
+                  else
+                  {
+                    $("div.box-panel2").remove();
+                  deleteMarkers();
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                  });
+                  markers.push(marker);
 
-								benef = [];
+                benef = [];
 
-							    jQuery.grep(benefits, function( b ) {
-							    	if(jQuery.inArray((b.id).toString(), a) !== -1)
-							    	{
-							    		benef.push(b)
-							    	}
-								});
+                  jQuery.grep(benefits, function( b ) {
+                    if(jQuery.inArray((b.id).toString(), a) !== -1)
+                    {
+                      benef.push(b)
+                    }
+                });
 
-			     				benef.forEach(function(data) {
-			     					var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
-			     					var km = $('#km').val();
-			     					if(km < 1)
-			     					{
-			     						km = 1;
-			     						$('#km').val(1);
-			     					}
-									if(distance <= km)
-									{
-										var contentString = 
-									      '<div class="container">' +
-										    '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
-										    '<div class="card-body">' +
-										      '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
-										      '<p class="box-panel-closest__text">' + data.description +'</p>' +
-											  '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
-										    '</div>' +
-										  '</div>';
+                  benef.forEach(function(data) {
+                    var distance = calculateDistance(pos.lat, pos.lng, data.latitude, data.longitude);
+                    var km = $('#km').val();
+                    if(km < 1)
+                    {
+                      km = 1;
+                      $('#km').val(1);
+                    }
+                  if(distance <= km)
+                  {
+                    var contentString = 
+                        '<div class="container">' +
+                        '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">' +
+                        '<div class="card-body">' +
+                          '<h5 class="box-panel-closest__title">' + data.name  +'</h5>' +
+                          '<p class="box-panel-closest__text">' + data.description +'</p>' +
+                        '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>' +
+                        '</div>' +
+                      '</div>';
 
-										var infowindow = new google.maps.InfoWindow({
-										    content: contentString
-										});
-										var marker = new google.maps.Marker({
-								      		position: { lat: data.latitude, lng: data.longitude },
-								      		map: map,
-								      		icon: data.iconmap
-								    	});
-								    	marker.addListener('click', function() {
-								    		if(infowindow)
-								    		{
-								    			infowindow.close();
-								    			infowindow.open(map, marker);
-								    		}
-								    		else
-								    		{
-								    			infowindow.open(map, marker);
-								    		}
-										    
-										});
-								    	markers.push(marker);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    var marker = new google.maps.Marker({
+                          position: { lat: data.latitude, lng: data.longitude },
+                          map: map,
+                          icon: data.iconmap
+                      });
+                      marker.addListener('click', function() {
+                        if(infowindow)
+                        {
+                          infowindow.close();
+                          infowindow.open(map, marker);
+                        }
+                        else
+                        {
+                          infowindow.open(map, marker);
+                        }
+                        
+                    });
+                      markers.push(marker);
 
-								    	var template = [
-								    		'<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
-												'<div class="card">',
-													'<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
-													'<div class="card-body">',
-														'<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
-														'<p class="box-panel-closest__text">' + data.description +'</p>',
-														'<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
-													'</div>',
-												'</div>',
-												'<hr>',
-											'</div>'
-										].join("\n");
+                      var template = [
+                        '<div class="col-lg-12 col-sm-4 col-12 my-2 box-panel2">',
+                        '<div class="card">',
+                          '<img class="card-img-top" height="160"  src="data:image/png;base64,' + data.image +'" alt="Card image cap">',
+                          '<div class="card-body">',
+                            '<h5 class="box-panel-closest__title">' + data.name  +'</h5>',
+                            '<p class="box-panel-closest__text">' + data.description +'</p>',
+                            '<a href="../benefit/' + data.id +'" class="btn button-style pull-right">Ver más</a>',
+                          '</div>',
+                        '</div>',
+                        '<hr>',
+                      '</div>'
+                    ].join("\n");
 
-										$("#box-panel").append(template);
-									}
-							    });
-				        	}
-				        }
-					});
-				});
-			});
-      	}, function() {
-        	handleLocationError(true, infoWindow, map.getCenter());
-      	});
+                    $("#box-panel").append(template);
+                  }
+                  });
+                  }
+                }
+          });
+        });
+      });
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
     } 
     else {
-      	// Browser doesn't support Geolocation
-      	handleLocationError(false, infoWindow, map.getCenter());
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     }
 
 
@@ -845,7 +844,7 @@ function deleteMarkers() {
 }
 
 function calculateDistance(lat1, long1, lat2, long2) {
-	var km = 111.302;
+  var km = 111.302;
         
     //1 Grado = 0.01745329 Radianes    
     var degtorad = 0.01745329;
@@ -863,3 +862,4 @@ function calculateDistance(lat1, long1, lat2, long2) {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3O3jpRiWG7XwLYU0YRXS9aCsJJF9OKiw&callback=initMap"
 async defer></script>
+@endsection
