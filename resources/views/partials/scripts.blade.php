@@ -1,6 +1,10 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/typeahead.bundle.js') }}"></script>
-
+<script src="http://localhost/Activos/beneficios/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="http://localhost/Activos/beneficios/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+  CKEDITOR.replace( 'textarea' );
+</script>
 <script>
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },

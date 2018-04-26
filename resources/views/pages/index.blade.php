@@ -82,8 +82,10 @@
 		<div class="title-category">
 			<div class="row">
 				<div class="col-lg-12 d-flex">
+				<a href="{{ route('category', $c->id) }}">
 					<i class="title_category__svg {{ $c->iconweb }} fa-6x"></i>
 					<h3 class="title_category__title">{{ $c->name }}</h3>
+				</a>
 				</div>
 			</div>
 		</div>
