@@ -18,7 +18,7 @@
 				{{ $new->title }} <br>
 				{{ $new->date }} <br>
 				{{ $new->user->name}} <br>
-				{{ $new->text }} <br>
+				{!! $new->text !!} <br>
 			@endif
 		</div>
 	</div>

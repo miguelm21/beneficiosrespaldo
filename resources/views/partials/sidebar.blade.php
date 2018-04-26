@@ -24,6 +24,7 @@
 									<a class="list-group-item" href="{{ url('cmsslider') }}"><i class="fas fa-images" aria-hidden="true"></i> Carrusel</a>
 									<a class="list-group-item" href="{{ url('cmssocialnetworks') }}"><i class="fas fa-address-card" aria-hidden="true"></i> Redes Sociales</a>
 								</div>
+								<a class="list-group-item" href="{{ url('news' )}}"><i class="fas fa-newspaper" aria-hidden="true"></i> Noticias</a>
 								<a class="list-group-item" href="{{ url('categories' )}}"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Categorias</a>
 								<a class="list-group-item" href="{{ url('benefits' )}}"><i class="fas fa-gift" aria-hidden="true"></i> Beneficios</a>
 

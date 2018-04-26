@@ -49,7 +49,7 @@
 								  	@foreach($news as $n)
 								  	<tr>
 								  		<td>{{ $n->title }}</td>
-								  		<td>{{ $n->text }}</td>
+								  		<td>{!! $n->text !!}</td>
 								  		<td align="right">
 											<div class="btn-group">
 												<a href="{{ route('news.edit', $n->id) }}" class="btn btn-info" data-toggle="tooltip" title data-original-title="Editar" type="edit"><i class="fa fa-edit fa-2x"></i></a>

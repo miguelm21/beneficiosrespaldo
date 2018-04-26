@@ -38,18 +38,21 @@
 								<input type="text" name="title" class="form-control form-control-lg section_profile__input" value="{{ $new->title }}">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="Texto">Texto</label>
-								<input type="text" name="text" class="form-control form-control-lg section_profile__input" value="{{ $new->text}}">
+								<label for="Fecha">Fecha</label>
+								<input type="date" name="date" class="form-control form-control-lg section_profile__input" value="{{ $new->date }}">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="Fecha">Fecha</label>
-								<input type="date" name="date" class="form-control form-control-lg section_profile__input" value="{{ $new->date }}">
-							</div>
-							<div class="form-group col-md-6">
 								<label for="Imagen">Imagen</label>
 								<input type="file" name="image" class="form-control form-control-lg section_profile__input" value="{{ $new->image }}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-12">
+								<label for="Texto">Texto</label>
+<!-- 								<textarea name="text" cols="30" rows="10" class="form-control textarea"></textarea> -->
+								{!!Form::textarea('text',null,['class'=>'form-control', 'id' => 'textarea', 'style' => 'resize:none'])!!}
 							</div>
 						</div>
 						<div class="col-12 text-right nopadding">
