@@ -1,0 +1,72 @@
+.blog-father{
+	padding-top: 5%;
+	padding-bottom: 5%;
+	background: #edf0f9;
+
+
+	&__card-blog{
+		background: $color-white;
+		box-shadow: 3px 3px 3px #c1c1c1;
+
+
+		&__container{
+			margin: 0 auto;
+			width: 100%;
+			&__image{
+				width: 100%;
+				max-height: 320px;
+			}
+			&__sticker{
+				position: absolute;
+				bottom: 44px;
+				left: 15px;
+				right: 15px;
+				height: auto;
+				background-color: rgba(19, 63, 109, .8);
+				@include respond(tab-port){
+					bottom: 90px;
+				}
+				@include respond(m-phone){
+					bottom: 67px;
+					width: auto;
+				}
+
+				&__text{
+					font-family: "Monserrat", sans-serif;
+					font-size: $m-size + .45;
+					color: $color-white;
+					padding: 10px;
+					text-decoration: none;
+					@include respond(tab-port){
+						font-size: $m-size - .15;
+					}
+					@include respond(m-phone){
+						font-size: $m-size;
+					}
+				}
+			}
+		}
+
+	}
+
+	&__footer-card{
+		font-family: "Monserrat", sans-serif;
+		font-size: $m-size;
+		background: $color-white;
+		height:auto;
+		padding: 10px 5px;
+
+
+		&__autor{
+			color: $color-grey-dark;
+			font-size: $m-size;
+			text-align: left;
+		}
+
+		&__date{
+			color: $color-grey-dark;
+			font-size: $m-size;
+			text-align: right;
+		}
+	}
+}
