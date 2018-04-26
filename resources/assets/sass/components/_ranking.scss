@@ -6,6 +6,11 @@
     height: 100%;
 }
 
+.a-link{
+    text-decoration: none !important;
+    margin-top: 10px;
+}
+
 
 .card{
     text-align: right;
@@ -16,21 +21,31 @@
 
     .title_category{
 
-        &__title{
-          font-family: 'SuecaSemiBold', sans-serif;
-          font-size: 1.6rem;
-          /* margin: 5rem auto; */
-          text-align: start;
-          margin-left: 5px;
-          vertical-align: middle;
-          margin-top: 1.7%;
-          @include respond(s-phone){
-           margin-top: 6.8%;
-       }
+       a{
+        text-decoration: none;
+        margin-top: 10px;
+    }
 
-   }
+    &__title{
+      font-family: 'SuecaSemiBold', sans-serif;
+      font-size: 1.6rem;
+      /* margin: 5rem auto; */
+      text-align: start;
+      margin-left: 5px;
+      vertical-align: middle;
+      margin-top: 2%;
+      color: $color-secondary;
+      @include respond(s-phone){
+         margin-top: 6.8%;
+     }
 
-   &__svg{
+     @include respond(tab-port){
+         margin-top: 3.7%;
+     }
+
+ }
+
+ &__svg{
     color: $color-white;
     background: $color-primary;
     border-radius: 50px;
@@ -160,13 +175,13 @@
                                                                     }
 
                                                                     & > .ranking-item-back {
-                                                                       display:none;
-                                                                   }
+                                                                     display:none;
+                                                                 }
 
-                                                               }
+                                                             }
 
 
-                                                               .ranking-item {
+                                                             .ranking-item {
 
                                                                 margin-bottom: $s-size;
                                                                 height: 100%;
@@ -227,19 +242,19 @@
 
 
                                                                     &__sticker {
-                                                                       height: 100%;
-                                                                       width: 100%;
-                                                                       position: absolute;
-                                                                       top: 0;
-                                                                       left: 0;
-                                                                       background-image: linear-gradient(
+                                                                     height: 100%;
+                                                                     width: 100%;
+                                                                     position: absolute;
+                                                                     top: 0;
+                                                                     left: 0;
+                                                                     background-image: linear-gradient(
                                                                         to right bottom,
                                                                         rgba($color-secondary, 0.5),
                                                                         rgba($color-secondary, 1));
-                                                                       background-size: cover;
-                                                                       background-position: top;
+                                                                     background-size: cover;
+                                                                     background-position: top;
 
-                                                                       @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+                                                                     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
                                                                         -webkit-clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
                                                                         clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
                                                                     }
@@ -314,7 +329,7 @@
 
                                                                 &__sticker {
                                                                   height: 100%;
-                                                                 width: 100%;
+                                                                  width: 100%;
                                                                   position: absolute;
                                                                   top: 0;
                                                                   left: 0;

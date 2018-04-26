@@ -16,54 +16,54 @@
 					<h3>Pedí tu tarjeta YA!</h3>
 					<!-- <form action="{{ route('closet-benefits') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8"> -->
 						<!-- <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-						<button type="submit" class="hero-section-text__btn btn btn-primary">Cercanos a mí</button> -->
-					<!-- </form> -->
-					<a href="{{ route('closet-benefits') }}" class="hero-section-text__btn btn btn-primary">Cercanos a mí</a>
-				</div>
-				@if($fslider)
-				<div class="carousel-item carousel-father__carousel-item active">
-					<div class="carousel-father__carousel-sticker">
+							<button type="submit" class="hero-section-text__btn btn btn-primary">Cercanos a mí</button> -->
+							<!-- </form> -->
+							<a href="{{ route('closet-benefits') }}" class="hero-section-text__btn btn btn-primary">Cercanos a mí</a>
+						</div>
+						@if($fslider)
+						<div class="carousel-item carousel-father__carousel-item active">
+							<div class="carousel-father__carousel-sticker">
+							</div>
+							<img class="d-block w-100 carousel-father__img-carousel" src="data:image/png;base64, {{ $fslider->image }}" alt="First slide">
+						</div>
+						@else
+						<div class="carousel-item carousel-father__carousel-item active">
+							<div class="carousel-father__carousel-sticker">
+							</div>
+							<img class="d-block w-100 carousel-father__img-carousel" src="img/category/tourism_1.jpg" alt="First slide">
+						</div>
+						@endif
+						@if(!$slider->isEmpty())
+						@foreach($slider as $s)
+						<div class="carousel-item carousel-father__carousel-item">
+							<div class="carousel-father__carousel-sticker">
+							</div>
+							<img class="d-block w-100 carousel-father__img-carousel" src="data:image/png;base64, {{ $s->image }}" alt="Second slide">
+						</div>
+						@endforeach
+						@elseif(!$fslider)
+						<div class="carousel-item carousel-father__carousel-item">
+							<div class="carousel-father__carousel-sticker">
+							</div>
+							<img class="d-block w-100 carousel-father__img-carousel" src="img/category/fashion_1.jpg" alt="Second slide">
+						</div>
+						<div class="carousel-item carousel-father__carousel-item">
+							<div class="carousel-father__carousel-sticker">
+							</div>
+							<img class="d-block w-100 carousel-father__img-carousel" src="img/category/news_1.jpg" alt="Third slide">
+						</div>
+						@endif
 					</div>
-					<img class="d-block w-100 carousel-father__img-carousel" src="data:image/png;base64, {{ $fslider->image }}" alt="First slide">
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
-				@else
-				<div class="carousel-item carousel-father__carousel-item active">
-					<div class="carousel-father__carousel-sticker">
-					</div>
-					<img class="d-block w-100 carousel-father__img-carousel" src="img/category/tourism_1.jpg" alt="First slide">
-				</div>
-				@endif
-				@if(!$slider->isEmpty())
-				@foreach($slider as $s)
-				<div class="carousel-item carousel-father__carousel-item">
-					<div class="carousel-father__carousel-sticker">
-					</div>
-					<img class="d-block w-100 carousel-father__img-carousel" src="data:image/png;base64, {{ $s->image }}" alt="Second slide">
-				</div>
-				@endforeach
-				@elseif(!$fslider)
-				<div class="carousel-item carousel-father__carousel-item">
-					<div class="carousel-father__carousel-sticker">
-					</div>
-					<img class="d-block w-100 carousel-father__img-carousel" src="img/category/fashion_1.jpg" alt="Second slide">
-				</div>
-				<div class="carousel-item carousel-father__carousel-item">
-					<div class="carousel-father__carousel-sticker">
-					</div>
-					<img class="d-block w-100 carousel-father__img-carousel" src="img/category/news_1.jpg" alt="Third slide">
-				</div>
-				@endif
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
 <!-- 	<div class="hero-section">
 		<div class="hero-section-text">
 			<h1>club uno</h1>
@@ -81,11 +81,17 @@
 	<div class="card mt-3">
 		<div class="title-category">
 			<div class="row">
-				<div class="col-lg-12 d-flex">
-				<a href="{{ route('category', $c->id) }}">
-					<i class="title_category__svg {{ $c->iconweb }} fa-6x"></i>
-					<h3 class="title_category__title">{{ $c->name }}</h3>
-				</a>
+				<div class="col-lg-12">
+					<a class="a-link" href="{{ route('category', $c->id) }}">
+						<div class="row my-2">
+							<div class="col-lg-1 col-3 col-sm-2">
+								<i class="title_category__svg {{ $c->iconweb }} fa-6x"></i>
+							</div>
+							<div class="col-lg-11 col-9 col-sm-10">
+								<h3 class="title_category__title">{{ $c->name }}</h3>
+							</div>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -1347,8 +1353,8 @@
 
 	</div>
 </div>
- -->
-	
+-->
+
 <!-- 	<div class="box-index">
 		<div class="mt-5">
 			<div class="card">

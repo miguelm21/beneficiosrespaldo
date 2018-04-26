@@ -13561,6 +13561,11 @@ body {
   height: 100%;
 }
 
+.a-link {
+  text-decoration: none !important;
+  margin-top: 10px;
+}
+
 .card {
   text-align: right;
   border-radius: 1rem;
@@ -13570,6 +13575,11 @@ body {
   border-top: 5px solid #133f6d;
 }
 
+.card .title_category a {
+  text-decoration: none;
+  margin-top: 10px;
+}
+
 .card .title_category__title {
   font-family: 'SuecaSemiBold', sans-serif;
   font-size: 1.6rem;
@@ -13577,12 +13587,19 @@ body {
   text-align: start;
   margin-left: 5px;
   vertical-align: middle;
-  margin-top: 1.7%;
+  margin-top: 2%;
+  color: #00aeef;
 }
 
 @media only screen and (max-width: 22.5em) {
   .card .title_category__title {
     margin-top: 6.8%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .card .title_category__title {
+    margin-top: 3.7%;
   }
 }
 
