@@ -34,6 +34,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $date = date('Y-m-d');
         $facebook = Cms_SocialNetworks::find(1);
         $googleplus = Cms_SocialNetworks::find(2);
         $twitter = Cms_SocialNetworks::find(3);
@@ -49,9 +50,10 @@ class HomeController extends Controller
             $slider = Cms_Slider::get();
         }
         $categories = categories::get();
-        $benefits = Benefits::get();
+        $benefits = Benefits::where('dateend', '>', $date)->get();
+        $newbenefits = Benefits::where('dateend', '>', $date)->orderBy('datestart', 'DESC')->take(10)->get();
 
-        return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits]);
+        return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits, 'newbenefits' => $newbenefits]);
     }
 
     public function login()
@@ -366,7 +368,7 @@ class HomeController extends Controller
         $twitter = Cms_SocialNetworks::find(3);
         $instagram = Cms_SocialNetworks::find(4);
         $categories = categories::get();
-        $benefit = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'benefits.image as image', 'benefits.category_id as category_id', 'categories.iconmap')->where('benefits.id', '=', $id)->first();
+        $benefit = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'benefits.image as image', 'benefits.category_id as category_id', 'categories.iconmap as iconmap', 'categories.iconweb as iconweb')->where('benefits.id', '=', $id)->first();
 
         return view('pages.benefit', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'benefit' => $benefit]);
     }

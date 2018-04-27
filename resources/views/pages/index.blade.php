@@ -1584,6 +1584,27 @@
 <div class="container my-3">
 	<div class="row my-4">
 		<div class="owl-carousel" id="owl-carousel2">
+			@if(!$newbenefits->isEmpty())
+			@foreach($newbenefits as $nb)
+			<div>
+				<div class="card">
+					<div class="card-item">
+						<a href="{{ route('benefit', $nb->id) }}">
+							<div class="card-item__image-container">
+								<img class="card-item__image-container__image img-fluid" src="data:image/png;base64,{{ $nb->image }}" alt="new-{{ $nb->id }}" >
+								<div class="card-item__image-container__sticker">
+									<div class="card-item__image-container__sticker-text">
+										<span>{{ $nb->percent }}%</span>
+									</div>
+								</div>
+							</div>
+							<h4 class="card-item__title">{{ $nb->name }}</h4>
+						</a>
+					</div>
+				</div>
+			</div>
+			@endforeach
+			@else
 			<div>
 				<div class="card">
 					<div class="card-item">
@@ -1703,6 +1724,7 @@
 					</div>
 				</div>
 			</div>
+			@endif
 		</div>
 	</div>
 </div>

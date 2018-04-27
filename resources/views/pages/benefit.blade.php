@@ -17,8 +17,8 @@
       <div class="container benefit-father__container">
         <div class="row py-5">
           <div class="col-lg-3 m-lg-auto d-flex col-sm-5 m-sm-auto col-12">
-            <i class="fas fa-home category-father__icon fa-3x"></i>
-            <h4 class="category-father__title">Beneficios</h4>
+            <i class="{{ $benefit->iconweb }} category-father__icon fa-3x"></i>
+            <h4 class="category-father__title">Beneficio</h4>
           </div>
         </div>
         <div class="col-lg-8 m-lg-auto col-sm-8 m-sm-auto col-12">
@@ -79,29 +79,60 @@ crossorigin="anonymous"></script>
  function initMap() {
   if (navigator.geolocation) {
    navigator.geolocation.getCurrentPosition(function(position) {
+    var benefit = {!! json_encode($benefit) !!}
     var pos = {
      lat: position.coords.latitude,
      lng: position.coords.longitude
    };
+   var distance = calculateDistance(pos.lat, pos.lng, benefit.latitude, benefit.longitude);
 
-   var center = { lat: -32.889459, lng: -68.845839 };
-   map = new google.maps.Map(document.getElementById('map'), {
-     center: pos,
+   if(distance > 1 && distance < 100)
+   {
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: { lat: benefit.latitude, lng: benefit.longitude },
      zoom: 13
-   });
+    });
+   }
+   else if(distance > 100 && distance < 1000)
+   {
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: { lat: benefit.latitude, lng: benefit.longitude },
+     zoom: 8
+    });
+   }
+   else if(distance > 1000 && distance < 5000)
+   {
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: { lat: benefit.latitude, lng: benefit.longitude },
+     zoom: 5
+    });
+   }
+   else if(distance > 5000 && distance < 10000)
+   {
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: { lat: benefit.latitude, lng: benefit.longitude },
+     zoom: 3
+    });
+   }
+   else if(distance > 10000)
+   {
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: { lat: benefit.latitude, lng: benefit.longitude },
+     zoom: 2
+    });
+   }
+   
 
    var marker = new google.maps.Marker({
      position: pos,
      map: map
    });
 
-   var benefit = {!! json_encode($benefit) !!}
-
-   var distance = calculateDistance(pos.lat, pos.lng, benefit.latitude, benefit.longitude);
+   
 
    var contentString = 
-   '<div class="container">Te encuentras a una distancia de ' + distance + 'KM' +
-   '</div>';
+   '<h3>Te encuentras a una distancia de ' + distance + 'KM' +
+   '<h3>';
 
    var infowindow = new google.maps.InfoWindow({
      content: contentString
@@ -128,9 +159,9 @@ crossorigin="anonymous"></script>
 
    var line = new google.maps.Polyline({
      path: [new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(benefit.latitude, benefit.longitude)],
-     strokeColor: "#0000FF",
+     strokeColor: "#133F",
      strokeOpacity: 1.0,
-     strokeWeight: 10,
+     strokeWeight: 5,
      geodesic: true,
      map: map
    });
