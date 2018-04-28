@@ -15184,6 +15184,83 @@ a {
           box-shadow: 3px 3px 3px #c1c1c1;
 }
 
+.article-father {
+  padding: 3% 0;
+  background-color: #edf0f9;
+}
+
+.article-father__btn {
+  font-size: 1.6rem;
+  background: transparent;
+  color: #fff;
+}
+
+.newsbox {
+  min-height: 450px;
+  margin: 20px 20px 0 20px;
+  padding: 25px;
+  -webkit-box-shadow: 0 19px 48px rgba(0, 0, 0, 0.3), 0 15px 32px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 48px rgba(0, 0, 0, 0.3), 0 15px 32px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.newsheader {
+  background-color: whitesmoke;
+  margin: -25px;
+  height: 250px;
+}
+
+.newsheader img {
+  width: 100%;
+  height: 100%;
+}
+
+.newstitle {
+  position: absolute;
+  top: 20px;
+  left: 34.5px;
+  right: 34.5px;
+  color: white;
+  background-color: #133f6d;
+  text-align: right;
+  width: inherit;
+}
+
+.newstitle div {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.newsdate {
+  width: 100%;
+  text-align: right;
+  padding-top: 20px;
+  opacity: 0.6;
+}
+
+.newscontent {
+  margin-top: 20px;
+}
+
+.newscontent h1 {
+  font-family: "Monserrat", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+}
+
+.newsfooter {
+  width: inherit;
+  margin-left: 35px;
+  margin-right: 35px;
+  padding: 10px;
+  background-color: #133f6d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .footer {
   font-family: 'SuecaSemiBold', sans-serif;
   color: #fff;

@@ -6,12 +6,36 @@
 		<div class="row">
 			@if(!$news->isEmpty())
 			@foreach($news as $n)
-			<div class="col-sm-6">
+			<div class="col-sm-6 mt-4">
+				<div class="blog-father__card-blog">
+					<a href="{{ route('article', $n->id) }}">
+						<div class="blog-father__card-blog__container">
+							<img class="blog-father__card-blog__container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="blog-{{ $n->id }}">
+							<div class="blog-father__card-blog__container__sticker">
+								<div class="blog-father__card-blog__container__sticker__text">
+									<span>{{ $n->title }} </span>
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="blog-father__footer-card">
+						<div class="row">
+							<div class="col-lg-6 col-sm-12">
+								<h4 class="news-item__autor">{{ $n->user->name }}</h4>
+							</div>
+							<div class="col-lg-6 col-sm-12">
+								<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+<!-- 			<div class="col-sm-6">
 				<div class="card">
 					<div class="news-item">
 						<a href="{{ route('article', $n->id) }}">
 							<div class="news-item__image-container">
-								<!-- <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
+								 <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > 
 								<img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="blog-{{ $n->id }}">
 								<div class="news-item__image-container__sticker">
 									<div class="news-item__image-container__sticker-text">
@@ -24,7 +48,7 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			@endforeach
 			{!!$news->render()!!}
 			@else
