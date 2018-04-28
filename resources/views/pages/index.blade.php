@@ -1729,53 +1729,67 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-	<h1 class="section__title">Noticias</h1>
-	<hr class="section__title-separator">
-</div>
-
 <div class="container my-3">
 	<div class="row my-4">
 		@if(!$news->isEmpty())
 		@foreach($news as $n)
 		<div class="col-sm-6">
-			<div class="card">
-				<div class="news-item">
-					<a href="{{ route('article', $n->id) }}">
+			<a href="{{ route('article', $n->id) }}">
+				<div class="card">
+					<div class="news-item">
 						<div class="news-item__image-container">
 							<!-- <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
 							<img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="news-{{ $n->id }}">
-							<div class="news-item__image-container__sticker">
-								<div class="news-item__image-container__sticker-text">
-									<span>{{ $n->title }} </span>
-								</div>
-							</div>
 						</div>
+					</div>
+					<div class="news-item__image-container__sticker">
+						<div class="news-item__image-container__sticker-text">
+							<span>{{ $n->title }} </span>
+						</div>
+					</div>
+				</div>
 						<h4 class="news-item__autor">{{ $n->user->name }}</h4>
 						<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
-					</a>
-				</div>
-			</div>
+			</a>
 		</div>
 		@endforeach
-		<a href="{{ route('blog') }}">Ver todas las noticias</a>
 		@else
 		<div class="col-sm-6">
+			<a href="{{ route('article', $n->id) }}">
+				<div class="card">
+					<div class="news-item">
+						<div class="news-item__image-container">
+							<!-- <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
+							<img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="news-{{ $n->id }}">
+						</div>
+					</div>
+					<div class="news-item__image-container__sticker">
+						<div class="news-item__image-container__sticker-text">
+							<span>{{ $n->title }} </span>
+						</div>
+					</div>
+				</div>
+				<h4 class="news-item__autor">{{ $n->user->name }}</h4>
+				<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
+			</a>
+		</div>
+<!-- 
+		<div class="col-sm-6">
 			<div class="card">
 				<div class="news-item">
 					<a href="#">
 						<div class="news-item__image-container">
 							<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
 							<div class="news-item__image-container__sticker">
-								<div class="news-item__image-container__sticker-text">
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
-								</div>
-							</div>
+							</a>
 						</div>
-						<h4 class="news-item__autor">Admin</h4>
-						<h4 class="news-item__date">15/08/2016</h4>
-					</a>
+						<div class="news-item__image-container__sticker-text">
+							<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+						</div>
+					</div>
 				</div>
+				<h4 class="news-item__autor">Admin</h4>
+				<h4 class="news-item__date">15/08/2016</h4>
 			</div>
 		</div>
 
@@ -1815,27 +1829,13 @@
 					</a>
 				</div>
 			</div>
-		</div>
-
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="news-item">
-					<a href="#">
-						<div class="news-item__image-container">
-							<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
-							<div class="news-item__image-container__sticker">
-								<div class="news-item__image-container__sticker-text">
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
-								</div>
-							</div>
-						</div>
-						<h4 class="news-item__autor">Admin</h4>
-						<h4 class="news-item__date">15/08/2016</h4>
-					</a>
-				</div>
-			</div>
-		</div>
+		</div> -->
 		@endif
+	</div>
+	<div class="row">
+		<div class="col-12 box-more">
+			<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
+		</div>
 	</div>
 </div>
 

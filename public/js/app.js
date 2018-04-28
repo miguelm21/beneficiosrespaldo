@@ -21608,7 +21608,7 @@ $('#owl-carousel3').owlCarousel({
 })
 
 //owl navbar bounceInDown
-$('.owl-carousel').owlCarousel({
+$('#owl-carousel-indown').owlCarousel({
   margin: 10,
   loop:false,
   nav:false,
@@ -21621,6 +21621,26 @@ $('.owl-carousel').owlCarousel({
     },
     1000:{
       items:5
+    }
+  }
+})
+
+// article section
+
+$('#owl-carousel-article').owlCarousel({
+  loop:false,
+  margin:10,
+  nav:false,
+  autoHeight:true,
+  responsive:{
+    0:{
+      items:2
+    },
+    600:{
+      items:3
+    },
+    1000:{
+      items:4
     }
   }
 })

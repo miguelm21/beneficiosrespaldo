@@ -185,7 +185,7 @@
 					</div>
 					<ul class="menu">
 						<li>
-							<div class="owl-carousel owl-theme">
+							<div class="owl-carousel owl-theme" id="owl-carousel-indown">
 								@foreach($categories as $c)
 								<div class="item nav-config__hide__item text-center">
 									<a href="{{ route('category', $c->id) }}" class="nav-config__hide__category">{{ $c->name }}</a>
