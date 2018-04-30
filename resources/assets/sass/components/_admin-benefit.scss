@@ -1,0 +1,99 @@
+//Index
+
+.cms-admin-father{
+
+	&__container-title{
+		
+		padding: 30px 0;
+
+		& h4{
+			font-size: 2.8rem;
+			color: $color-secondary;
+			font-weight: 550;
+			// text-transform: uppercase;
+			font-family: 'SuecaSemiBold', sans-serif;
+			text-align: center;
+		}
+	}
+
+	.custom-table{
+		box-shadow: 3px 3px 3px #c1c1c1;
+	}
+	.add-category{
+		font-size: $m-size;
+		background: $color-primary;
+		color: $color-white;
+		margin-bottom: 5px;
+	}
+
+	&__thead-color{
+		background: $color-primary;
+		color: $color-white;
+	}
+}
+
+
+//Create
+
+.select-edit{
+	height: 35px;
+}
+
+.file-edit{
+	height: 35px;
+}
+
+.file-edit:after{
+	height: auto;
+}
+
+.cms-create-father{
+
+	a{
+		text-decoration: none;
+		color: $color-grey-light-2;
+
+		&:hover{
+			color: $color-secondary;
+		}
+	}
+
+	label {
+		font-family: "Montserrat", sams-serif;
+		color: $color-primary;
+		font-weight: 550;
+		font-size: $m-size + .2;
+	}
+	
+	.submit-button{
+		background: $color-primary;
+		color: $color-white;
+		font-size: $m-size;
+		padding: 5px 25px;
+		transition: .3s;
+		border: 2px solid $color-primary;
+		&:hover{
+			background: $color-white;
+			color: $color-primary;
+			border: 2px solid $color-primary;
+		}
+	}
+	.back-button {
+		background: $color-secondary;
+		color: $color-white;
+		font-size: $m-size;
+		padding: 5px 25px;
+		transition: .3s;
+		border: 2px solid $color-secondary;
+		&:hover{
+			background: $color-white;
+			color: $color-secondary;
+			border: 2px solid $color-secondary;
+		}
+
+	}
+}
+
+//Benefits
+
+//Index

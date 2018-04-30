@@ -14,7 +14,22 @@
     background-color: #133F6D;
     padding: 5px;
     margin: 0;
-    button {
+
+    & .col-12{
+        position: relative;
+        top: 20%;
+        font-size: 16px;
+        color: $color-primary;
+        @include respond(m-phone) {
+            top: 20%;
+            font-size: 16px;
+        }
+        @include respond(s-phone) {
+            top: 30%;
+            font-size: 13px;
+        }
+    }
+    a {
         color: $color-primary;
         font-weight: 550;
         background-color: $color-white;
@@ -26,8 +41,8 @@
            height: 10vh;
        }
        @include respond(m-phone) {
-           font-size: $text-size - 3;
-           height: 20vh;
+           font-size: $text-size - 2;
+           height: 100px;
        }
    } 
 }
@@ -348,8 +363,12 @@
 
 }
 
+.dropdown-father3{
+    left: -215px;
+}
+
 .dropdown-father{
-    
+
 
     &__body{
         right:0;
@@ -377,7 +396,7 @@
 
         & option{
             text-align: center !important;
-            background: transparend;
+            background: transparend !important;
             border: 1px solid $color-white;
         }
 

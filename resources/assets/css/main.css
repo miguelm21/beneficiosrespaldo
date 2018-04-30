@@ -5253,6 +5253,95 @@ a {
   color: #133f6d;
 }
 
+.cms-admin-father__container-title {
+  padding: 30px 0;
+}
+
+.cms-admin-father__container-title h4 {
+  font-size: 2.8rem;
+  color: #00aeef;
+  font-weight: 550;
+  font-family: 'SuecaSemiBold', sans-serif;
+  text-align: center;
+}
+
+.cms-admin-father .custom-table {
+  -webkit-box-shadow: 3px 3px 3px #c1c1c1;
+          box-shadow: 3px 3px 3px #c1c1c1;
+}
+
+.cms-admin-father .add-category {
+  font-size: 1.6rem;
+  background: #133f6d;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.cms-admin-father__thead-color {
+  background: #133f6d;
+  color: #fff;
+}
+
+.select-edit {
+  height: 35px;
+}
+
+.file-edit {
+  height: 35px;
+}
+
+.file-edit:after {
+  height: auto;
+}
+
+.cms-create-father a {
+  text-decoration: none;
+  color: #6d6e71;
+}
+
+.cms-create-father a:hover {
+  color: #00aeef;
+}
+
+.cms-create-father label {
+  font-family: "Montserrat", sams-serif;
+  color: #133f6d;
+  font-weight: 550;
+  font-size: 1.8rem;
+}
+
+.cms-create-father .submit-button {
+  background: #133f6d;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 5px 25px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: 2px solid #133f6d;
+}
+
+.cms-create-father .submit-button:hover {
+  background: #fff;
+  color: #133f6d;
+  border: 2px solid #133f6d;
+}
+
+.cms-create-father .back-button {
+  background: #00aeef;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 5px 25px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  border: 2px solid #00aeef;
+}
+
+.cms-create-father .back-button:hover {
+  background: #fff;
+  color: #00aeef;
+  border: 2px solid #00aeef;
+}
+
 .footer {
   font-family: 'SuecaSemiBold', sans-serif;
   color: #fff;
@@ -5367,7 +5456,28 @@ a {
   margin: 0;
 }
 
-.navbar-box-father__col button {
+.navbar-box-father__col .col-12 {
+  position: relative;
+  top: 20%;
+  font-size: 16px;
+  color: #133f6d;
+}
+
+@media only screen and (max-width: 30em) {
+  .navbar-box-father__col .col-12 {
+    top: 20%;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 22.5em) {
+  .navbar-box-father__col .col-12 {
+    top: 30%;
+    font-size: 13px;
+  }
+}
+
+.navbar-box-father__col a {
   color: #133f6d;
   font-weight: 550;
   background-color: #fff;
@@ -5377,16 +5487,16 @@ a {
 }
 
 @media only screen and (max-width: 56.25em) {
-  .navbar-box-father__col button {
+  .navbar-box-father__col a {
     font-size: 2.1rem;
     height: 10vh;
   }
 }
 
 @media only screen and (max-width: 30em) {
-  .navbar-box-father__col button {
-    font-size: 15px;
-    height: 20vh;
+  .navbar-box-father__col a {
+    font-size: 16px;
+    height: 100px;
   }
 }
 
@@ -5711,6 +5821,10 @@ a {
   }
 }
 
+.dropdown-father3 {
+  left: -215px;
+}
+
 .dropdown-father__body {
   right: 0;
   left: auto;
@@ -5738,7 +5852,7 @@ a {
 
 .dropdown-father__select option {
   text-align: center !important;
-  background: transparend;
+  background: transparend !important;
   border: 1px solid #fff;
 }
 
