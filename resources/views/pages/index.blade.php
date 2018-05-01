@@ -1754,26 +1754,6 @@
 		</div>
 		@endforeach
 		@else
-		<!-- <div class="col-sm-6">
-			<a href="#">
-				<div class="card">
-					<div class="news-item">
-						<div class="news-item__image-container">
-							<img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
-							<!-- <img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="news-{{ $n->id }}">
-						</div>
-					</div>
-					<div class="news-item__image-container__sticker">
-						<div class="news-item__image-container__sticker-text">
-							<span>{{ $n->title }} </span>
-						</div>
-					</div>
-				</div>
-				<h4 class="news-item__autor">{{ $n->user->name }}</h4>
-				<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
-			</a>
-		</div>  -->
-
 		<div class="col-sm-6">
 			<div class="card">
 				<div class="news-item">
