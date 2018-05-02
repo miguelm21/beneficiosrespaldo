@@ -5,9 +5,8 @@
 	<div class="row my-1">
 		@include('partials.sidebar')
 		<div class="col-lg-9 col-md-8 col-12 ">
-			<div class="p-3 section_profile">
+			<div class="p-3 cms-admin-father cms-create-father">
 				<div class="container ">
-					<h4>Crear Beneficio</h4>
 					<form action="{{ route('benefits.store') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 						@if(Session::Has('message'))
@@ -23,15 +22,22 @@
 						</div>
 						@endif
 						@if (count($errors) > 0)
-					    <div class="alert alert-danger">
-					        Errores<br><br>
-					        <ul>
-					            @foreach ($errors->all() as $error)
-					            <li>{{ $error }}</li>
-					            @endforeach
-					        </ul>
-					    </div>
-					    @endif
+						<div class="alert alert-danger">
+							Errores<br><br>
+							<ul>
+								@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+						@endif
+						<div class="row">
+							<div class="col-12">
+								<div class="cms-admin-father__container-title">
+									<h4>Crear beneficio</h4>
+								</div>
+							</div>
+						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="Nombre">Nombre</label>
@@ -65,31 +71,36 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="Categoria">Categoria</label>
-								<select name="category_id" class="form-control form-control-lg section_profile__input">
+								<select name="category_id" class="custom-select select-edit">
 									<option value="">Seleccione una Categoria</option>
 									@foreach ($categories as $c)
-										<option value="{{ $c->id}}">{{ $c->name }}</option>
+									<option value="{{ $c->id}}">{{ $c->name }}</option>
 									@endforeach
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<label for="Imagen">Imagen</label>
-								<input type="file" name="image" class="form-control form-control-lg section_profile__input">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
 								<label for="Porcentaje">Porcentaje</label>
 								<input type="text" name="percent" class="form-control form-control-lg section_profile__input">
 							</div>
+							<div class="col-lg-6 col-12 mb-3">
+								<label for="Imagen file-edit">Agregar imagen</label>
+								<div class="custom-file">
+									<input type="file" name="image" class="custom-file-input file-edit" id="inputGroupFile01">
+									<label class="custom-file-label file-edit" for="inputGroupFile01">Agregar</label>
+								</div>
+							</div>
+<!-- 							<div class="form-group col-md-6">
+								<label for="Imagen">Imagen</label>
+								<input type="file" name="image" class="form-control form-control-lg section_profile__input">
+							</div> -->
 							<div class="form-group col-md-6">
 								<label for="Longitud">Palabras Claves</label>
 								<input name="tags" id="tags" placeholder="Agregue una palabra clave" class="form-control form-control-lg section_profile__input" />
 							</div>
 						</div>
 						<div class="col-12 text-right nopadding">
-							<button type="submit" class="btn button-style section_profile__button">Crear</button>
-							<a href="{{ url('/benefits') }}" class="btn button-default">Regresar</a>
+							<button type="submit" class="btn submit-button">Crear</button>
+							<a href="{{ url('/benefits') }}" class="btn back-button">Regresar</a>
 						</div>
 					</form>
 				</div>

@@ -48,7 +48,7 @@
 								<input type="date" name="date" class="form-control form-control-lg section_profile__input">
 							</div>
 						</div>
-						<div class="form-row mb-3">
+						<div class="form-row mb-4">
 							<div class="col-6">
 								<label for="Imagen">Agregar imagen</label>
 								<div class="custom-file">
@@ -64,10 +64,10 @@
 							</div>
 						</div> -->
 						<div class="form-row">
-							<div class="form-group col-md-12">
+							<div class="form-group col-12 col-md-12 col-lg-12">
 								<label for="Texto">Texto</label>
 								<!-- 								<textarea name="text" cols="30" rows="10" class="form-control textarea"></textarea> -->
-								{!!Form::textarea('text',null,['class'=>'form-control', 'id' => 'textarea', 'style' => 'resize:none', ])!!}
+								{!!Form::textarea('text',null,['class'=>'form-control', 'id' => 'textarea', 'style' => 'resize:none', 'rows' => '4' ])!!}
 							</div>
 						</div>
 						<div class="col-12 text-right nopadding">

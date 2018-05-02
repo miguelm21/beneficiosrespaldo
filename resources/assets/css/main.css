@@ -6578,7 +6578,7 @@ input.empty {
 #header-3 .search-box {
   position: absolute;
   right: 48px;
-  top: 15px;
+  top: 20px;
   height: 100%;
   width: auto;
   padding: 0;
@@ -6589,7 +6589,7 @@ input.empty {
 
 #header-3 .search-box .search-input {
   border: 0;
-  width: 90%;
+  width: 95%;
   height: 100%;
   background-color: transparent;
   position: absolute;
@@ -6631,7 +6631,7 @@ input.empty {
 }
 
 #header-3.show .search-box {
-  width: calc(100% - 5em);
+  width: 75%;
   opacity: 1;
   -webkit-transition: all 0.3s 0.3s;
   transition: all 0.3s 0.3s;

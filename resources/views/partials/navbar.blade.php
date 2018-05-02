@@ -92,7 +92,7 @@
 					<div class="navbar-box-father">
 						<div class="row">
 							@foreach($categories as $c)
-							<div class="text-center navbar-box-father__col col-6">
+							<div class="text-center navbar-box-father__col col-6 col-sm-3">
 								<a href="{{ route('category', $c->id) }}" class="btn row">
 									<div class="col-12">
 										<i class="fa-2x {{ $c->iconweb}}"></i>
@@ -149,13 +149,13 @@
 									<div class="col-12">Deco y hogar</div>
 								</button>
 							</div> -->
-							<div class="text-center navbar-box-father__col col-6">
-								<button class="btn row" id="search-navbar">
+							<div class="text-center navbar-box-father__col col-12 col-sm-6">
+								<a class="btn row" id="search-navbar">
 									<div class="col-12">
 										<i class="fa-2x fas fa-search"></i>
 									</div>
 									<div class="col-12">Buscar</div>
-								</button>
+								</a>
 							</div>
 							<div class="navbar-box-father__col col-12">					
 								<input type="search" class="form-control navbar-indown-father__input-search" id="input-search">
@@ -213,7 +213,7 @@
 						</li>
 					</ul>
 					<form action="" class="search-box">
-						<div class="input-group form-inline dropdown-father" id="remote">
+						<div class="input-group form-inline dropdown-father dropdown-father3" id="remote">
 						<div class="form-group ">
 							<select class="form-control dropdown-father__select" id="exampleFormControlSelect1">
 								<option>Seleccione una categoria</option>
