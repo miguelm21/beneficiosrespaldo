@@ -18,6 +18,7 @@ use App\Cms_Slider;
 use App\News;
 use App\Categories;
 use App\Benefits;
+use App\UserBenefits;
 
 class HomeController extends Controller
 {
@@ -52,8 +53,157 @@ class HomeController extends Controller
         $categories = categories::get();
         $benefits = Benefits::where('dateend', '>', $date)->get();
         $newbenefits = Benefits::where('dateend', '>', $date)->orderBy('datestart', 'DESC')->take(10)->get();
+        $morebenefits = Benefits::where('search', '>', 0)->orderBy('search', 'DESC')->take(10)->get();
+        
+        if(Auth::id())
+        {
+            $a = [];
+            $b = [];
+            $c = [];
+            $i = 0;
+            $j = 0;
+            $k = 0;
 
-        return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits, 'newbenefits' => $newbenefits]);
+            foreach($benefits as $be)
+            {
+                $ub = UserBenefits::where('benefit_id', '=', $be->id)->where('user_id', '=', Auth::id())->count();
+                if($ub == 1)
+                {
+                    $a[$i]['id'] = $be->id;
+                    $a[$i]['name'] = $be->name;
+                    $a[$i]['description'] = $be->description;
+                    $a[$i]['datestart'] = $be->datestart;
+                    $a[$i]['dateend'] = $be->dateend;
+                    $a[$i]['latitude'] = $be->latitude;
+                    $a[$i]['longitude'] = $be->longitude;
+                    $a[$i]['image'] = $be->image;
+                    $a[$i]['mime'] = $be->mime;
+                    $a[$i]['size'] = $be->size;
+                    $a[$i]['percent'] = $be->percent;
+                    $a[$i]['keywords'] = $be->keywords;
+                    $a[$i]['search'] = $be->search;
+                    $a[$i]['bookmark'] = 1;
+                    $a[$i]['category_id'] = $be->category_id;
+                    $i++;
+                }
+                elseif($ub == 0)
+                {
+                    $a[$i]['id'] = $be->id;
+                    $a[$i]['name'] = $be->name;
+                    $a[$i]['description'] = $be->description;
+                    $a[$i]['datestart'] = $be->datestart;
+                    $a[$i]['dateend'] = $be->dateend;
+                    $a[$i]['latitude'] = $be->latitude;
+                    $a[$i]['longitude'] = $be->longitude;
+                    $a[$i]['image'] = $be->image;
+                    $a[$i]['mime'] = $be->mime;
+                    $a[$i]['size'] = $be->size;
+                    $a[$i]['percent'] = $be->percent;
+                    $a[$i]['keywords'] = $be->keywords;
+                    $a[$i]['search'] = $be->search;
+                    $a[$i]['bookmark'] = 0;
+                    $a[$i]['category_id'] = $be->category_id;
+                    $i++;
+                }
+            }
+
+            foreach($newbenefits as $nb)
+            {
+                $ub = UserBenefits::where('benefit_id', '=', $nb->id)->where('user_id', '=', Auth::id())->count();
+                if($ub == 1)
+                {
+                    $b[$j]['id'] = $nb->id;
+                    $b[$j]['name'] = $nb->name;
+                    $b[$j]['description'] = $nb->description;
+                    $b[$j]['datestart'] = $nb->datestart;
+                    $b[$j]['dateend'] = $nb->dateend;
+                    $b[$j]['latitude'] = $nb->latitude;
+                    $b[$j]['longitude'] = $nb->longitude;
+                    $b[$j]['image'] = $nb->image;
+                    $b[$j]['mime'] = $nb->mime;
+                    $b[$j]['size'] = $nb->size;
+                    $b[$j]['percent'] = $nb->percent;
+                    $b[$j]['keywords'] = $nb->keywords;
+                    $b[$j]['search'] = $nb->search;
+                    $b[$j]['bookmark'] = 1;
+                    $b[$j]['category_id'] = $nb->category_id;
+                    $j++;
+                }
+                elseif($ub == 0)
+                {
+                    $b[$j]['id'] = $nb->id;
+                    $b[$j]['name'] = $nb->name;
+                    $b[$j]['description'] = $nb->description;
+                    $b[$j]['datestart'] = $nb->datestart;
+                    $b[$j]['dateend'] = $nb->dateend;
+                    $b[$j]['latitude'] = $nb->latitude;
+                    $b[$j]['longitude'] = $nb->longitude;
+                    $b[$j]['image'] = $nb->image;
+                    $b[$j]['mime'] = $nb->mime;
+                    $b[$j]['size'] = $nb->size;
+                    $b[$j]['percent'] = $nb->percent;
+                    $b[$j]['keywords'] = $nb->keywords;
+                    $b[$j]['search'] = $nb->search;
+                    $b[$j]['bookmark'] = 0;
+                    $b[$j]['category_id'] = $nb->category_id;
+                    $j++;
+                }
+            }
+
+            foreach($morebenefits as $mb)
+            {
+                $ub = UserBenefits::where('benefit_id', '=', $mb->id)->where('user_id', '=', Auth::id())->count();
+                if($ub == 1)
+                {
+                    $c[$k]['id'] = $mb->id;
+                    $c[$k]['name'] = $mb->name;
+                    $c[$k]['description'] = $mb->description;
+                    $c[$k]['datestart'] = $mb->datestart;
+                    $c[$k]['dateend'] = $mb->dateend;
+                    $c[$k]['latitude'] = $mb->latitude;
+                    $c[$k]['longitude'] = $mb->longitude;
+                    $c[$k]['image'] = $mb->image;
+                    $c[$k]['mime'] = $mb->mime;
+                    $c[$k]['size'] = $mb->size;
+                    $c[$k]['percent'] = $mb->percent;
+                    $c[$k]['keywords'] = $mb->keywords;
+                    $c[$k]['search'] = $mb->search;
+                    $c[$k]['bookmark'] = 1;
+                    $c[$k]['category_id'] = $mb->category_id;
+                    $k++;
+                }
+                elseif($ub == 0)
+                {
+                    $c[$k]['id'] = $mb->id;
+                    $c[$k]['name'] = $mb->name;
+                    $c[$k]['description'] = $mb->description;
+                    $c[$k]['datestart'] = $mb->datestart;
+                    $c[$k]['dateend'] = $mb->dateend;
+                    $c[$k]['latitude'] = $mb->latitude;
+                    $c[$k]['longitude'] = $mb->longitude;
+                    $c[$k]['image'] = $mb->image;
+                    $c[$k]['mime'] = $mb->mime;
+                    $c[$k]['size'] = $mb->size;
+                    $c[$k]['percent'] = $mb->percent;
+                    $c[$k]['keywords'] = $mb->keywords;
+                    $c[$k]['search'] = $mb->search;
+                    $c[$k]['bookmark'] = 0;
+                    $c[$k]['category_id'] = $mb->category_id;
+                    $k++;
+                }
+            }
+            
+            $benefits = collect($a);
+            $newbenefits = collect($b);
+            $morebenefits = collect($c);
+            
+            return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits, 'newbenefits' => $newbenefits, 'morebenefits' => $morebenefits]);
+        }
+        else
+        {
+            return view('pages.index', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'news' => $news, 'fslider' => $fslider, 'slider' => $slider, 'categories' => $categories, 'benefits' => $benefits, 'newbenefits' => $newbenefits, 'morebenefits' => $morebenefits]);
+        }
+        
     }
 
     public function login()
@@ -344,8 +494,9 @@ class HomeController extends Controller
         $instagram = Cms_SocialNetworks::find(4);
         $categories = categories::get();
         $new = News::findOrFail($id);
+        $news = News::take(5)->get();
 
-        return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new]);
+        return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new, 'news' => $news]);
     }
 
     public function category($id)
@@ -371,6 +522,19 @@ class HomeController extends Controller
         $benefit = Benefits::join('categories', 'benefits.category_id', '=', 'categories.id')->select('benefits.id as id', 'benefits.name as name', 'benefits.description as description', 'benefits.latitude as latitude', 'benefits.longitude as longitude', 'benefits.image as image', 'benefits.category_id as category_id', 'categories.iconmap as iconmap', 'categories.iconweb as iconweb')->where('benefits.id', '=', $id)->first();
 
         return view('pages.benefit', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'benefit' => $benefit]);
+    }
+
+    public function search(Request $request)
+    {
+        $date = date('Y-m-d');
+        $search = $request->name;
+        $facebook = Cms_SocialNetworks::find(1);
+        $googleplus = Cms_SocialNetworks::find(2);
+        $twitter = Cms_SocialNetworks::find(3);
+        $instagram = Cms_SocialNetworks::find(4);
+        $categories = categories::get();
+        $benefits = Benefits::where('name', '=', $request->name)->where('dateend', '>', $date)->get();
+        return view('pages.search', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'benefits' => $benefits, 'search' => $search]);
     }
 
     public function getDistance($lat1, $long1, $lat2, $long2)

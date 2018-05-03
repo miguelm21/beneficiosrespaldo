@@ -26,6 +26,7 @@ class CreateBenefitsTable extends Migration
             $table->integer('size');
             $table->float('percent');
             $table->string('keywords');
+            $table->integer('search')->default(0);
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

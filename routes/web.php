@@ -29,6 +29,12 @@ Route::get('blog', array('as' => 'blog', 'uses' => 'HomeController@blog'));
 Route::get('article/{article}', array('as' => 'article', 'uses' => 'HomeController@article'));
 Route::get('category/{id}', array('as' => 'category', 'uses' => 'HomeController@category'));
 Route::get('benefit/{id}', array('as' => 'benefit', 'uses' => 'HomeController@benefit'));
+Route::post('search', array('as' => 'search', 'uses' => 'HomeController@search'));
+
+Route::post('postsearch', array('as' => 'postsearch', 'uses' => 'BenefitsController@postsearch'));
+Route::post('postbenefit', array('as' => 'postbenefit', 'uses' => 'BenefitsController@postbenefit'));
+Route::get('unpostbenefit/{id}', array('as' => 'unpostbenefit', 'uses' => 'BenefitsController@unpostbenefit'));
+
 Route::get('getBenefits.json', array('as' => 'getBenefits.json', 'uses' => 'BenefitsController@getBenefits'));
 
 Route::get('{id}/getBenefits.json', array('as' => '{id}/getBenefits.json', 'uses' => 'BenefitsController@getBenefitsId'));
@@ -40,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', 'CategoriesController');
     Route::resource('cmssocialnetworks', 'Cms_SocialNetworksController');
     Route::resource('cmsslider', 'Cms_SliderController');
+
+    Route::resource('userbenefits', 'UserBenefitsController');
 
     Route::get('editprofile/{id}', array('as' => 'editprofile', 'uses' => 'HomeController@editprofile'));
     Route::get('editpassword', array('as' => 'editpassword', 'uses' => 'HomeController@editpassword'));

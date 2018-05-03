@@ -15,6 +15,7 @@ use App\User;
 use App\Categories;
 use App\Cms_SocialNetworks;
 use App\Benefits;
+use App\UserBenefits;
 
 class BenefitsController extends Controller
 {
@@ -180,6 +181,36 @@ class BenefitsController extends Controller
         $benefit->delete();
 
         return redirect('/benefits')->with('message','Beneficio Eliminado');
+    }
+
+    public function postsearch()
+    {
+        $id = $_POST['benefit'];
+
+        $benefit = Benefits::findOrFail($id);
+        $benefit->search = $benefit->search + 1;
+        $benefit->save();
+    }
+
+    public function postbenefit(Request $request)
+    {
+        $id = $request->benefit;
+        $user = Auth::id();
+        $benefit = new UserBenefits;
+        $benefit->benefit_id = $id;
+        $benefit->user_id = $user;
+        $benefit->save();
+
+        return redirect()->back();
+    }
+
+    public function unpostbenefit($id)
+    {
+        $user = Auth::id();
+        $benefit = UserBenefits::where('benefit_id', '=', $id)->where('user_id', '=', $user)->first();
+        $benefit->delete();
+
+        return redirect()->back();
     }
 
     public function getBenefits()

@@ -54,56 +54,71 @@
 							</div>
 						</div>
 						<div class="owl-carousel owl-theme" id="owl-carousel-article">
-							<div class="item text-center article-father__carousel__body">
-								<a href="">
-									<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
-									<div class="card-body">
-										<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
-										
-										<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+							@if(!$news->isEmpty())
+								@foreach($news as $ns)
+									<div class="item text-center article-father__carousel__body">
+										<a href="">
+											<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $ns->image }}" alt="new-{{ $ns->id }}">
+											<div class="card-body">
+												<h3 class="article-father__carousel__body__title">{{ $ns->title }}</h3>
+												
+												<p class="card-text"><small class="text-muted">{{ $ns->date }}</small></p>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-							<div class="item text-center article-father__carousel__body">
-								<a href="">
-									<img class="article-father__carousel__body__image img-fluid" src="{{asset('img/category/tourism_1.jpg')}}" alt="">
-									<div class="card-body">
-										<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
-										
-										<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
-									</div>
-								</a>
-							</div>
-							<div class="item text-center article-father__carousel__body">
-								<a href="">
-									<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
-									<div class="card-body">
-										<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
-										
-										<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
-									</div>
-								</a>
-							</div>
-							<div class="item text-center article-father__carousel__body">
-								<a href="">
-									<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
-									<div class="card-body">
-										<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
-										
-										<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
-									</div>
-								</a>
-							</div>
-							<div class="item text-center article-father__carousel__body">
-								<a href="">
-									<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
-									<div class="card-body">
-										<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
-										
-										<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
-									</div>
-								</a>
-							</div>
+								@endforeach
+							@else
+								<div class="item text-center article-father__carousel__body">
+									<a href="">
+										<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
+										<div class="card-body">
+											<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
+											
+											<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+										</div>
+									</a>
+								</div>
+								<div class="item text-center article-father__carousel__body">
+									<a href="">
+										<img class="article-father__carousel__body__image img-fluid" src="{{asset('img/category/tourism_1.jpg')}}" alt="">
+										<div class="card-body">
+											<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
+											
+											<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+										</div>
+									</a>
+								</div>
+								<div class="item text-center article-father__carousel__body">
+									<a href="">
+										<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
+										<div class="card-body">
+											<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
+											
+											<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+										</div>
+									</a>
+								</div>
+								<div class="item text-center article-father__carousel__body">
+									<a href="">
+										<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
+										<div class="card-body">
+											<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
+											
+											<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+										</div>
+									</a>
+								</div>
+								<div class="item text-center article-father__carousel__body">
+									<a href="">
+										<img class="article-father__carousel__body__image img-fluid" src="data:image/png;base64, {{ $new->image }}" alt="article-{{ $new->id }}">
+										<div class="card-body">
+											<h3 class="article-father__carousel__body__title">{{ $new->title }}</h3>
+											
+											<p class="card-text"><small class="text-muted">{{ $new->date }}</small></p>
+										</div>
+									</a>
+								</div>
+							@endif
 						</div>
 					</div>
 				</div>

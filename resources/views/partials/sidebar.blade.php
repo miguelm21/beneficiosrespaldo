@@ -41,6 +41,8 @@
 									<a class="list-group-item" href="">Level 2 Link</a>
 									<a class="list-group-item" href="">Level 2 Link</a>
 								</div> -->
+							@else
+								<a class="list-group-item" href="{{ url('userbenefits' )}}"><i class="fas fa-newspaper" aria-hidden="true"></i> Mis Beneficios</a>
 							@endif
 						</div>
 					</nav>

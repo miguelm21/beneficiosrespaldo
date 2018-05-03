@@ -125,4 +125,40 @@ $('#selectCategory').on('change', function(){
     	}
     });
 </script>
+<script>
+  $('#benefit').on('click', function(){
 
+    var benefit = $(this).attr('name');
+    
+    $.ajax({
+        url: 'postsearch',
+        type: 'post',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: { 'benefit' : benefit },
+        success: function(data){
+          
+      }
+    });
+    
+  })
+</script>
+<script>
+  $('#bookmark').on('click', function(){
+    var benefit = $(this).attr('name');
+
+    $.ajax({
+        url: 'postbenefit',
+        type: 'post',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: { 'benefit' : benefit },
+        success: function(data){
+          
+      }
+    });
+
+  });
+</script>

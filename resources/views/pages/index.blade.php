@@ -97,12 +97,12 @@
 		</div>
 		<div class="owl-carousel" id="owl-carousel22">
 			@foreach($benefits as $b)
-			@if($c->id == $b->category_id)
+			@if($c->id == $b['category_id'])
 			<div class="ranking-item-father">
 				<div class="ranking-item">
-					<a href="{{ route('benefit', $b->id) }}">
+					<a href="{{ route('benefit', $b['id']) }}">
 						<div class="ranking-item__image-container">
-							<img class="ranking-item__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="1" >
+							<img class="ranking-item__image-container__image" src="data:image/png;base64, {{ $b['image'] }}" alt="1" >
 							<div class="ranking-item__image-container__sticker">
 								<div class="ranking-item__image-container__sticker-text">
 									<span>{{ $c->percent }}</span>
@@ -112,17 +112,30 @@
 					</a>
 				</div>
 				<div class="ranking-item-back">
-					<a href="{{ route('benefit', $b->id) }}">
+					<a href="{{ route('benefit', $b['id']) }}">
 						<div class="ranking-item-back__image-container">
-							<img class="ranking-item-back__image-container__image" src="data:image/png;base64, {{ $b->image }}" alt="gastro-1" >
+							<img class="ranking-item-back__image-container__image" src="data:image/png;base64, {{ $b['image'] }}" alt="gastro-1" >
 							<div class="ranking-item-back__image-container__sticker">
 								<div class="ranking-item-back__image-container__sticker-text">
-									<span>{{ $b->name }}</span>
+									<span>{{ $b['name'] }}</span>
 								</div>
 							</div>
 						</div>
 					</a>
 				</div>
+				@if(Auth::id())
+					@if($b['bookmark'] == 1)
+					<a href="{{ route('unpostbenefit', $b['id']) }}">
+						<i id="bookmark" name="{{ $b['id'] }}" class="fas fa-bookmark"></i>
+					</a>
+					@elseif($b['bookmark'] == 0)
+					<form action="{{ route('postbenefit') }}" method="POST">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="hidden" name="benefit" value="{{ $b['id'] }}">
+						<button type="submit"><i class="far fa-bookmark"></i></button>
+					</form>
+					@endif
+				@endif
 			</div>
 			@endif
 			@endforeach
@@ -1479,6 +1492,39 @@
 <div class="container mt-4">
 	<div class="carousel-container mt-5">
 		<div id="slider-carousel" class="owl-carousel">
+			@if(!$morebenefits->isEmpty())
+				@foreach($morebenefits as $mb)
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img class="img-shop" src="data:image/png;base64,{{ $mb['image'] }}">
+						</a>
+
+						<div class="box-description">
+							<p>{{ $mb['name'] }}</p>
+						</div>
+						@if(Auth::id())
+							@if($mb['bookmark'] == 1)
+							<a href="{{ route('unpostbenefit', $mb['id']) }}">
+								<i id="bookmark" name="{{ $mb['id'] }}" class="fas fa-bookmark"></i>
+							</a>
+							@elseif($mb['bookmark'] == 0)
+							<form action="{{ route('postbenefit') }}" method="POST">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" name="benefit" value="{{ $mb['id'] }}">
+								<button type="submit"><i class="far fa-bookmark"></i></button>
+							</form>
+							@endif
+						@endif
+						<!-- <div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div> -->
+					</div>
+				@endforeach
+			@else
 			<div class="item item-edit shops__container">
 				<a class="hoverfx" href="#">
 					<div class="overlay">
@@ -1570,6 +1616,7 @@
 					</ul>
 				</div>
 			</div>
+			@endif
 		</div>
 
 	</div>
@@ -1589,19 +1636,32 @@
 			<div>
 				<div class="card">
 					<div class="card-item">
-						<a href="{{ route('benefit', $nb->id) }}">
+						<a href="{{ route('benefit', $nb['id']) }}">
 							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="data:image/png;base64,{{ $nb->image }}" alt="new-{{ $nb->id }}" >
+								<img class="card-item__image-container__image img-fluid" src="data:image/png;base64,{{ $nb['image'] }}" alt="new-{{ $nb['id'] }}" >
 								<div class="card-item__image-container__sticker">
 									<div class="card-item__image-container__sticker-text">
-										<span>{{ $nb->percent }}%</span>
+										<span>{{ $nb['percent'] }}%</span>
 									</div>
 								</div>
 							</div>
-							<h4 class="card-item__title">{{ $nb->name }}</h4>
+							<h4 class="card-item__title">{{ $nb['name'] }}</h4>
 						</a>
 					</div>
 				</div>
+				@if(Auth::id())
+					@if($nb['bookmark'] == 1)
+					<a href="{{ route('unpostbenefit', $nb['id']) }}">
+						<i id="bookmark" name="{{ $nb['id'] }}" class="fas fa-bookmark"></i>
+					</a>
+					@elseif($nb['bookmark'] == 0)
+					<form action="{{ route('postbenefit') }}" method="POST">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="hidden" name="benefit" value="{{ $nb['id'] }}">
+						<button type="submit"><i class="far fa-bookmark"></i></button>
+					</form>
+					@endif
+				@endif
 			</div>
 			@endforeach
 			@else
