@@ -21539,7 +21539,7 @@ $(document).ready(function(){
 
 // OWL CAROUSEL
 
-$('#owl-carousel2, #owl-carousel22').owlCarousel({
+$('#owl-carousel22, owl-carousel2').owlCarousel({
   loop:false,
   margin:10,
   responsiveClass:true,
@@ -21572,6 +21572,39 @@ $('#owl-carousel2, #owl-carousel22').owlCarousel({
   }
 })
 
+$('#owl-newbenefits').owlCarousel({
+  loop:false,
+  margin:10,
+  responsiveClass:true,
+  responsive:{
+    0:{
+      items:1,
+      nav:false
+    },
+    400:{
+      items:1,
+      margin: 25,
+      nav:false
+    },
+    600:{
+      items:3,
+      nav:false,
+      autoplay:false,
+    },
+    1000:{
+      items:4,
+      nav:false,
+      loop:false,
+      autoplay:false,
+    },
+    1200:{
+      items:4,
+      nav:false,
+      loop:false,
+      autoplay:false,
+    }
+  }
+})
 //owl navbar-category
 
 $('#owl-carousel3').owlCarousel({
@@ -21635,6 +21668,25 @@ $('#owl-carousel-article').owlCarousel({
   responsive:{
     0:{
       items:2
+    },
+    600:{
+      items:3
+    },
+    1000:{
+      items:4
+    }
+  }
+})
+
+//owl-search
+
+$('#owl-search').owlCarousel({
+  loop:false,
+  margin:10,
+  nav:false,
+  responsive:{
+    0:{
+      items:1
     },
     600:{
       items:3

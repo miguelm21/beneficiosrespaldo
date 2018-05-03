@@ -5,31 +5,29 @@
 
 
 	&__card-blog{
+		position: relative;
 		background: $color-white;
 		box-shadow: 3px 3px 3px #c1c1c1;
 
 
 		&__container{
-			margin: 0 auto;
-			width: 100%;
+
 			&__image{
-				width: 100%;
+				max-width: 100%;
 				max-height: 320px;
+				display:block;
+				margin:auto;
+				@include respond(tab-port){
+					max-height: 250px;
+				}
 			}
 			&__sticker{
 				position: absolute;
-				bottom: 44px;
-				left: 15px;
-				right: 15px;
+				bottom: 0;
+				left: 0;
+				right: 0;
 				height: auto;
 				background-color: rgba(19, 63, 109, .8);
-				@include respond(tab-port){
-					bottom: 90px;
-				}
-				@include respond(m-phone){
-					bottom: 67px;
-					width: auto;
-				}
 
 				&__text{
 					font-family: "Monserrat", sans-serif;

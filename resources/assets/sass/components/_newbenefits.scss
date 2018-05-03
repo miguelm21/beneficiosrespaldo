@@ -1,7 +1,5 @@
 .card-item {
 
-    margin-bottom: $s-size;
-
     & a:hover .card-item__title {
         color: $color-primary;
     }
@@ -26,7 +24,16 @@
 
     &__image-container {
         position: relative;
-    
+        margin: 0 auto;
+        img{
+            max-height: 150px;
+            max-width: 100%;
+            margin: auto;
+            @include respond(m-phone){
+                max-height: 200px;
+            }
+        }
+        
         &__sticker {
             height: 100%;
             width: 100%;
@@ -34,17 +41,17 @@
             top: 0;
             left: 0;
             background-image: linear-gradient(
-            to right bottom,
-            rgba($color-secondary, 0.5),
-            rgba($color-secondary, 1));
+                to right bottom,
+                rgba($color-secondary, 0.5),
+                rgba($color-secondary, 1));
             background-size: cover;
             background-position: top;
-                
+            
             @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+                -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+                clip-path: polygon(100% 0, 100% 100%, 0 100%);
             }
-    
+            
             &-text {
                 @include absCenterCustom(40%, -50%);
                 color: $color-white;
@@ -67,4 +74,5 @@
 
 .owl-stage-outer {
     padding-bottom: 10px;
+    margin: auto 15px;
 }

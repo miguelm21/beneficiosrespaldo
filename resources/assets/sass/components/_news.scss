@@ -42,7 +42,11 @@
     &__image{
         max-width: 100%;
         height: auto;
-        max-height: 401px;
+        max-height: 290px;
+
+        @include respond(tab-port){
+            max-height: 250px;
+        }
     }
 
     &__sticker {
@@ -71,7 +75,7 @@
             width: 100%;
             height: 35%;
             padding: 10px;
-
+            text-align: left;
             @include respond(big-desktop) {
                 font-size: $m-size*1.5;
             }
@@ -92,3 +96,4 @@
         color: $color-white;
     }
 }
+

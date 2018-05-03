@@ -2,50 +2,50 @@
     animation: moveInBottom 1s ease-in-out;
 }
 
-.owl-carousel .owl-item img{
-    height: 100%;
-}
+// .owl-carousel .owl-item img{
+    //     height: 100%;
+    // }
 
-.a-link{
-    text-decoration: none !important;
-    margin-top: 10px;
-}
-
-
-.card{
-    text-align: right;
-    border-radius: 1rem;
-    box-shadow: 0px 2px 5px 0.5px #e9ecef;
-    border: none;
-    border-top: 5px solid $color-primary;
-
-    .title_category{
-
-       a{
-        text-decoration: none;
+    .a-link{
+        text-decoration: none !important;
         margin-top: 10px;
     }
 
-    &__title{
-      font-family: 'SuecaSemiBold', sans-serif;
-      font-size: 1.6rem;
-      /* margin: 5rem auto; */
-      text-align: start;
-      margin-left: 5px;
-      vertical-align: middle;
-      margin-top: 2%;
-      color: $color-secondary;
-      @include respond(s-phone){
-         margin-top: 6.8%;
-     }
 
-     @include respond(tab-port){
-         margin-top: 3.7%;
-     }
+    .card{
+        text-align: right;
+        border-radius: 1rem;
+        box-shadow: 0px 2px 5px 0.5px #e9ecef;
+        border: none;
+        border-top: 5px solid $color-primary;
 
- }
+        .title_category{
 
- &__svg{
+         a{
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        &__title{
+          font-family: 'SuecaSemiBold', sans-serif;
+          font-size: 1.6rem;
+          /* margin: 5rem auto; */
+          text-align: start;
+          margin-left: 5px;
+          vertical-align: middle;
+          margin-top: 2%;
+          color: $color-secondary;
+          @include respond(s-phone){
+           margin-top: 6.8%;
+       }
+
+       @include respond(tab-port){
+           margin-top: 3.7%;
+       }
+
+   }
+
+   &__svg{
     color: $color-white;
     background: $color-primary;
     border-radius: 50px;
@@ -139,9 +139,7 @@
                                             }
 
                                             & > .ranking-item, & > .ranking-item-back {
-                                                width: 95%;
-                                                max-width: 220px;
-                                                margin: 0 auto;
+                                                width: 100%;
                                                 transition: .3s ease;
                                                 display: block;
                                                 height: 100%;
@@ -175,13 +173,13 @@
                                                                     }
 
                                                                     & > .ranking-item-back {
-                                                                     display:none;
-                                                                 }
+                                                                       display:none;
+                                                                   }
 
-                                                             }
+                                                               }
 
 
-                                                             .ranking-item {
+                                                               .ranking-item {
 
                                                                 margin-bottom: $s-size;
                                                                 height: 100%;
@@ -232,29 +230,35 @@
 
                                                                 &__image-container {
                                                                     position: relative;
-                                                                    width: 95%;
+                                                                    width: 100%;
                                                                     margin: 0 auto;
 
                                                                     &__image{
-                                                                        height: 100%;
-                                                                        width: 100%;
+                                                                        max-height: 145px;
+                                                                        @include respond(tab-port){
+                                                                            max-height: 125px;
+                                                                        }
+                                                                        @include respond(m-phone){
+                                                                            max-height: 180px;
+                                                                        }
+                                                                        
                                                                     }
 
 
                                                                     &__sticker {
-                                                                     height: 100%;
-                                                                     width: 100%;
-                                                                     position: absolute;
-                                                                     top: 0;
-                                                                     left: 0;
-                                                                     background-image: linear-gradient(
+                                                                       height: 100%;
+                                                                       width: 100%;
+                                                                       position: absolute;
+                                                                       top: 0;
+                                                                       left: 0;
+                                                                       background-image: linear-gradient(
                                                                         to right bottom,
                                                                         rgba($color-secondary, 0.5),
                                                                         rgba($color-secondary, 1));
-                                                                     background-size: cover;
-                                                                     background-position: top;
+                                                                       background-size: cover;
+                                                                       background-position: top;
 
-                                                                     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+                                                                       @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
                                                                         -webkit-clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
                                                                         clip-path: polygon(50% 0, 100% 0, 100% 85% ,90% 100%, 50% 100%);
                                                                     }
@@ -287,9 +291,9 @@
                                                         }
 
                                                         .ranking-item-back {
-                                                            width: 95%;
+                                                            width: 100%;
                                                             margin-bottom: $s-size;
-                                                            height: 100%;
+                                                            // height: 100%;
 
                                                             @include respond(big-desktop) {
                                                                 height: 15rem;
@@ -322,9 +326,20 @@
                                                             }
 
                                                             &__image-container {
-                                                                width: 95%;
+                                                                height: 100%;
                                                                 max-width: 100%;
-                                                                margin: 0 auto;
+
+                                                                &__image{
+                                                                    max-height: 145px;
+                                                                    @include respond(m-phone){
+                                                                        max-height: 180px;
+                                                                    }
+                                                                    @include respond(tab-port){
+                                                                        max-height: 125px;
+                                                                    }
+                                                                }
+                                                                
+                                                                // margin: 0 auto;
 
 
                                                                 &__sticker {
@@ -337,8 +352,8 @@
                                                                     to right bottom,
                                                                     rgba($color-secondary, 0.5),
                                                                     rgba($color-secondary, 1));
-                                                                  background-size: cover;
-                                                                  background-position: top;
+                                                                  // background-size: cover;
+                                                                  // background-position: top;
 
                                                                   @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
                                                                     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85% ,90% 100%, 0 100%);

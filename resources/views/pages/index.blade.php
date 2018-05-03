@@ -1491,7 +1491,7 @@
 <!-- Most searched sites -->
 <div class="container mt-4">
 	<div class="carousel-container mt-5">
-		<div id="slider-carousel" class="owl-carousel">
+		<div id="owl-search" class="owl-carousel">
 			@if(!$morebenefits->isEmpty())
 				@foreach($morebenefits as $mb)
 					<div class="item item-edit shops__container">

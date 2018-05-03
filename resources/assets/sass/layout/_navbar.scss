@@ -4,6 +4,7 @@
     display: block;
     background-color: #133F6D;
     padding: 8px;
+    
     @include respond (ipad-pro){
         display: none;
     }
@@ -33,13 +34,13 @@
         color: $color-primary;
         font-weight: 550;
         background-color: $color-white;
-        height: 20vh;
+        height: 15%;
         width: 100%;
         font-size: $text-size;
-        @include respond(tab-port) {
-           font-size: $m-size + .5;
-           height: 10vh;
-       }
+       //  @include respond(tab-port) {
+       //     font-size: $m-size + .5;
+       //     height: 10vh;
+       // }
        @include respond(m-phone) {
            font-size: $text-size - 2;
            height: 100px;

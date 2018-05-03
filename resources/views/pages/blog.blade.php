@@ -6,7 +6,7 @@
 		<div class="row">
 			@if(!$news->isEmpty())
 			@foreach($news as $n)
-			<div class="col-sm-6 mt-4">
+			<div class="col-sm-4 col-lg-6 mt-4">
 				<div class="blog-father__card-blog">
 					<a href="{{ route('article', $n->id) }}">
 						<div class="blog-father__card-blog__container">
@@ -18,17 +18,18 @@
 							</div>
 						</div>
 					</a>
-					<div class="blog-father__footer-card">
-						<div class="row">
-							<div class="col-lg-6 col-sm-12">
-								<h4 class="news-item__autor">{{ $n->user->name }}</h4>
-							</div>
-							<div class="col-lg-6 col-sm-12">
-								<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
-							</div>
+				</div>
+				<div class="blog-father__footer-card">
+					<div class="row">
+						<div class="col-lg-6 col-sm-12">
+							<h4 class="news-item__autor">{{ $n->user->name }}</h4>
+						</div>
+						<div class="col-lg-6 col-sm-12">
+							<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
 						</div>
 					</div>
 				</div>
+				
 			</div>
 <!-- 			<div class="col-sm-6">
 				<div class="card">
@@ -52,7 +53,7 @@
 			@endforeach
 			{!!$news->render()!!}
 			@else
-			<div class="col-sm-6 mt-4">
+			<div class="col-sm-4 col-lg-6 mt-4">
 				<div class="blog-father__card-blog">
 					<a href="#">
 						<div class="blog-father__card-blog__container">
@@ -148,7 +149,6 @@
 					</div>
 				</div>
 			</div>
-
 			@endif
 		</div>
 	</div>
