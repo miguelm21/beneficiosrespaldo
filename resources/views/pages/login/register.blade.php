@@ -33,7 +33,13 @@
 					<form action="{{ url('/register') }}" method="post">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="text" name="name" placeholder="Nombre"/>
+						<input type="text" name="lastname" placeholder="Apellido"/>
+						<input type="text" name="dni" placeholder="DNI"/>
 						<input type="text" name="email" placeholder="E-mail"/>
+						<input type="text" name="phone" placeholder="Telefono"/>
+						<input type="text" name="province" placeholder="Provincia"/>
+						<input type="text" name="city" placeholder="Ciudad"/>
+						<input type="text" name="home" placeholder="Domicilio"/>
 						<input type="password" name="password" placeholder="Contraseña"/>
 						<input type="password" name="password_confirmation" placeholder="Confirmar contraseña"/>
 						<input type="checkbox" name="agree" id="rememberMe"/>
