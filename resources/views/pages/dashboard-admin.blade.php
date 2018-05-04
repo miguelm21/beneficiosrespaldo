@@ -39,7 +39,7 @@
 				    </div>
 				    @endif
 					<div class="row ">
-						<div class="col-12 content-admin">
+						<!-- <div class="col-12 content-admin">
 							<div class="row">
 								<div class="col-sm-6 col-lg-4 col-12">
 									<img src="img/stadistic.png" class="content-admin__img" alt="">
@@ -71,7 +71,7 @@
 									<a href="" class="circle-third content-admin__button btn-block">Usuarios registrados 3</a>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
