@@ -40,7 +40,7 @@
 						<div class="col-12">
 							<div class="row">
 								<div class="col-12">
-									<a href="{{ route('news.create') }}" class="btn add-category" data-toggle="tooltip" title data-original-title="Crear">Agregar beneficio</a>
+									<a href="{{ route('news.create') }}" class="btn add-category" data-toggle="tooltip" title data-original-title="Crear">Agregar Noticia</a>
 								</div>
 							</div>
 							<div class="row">

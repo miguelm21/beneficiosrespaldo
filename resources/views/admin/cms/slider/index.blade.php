@@ -40,7 +40,7 @@
 						<div class="col-12">
 							<div class="row">
 								<div class="col-12">
-									<a href="{{ route('cmsslider.create') }}" class="btn add-category" data-toggle="tooltip" title data-original-title="Crear">Agregar categoria</a>
+									<a href="{{ route('cmsslider.create') }}" class="btn add-category" data-toggle="tooltip" title data-original-title="Crear">Agregar imagen</a>
 								</div>
 								<div class="col-12">
 									<table class="table  table-hover table-bordered">

@@ -17,10 +17,10 @@
 							</div>
 							<div class="col-6 text-right">
 								<span>{{ $new->date }}</span>
-								<a class="" href="https://facebook.com/{{ $facebook->url}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+								<a class="" href="{{ route('facebookshared', $new->id) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
 								<a class="" href="https://twitter.com/{{ $twitter->url}}" target="_blank"><i class="fab fa-twitter"></i></a>
 								<a class="" href="https://googleplus.com/{{ $googleplus->url}}" target="_blank"><i class="fab fa-google"></i></a>
-								<a class="" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="fab fa-instagram"></i></a>
+								<a class="" href="https://instagram.com/{{ $instagram->url}}" target="_blank"><i class="far fa-envelope"></i></a>
 							</div>
 						</div>
 					</div>

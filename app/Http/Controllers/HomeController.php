@@ -10,6 +10,7 @@ use Session;
 use Redirect;
 use Mail;
 use Hash;
+use Share;
 use App\User;
 use App\User_Role;
 use App\Roles;
@@ -296,6 +297,36 @@ class HomeController extends Controller
         return view('pages.profile-screen', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'user' => $user]);
     }
 
+    public function updateprofile(Request $request, $id)
+    {
+       $validator =  Validator::make($request->all(),[ 
+            'name' => 'required',
+            'phone' => 'numeric',
+            'province' => 'required',
+            'city' => 'required',
+            'domicile' => 'required'
+        ]);
+
+        $validator->setAttributeNames([
+            'name' => 'Nombre',
+            'phone' => 'Telefono',
+            'province' => 'Provincia',
+            'city' => 'Ciudad',
+            'domicile' => 'Domicilio'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->province = $request->province;
+        $user->city = $request->city;
+        $user->domicile = $request->domicile;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect()->back()->with('message', 'Perfil actualizado con exito');
+    }
+
     public function editpassword()
     {
         $facebook = Cms_SocialNetworks::find(1);
@@ -365,7 +396,12 @@ class HomeController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
+            'dni' => 'required',
             'email' => 'required|email',
+            'phone' => 'numeric',
+            'province' => 'required',
+            'city' => 'required',
+            'domicile' => 'required',
             'password' => 'required|confirmed|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
             'password_confirmation' => 'required|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
             'agree' => 'required',
@@ -373,14 +409,24 @@ class HomeController extends Controller
 
         $validator->setAttributeNames([
             'name' => 'Nombre',
+            'dni' => 'DNI',
             'email' => 'Email',
+            'phone' => 'Telefono',
+            'province' => 'Provincia',
+            'city' => 'Ciudad',
+            'domicile' => 'Domicilio',
             'password' => 'Contraseña',
             'password_confirmation' => 'Confirmar Contraseña',
         ]);
 
         $user = new User;
         $user->name = $request->name;
+        $user->dni = $request->dni;
         $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->province = $request->province;
+        $user->city = $request->city;
+        $user->domicile = $request->domicile;
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -494,7 +540,7 @@ class HomeController extends Controller
         $instagram = Cms_SocialNetworks::find(4);
         $categories = categories::get();
         $new = News::findOrFail($id);
-        $news = News::take(5)->get();
+        $news = News::where('id', '!=', $id)->take(5)->get();
 
         return view('pages.article', ['facebook' => $facebook, 'twitter' => $twitter, 'googleplus' => $googleplus, 'instagram' => $instagram, 'categories' => $categories, 'new' => $new, 'news' => $news]);
     }
@@ -556,5 +602,12 @@ class HomeController extends Controller
         $dvalue = (sin($lat1 * $degtorad) * sin($lat2 * $degtorad)) + (cos($lat1 * $degtorad) * cos($lat2 * $degtorad) * cos($dlong * $degtorad)); 
         $dd = acos($dvalue) * $radtodeg; 
         return round(($dd * $km), 2);
+    }
+
+    public function facebookshared($id)
+    {
+        $new = News::find($id);
+
+        return Share::load('http://localhost/article/'.$id, $new->name)->facebook();
     }
 }

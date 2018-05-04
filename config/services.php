@@ -39,6 +39,15 @@ return [
         'maps' => [
             'api-key' => env('GOOGLE_MAPS_API_KEY'),
         ],
+        'client_id'     => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
     ],
+
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect'      => env('FACEBOOK_URL')
+    ]
 
 ];

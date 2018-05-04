@@ -1872,11 +1872,13 @@
 		</div>
 		@endif
 	</div>
-	<div class="row">
-		<div class="col-12 box-more">
-			<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
+	@if(!$news->isEmpty())
+		<div class="row">
+			<div class="col-12 box-more">
+				<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
+			</div>
 		</div>
-	</div>
+	@endif
 </div>
 
 @endsection

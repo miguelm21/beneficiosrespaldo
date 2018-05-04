@@ -40,7 +40,7 @@
 					</div>
 					<div class="form-row">
 						<div class="col-lg-6 col-12 mb-3">
-							<label for="Imagen file-edit">Agregar imagen</label>
+							<label for="Imagen file-edit">Editar imagen</label>
 							<div class="custom-file">
 								<input type="file" name="image" class="custom-file-input file-edit" id="inputGroupFile01">
 								<label class="custom-file-label file-edit" for="inputGroupFile01">Agregar</label>

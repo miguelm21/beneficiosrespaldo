@@ -34,7 +34,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="cms-admin-father__container-title">
-								<h4>Editar Redes sociales</h4>
+								<h4>Editar Rede social</h4>
 							</div>
 						</div>
 					</div>

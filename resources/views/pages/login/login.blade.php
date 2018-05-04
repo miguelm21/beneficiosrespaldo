@@ -44,10 +44,10 @@
 							<a href="{!!url('sign-up')!!}" class="btn content_login__button"><i class="fa fa-user-plus mx-2"></i>Crear nueva cuenta</a>
 						</div>
 					</div>
-<!-- 					<div class="buttons">
-						<button class="facebook btn btn-block"><i class="fab fa-facebook-f mx-2"></i>Facebook</button>
-						<button class="google btn btn-block"><i class="fab fa-google mx-2"></i>Google</button>
-					</div> -->
+					<div class="buttons">
+						<a href="{{ url('/auth/facebook') }}" class="facebook btn btn-block"><i class="fab fa-facebook-f mx-2"></i>Facebook</a>
+						<a href="{{ url('/auth/google') }}" class="google btn btn-block"><i class="fab fa-google mx-2"></i>Google</a>
+					</div>
 				</div>
 			</div>
 		</div>
