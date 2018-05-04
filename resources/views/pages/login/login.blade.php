@@ -45,9 +45,24 @@
 						</div>
 					</div>
 					<div class="buttons">
+						<div class="social mb-3">O ingresa desde tu red social</div>
+						<div class="row">
+							<div class="col-lg-6 col-12 my-1">
+								<a href="{{ url('/auth/facebook') }}" class="loginBtn loginBtn--facebook btn-block btn">
+									<i class="fab fa-facebook-f mr-2"></i>Conectar con&nbsp;&nbsp;<b>FACEBOOK</b>
+								</a>
+							</div>
+							<div class="col-lg-6 col-12 my-1">
+								<a href="{{ url('/auth/google') }}" class="loginBtn loginBtn--google btn-block btn">
+									<i class="fab fa-google-plus-g mr-2"></i>Conectar con&nbsp;&nbsp;<b>GOOGLE+</b>
+								</a>
+							</div>
+						</div>
+					</div>
+<!-- 					<div class="buttons">
 						<a href="{{ url('/auth/facebook') }}" class="facebook btn btn-block"><i class="fab fa-facebook-f mx-2"></i>Facebook</a>
 						<a href="{{ url('/auth/google') }}" class="google btn btn-block"><i class="fab fa-google mx-2"></i>Google</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

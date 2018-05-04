@@ -124,17 +124,17 @@
 					</a>
 				</div>
 				@if(Auth::id())
-					@if($b['bookmark'] == 1)
-					<a href="{{ route('unpostbenefit', $b['id']) }}">
-						<i id="bookmark" name="{{ $b['id'] }}" class="fas fa-bookmark"></i>
-					</a>
-					@elseif($b['bookmark'] == 0)
-					<form action="{{ route('postbenefit') }}" method="POST">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="benefit" value="{{ $b['id'] }}">
-						<button type="submit"><i class="far fa-bookmark"></i></button>
-					</form>
-					@endif
+				@if($b['bookmark'] == 1)
+				<a href="{{ route('unpostbenefit', $b['id']) }}" class="position-bookmark btn">
+					<i id="bookmark" name="{{ $b['id'] }}" class="fas fa-bookmark"></i>
+				</a>
+				@elseif($b['bookmark'] == 0)
+				<form action="{{ route('postbenefit') }}" class="position-form" method="POST">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="hidden" name="benefit" value="{{ $b['id'] }}">
+					<button type="submit"><i class="far fa-bookmark position-bookmark btn"></i></button>
+				</form>
+				@endif
 				@endif
 			</div>
 			@endif
@@ -1493,393 +1493,396 @@
 	<div class="carousel-container mt-5">
 		<div id="owl-search" class="owl-carousel">
 			@if(!$morebenefits->isEmpty())
-				@foreach($morebenefits as $mb)
-					<div class="item item-edit shops__container">
-						<a class="hoverfx" href="#">
-							<div class="overlay">
-							</div>
-							<img class="img-shop" src="data:image/png;base64,{{ $mb['image'] }}">
-						</a>
+			@foreach($morebenefits as $mb)
+			<div class="item item-edit shops__container">
+				<a class="hoverfx" href="#">
+					<div class="overlay">
+					</div>
+					<img class="img-shop" src="data:image/png;base64,{{ $mb['image'] }}">
+				</a>
 
-						<div class="box-description">
-							<p>{{ $mb['name'] }}</p>
-						</div>
-						@if(Auth::id())
-							@if($mb['bookmark'] == 1)
-							<a href="{{ route('unpostbenefit', $mb['id']) }}">
-								<i id="bookmark" name="{{ $mb['id'] }}" class="fas fa-bookmark"></i>
-							</a>
-							@elseif($mb['bookmark'] == 0)
-							<form action="{{ route('postbenefit') }}" method="POST">
-								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								<input type="hidden" name="benefit" value="{{ $mb['id'] }}">
-								<button type="submit"><i class="far fa-bookmark"></i></button>
-							</form>
-							@endif
-						@endif
+				<div class="box-description">
+					<p>{{ $mb['name'] }}</p>
+				</div>
+				@if(Auth::id())
+				@if($mb['bookmark'] == 1)
+				<a href="{{ route('unpostbenefit', $mb['id']) }}">
+					<i id="bookmark" name="{{ $mb['id'] }}" class="fas fa-bookmark position-bookmark btn"></i>
+				</a>
+				@elseif($mb['bookmark'] == 0)
+				<form action="{{ route('postbenefit') }}" class="position-form" method="POST">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="hidden" name="benefit" value="{{ $mb['id'] }}">
+					<button type="submit"><i class="far fa-bookmark position-bookmark btn"></i></button>
+				</form>
+				@endif
+				@endif
 						<!-- <div class="align-bottom">
 							<ul class="rating">
 								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
 							</ul>
 						</div> -->
 					</div>
-				@endforeach
-			@else
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img class="img-shop" src="img/sities/sities-1.png">
-				</a>
-
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-				</div>
-				<div class="align-bottom">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img src="img/sities/sities-4.png">
-				</a>
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet </p>
-				</div>
-				<div class="align-bottom">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img src="img/sities/sities-1.png">
-				</a>
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet</p>
-				</div>
-				<div class="align-bottom">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img src="img/sities/sities-2.png">
-				</a>
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet </p>
-				</div>
-				<div class="align-bottom">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img src="img/sities/sities-1.png">
-				</a>
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, repellendus!</p>
-				</div>
-				<div class="align-bottom">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			<div class="item item-edit shops__container">
-				<a class="hoverfx" href="#">
-					<div class="overlay">
-					</div>
-					<img src="img/sities/sities-4.png">
-				</a>
-				<div class="box-description">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, praesentium!</p>
-				</div>
-				<div class="">
-					<ul class="rating">
-						<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
-					</ul>
-				</div>
-			</div>
-			@endif
-		</div>
-
-	</div>
-</div>
-
-<div class="container-fluid">
-	<h1 class="section__title">Nuevos Beneficios</h1>
-	<hr class="section__title-separator">
-</div>
-<!-- New benefits -->
-
-<div class="container my-3">
-	<div class="row my-4">
-		<div class="owl-carousel" id="owl-carousel2">
-			@if(!$newbenefits->isEmpty())
-			@foreach($newbenefits as $nb)
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="{{ route('benefit', $nb['id']) }}">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="data:image/png;base64,{{ $nb['image'] }}" alt="new-{{ $nb['id'] }}" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>{{ $nb['percent'] }}%</span>
-									</div>
-								</div>
+					@endforeach
+					@else
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
 							</div>
-							<h4 class="card-item__title">{{ $nb['name'] }}</h4>
+							<img class="img-shop" src="img/sities/sities-1.png">
 						</a>
+
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+						</div>
+						<div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
 					</div>
-				</div>
-				@if(Auth::id())
-					@if($nb['bookmark'] == 1)
-					<a href="{{ route('unpostbenefit', $nb['id']) }}">
-						<i id="bookmark" name="{{ $nb['id'] }}" class="fas fa-bookmark"></i>
-					</a>
-					@elseif($nb['bookmark'] == 0)
-					<form action="{{ route('postbenefit') }}" method="POST">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="benefit" value="{{ $nb['id'] }}">
-						<button type="submit"><i class="far fa-bookmark"></i></button>
-					</form>
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img src="img/sities/sities-4.png">
+						</a>
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet </p>
+						</div>
+						<div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img src="img/sities/sities-1.png">
+						</a>
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet</p>
+						</div>
+						<div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img src="img/sities/sities-2.png">
+						</a>
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet </p>
+						</div>
+						<div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img src="img/sities/sities-1.png">
+						</a>
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, repellendus!</p>
+						</div>
+						<div class="align-bottom">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item item-edit shops__container">
+						<a class="hoverfx" href="#">
+							<div class="overlay">
+							</div>
+							<img src="img/sities/sities-4.png">
+						</a>
+						<div class="box-description">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, praesentium!</p>
+						</div>
+						<div class="">
+							<ul class="rating">
+								<li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li><li class="star li-config">&starf;</li>
+							</ul>
+						</div>
+					</div>
 					@endif
-				@endif
-			</div>
-			@endforeach
-			@else
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
 				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-item">
-						<a href="#">
-							<div class="card-item__image-container">
-								<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
-								<div class="card-item__image-container__sticker">
-									<div class="card-item__image-container__sticker-text">
-										<span>2x1</span>
-									</div>
-								</div>
-							</div>
-							<h4 class="card-item__title">Beneficio 5</h4>
-						</a>
-					</div>
-				</div>
-			</div>
-			@endif
-		</div>
-	</div>
-</div>
 
-<div class="container my-3">
-	<div class="row my-4">
-		@if(!$news->isEmpty())
-		@foreach($news as $n)
-		<div class="col-sm-6">
-			<a href="{{ route('article', $n->id) }}">
-				<div class="card">
-					<div class="news-item">
-						<div class="news-item__image-container">
-							<!-- <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
-							<img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="news-{{ $n->id }}">
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<h1 class="section__title">Nuevos Beneficios</h1>
+			<hr class="section__title-separator">
+		</div>
+		<!-- New benefits -->
+
+		<div class="container my-3">
+			<div class="row my-4">
+				<div class="owl-carousel" id="owl-carousel2">
+					@if(!$newbenefits->isEmpty())
+					@foreach($newbenefits as $nb)
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="{{ route('benefit', $nb['id']) }}">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="data:image/png;base64,{{ $nb['image'] }}" alt="new-{{ $nb['id'] }}" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>{{ $nb['percent'] }}%</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">{{ $nb['name'] }}</h4>
+								</a>
+							</div>
+						</div>
+						@if(Auth::id())
+						@if($nb['bookmark'] == 1)
+						<a href="{{ route('unpostbenefit', $nb['id']) }}">
+							<i id="bookmark" name="{{ $nb['id'] }}" class="fas fa-bookmark position-bookmark btn"></i>
+						</a>
+						@elseif($nb['bookmark'] == 0)
+						<form action="{{ route('postbenefit') }}" class="position-form" method="POST">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<input type="hidden" name="benefit" value="{{ $nb['id'] }}">
+							<button type="submit"><i class="far fa-bookmark position-bookmark btn"></i></button>
+						</form>
+						@endif
+						@endif
+					</div>
+					@endforeach
+					@else
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
 						</div>
 					</div>
-					<div class="news-item__image-container__sticker">
-						<div class="news-item__image-container__sticker-text">
-							<span>{{ $n->title }} </span>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
 						</div>
 					</div>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="card">
+							<div class="card-item">
+								<a href="#">
+									<div class="card-item__image-container">
+										<img class="card-item__image-container__image img-fluid" src="images/ranking/gastro_1.jpg" alt="gastro-1" >
+										<div class="card-item__image-container__sticker">
+											<div class="card-item__image-container__sticker-text">
+												<span>2x1</span>
+											</div>
+										</div>
+									</div>
+									<h4 class="card-item__title">Beneficio 5</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+					@endif
 				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1 class="section__title">Noticias</h1>
+			<hr class="section__title-separator">
+		</div>
+		<div class="container my-3">
+			<div class="row my-4">
+				@if(!$news->isEmpty())
+				@foreach($news as $n)
+				<div class="col-sm-6">
+					<a href="{{ route('article', $n->id) }}">
+						<div class="card">
+							<div class="news-item">
+								<div class="news-item__image-container">
+									<!-- <img class="news-item__image-container__image img-fluid" src="" alt="gastro-1" > -->
+									<img class="news-item__image-container__image img-fluid" src="data:image/png;base64, {{ $n->image }}" alt="news-{{ $n->id }}">
+								</div>
+							</div>
+							<div class="news-item__image-container__sticker">
+								<div class="news-item__image-container__sticker-text">
+									<span>{{ $n->title }} </span>
+								</div>
+							</div>
+						</div>
 						<h4 class="news-item__autor">{{ $n->user->name }}</h4>
 						<h4 class="news-item__date">{{ date('d-m-Y', strtotime($n->date)) }}</h4>
-			</a>
-		</div>
-		@endforeach
-		@else
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="news-item">
-					<a href="#">
-						<div class="news-item__image-container">
-							<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
-							<div class="news-item__image-container__sticker">
-							</a>
+					</a>
+				</div>
+				@endforeach
+				@else
+				<div class="col-sm-6">
+					<div class="card">
+						<div class="news-item">
+							<a href="#">
+								<div class="news-item__image-container">
+									<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
+									<div class="news-item__image-container__sticker">
+									</a>
+								</div>
+								<div class="news-item__image-container__sticker-text">
+									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+								</div>
+							</div>
 						</div>
-						<div class="news-item__image-container__sticker-text">
-							<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+						<h4 class="news-item__autor">Admin</h4>
+						<h4 class="news-item__date">15/08/2016</h4>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="card">
+						<div class="news-item">
+							<a href="#">
+								<div class="news-item__image-container">
+									<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
+									<div class="news-item__image-container__sticker">
+										<div class="news-item__image-container__sticker-text">
+											<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+										</div>
+									</div>
+								</div>
+								<h4 class="news-item__autor">Admin</h4>
+								<h4 class="news-item__date">15/08/2016</h4>
+							</a>
 						</div>
 					</div>
 				</div>
-				<h4 class="news-item__autor">Admin</h4>
-				<h4 class="news-item__date">15/08/2016</h4>
-			</div>
-		</div>
 
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="news-item">
-					<a href="#">
-						<div class="news-item__image-container">
-							<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
-							<div class="news-item__image-container__sticker">
-								<div class="news-item__image-container__sticker-text">
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+				<div class="col-sm-6">
+					<div class="card">
+						<div class="news-item">
+							<a href="#">
+								<div class="news-item__image-container">
+									<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
+									<div class="news-item__image-container__sticker">
+										<div class="news-item__image-container__sticker-text">
+											<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
+										</div>
+									</div>
 								</div>
-							</div>
+								<h4 class="news-item__autor">Admin</h4>
+								<h4 class="news-item__date">15/08/2016</h4>
+							</a>
 						</div>
-						<h4 class="news-item__autor">Admin</h4>
-						<h4 class="news-item__date">15/08/2016</h4>
-					</a>
+					</div>
+				</div>
+				@endif
+			</div>
+			@if(!$news->isEmpty())
+			<div class="row">
+				<div class="col-12 box-more">
+					<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
 				</div>
 			</div>
+			@endif
 		</div>
 
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="news-item">
-					<a href="#">
-						<div class="news-item__image-container">
-							<img class="news-item__image-container__image img-fluid" src="images/news/news_1.jpg" alt="gastro-1" >
-							<div class="news-item__image-container__sticker">
-								<div class="news-item__image-container__sticker-text">
-									<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. </span>
-								</div>
-							</div>
-						</div>
-						<h4 class="news-item__autor">Admin</h4>
-						<h4 class="news-item__date">15/08/2016</h4>
-					</a>
-				</div>
-			</div>
-		</div>
-		@endif
-	</div>
-	@if(!$news->isEmpty())
-		<div class="row">
-			<div class="col-12 box-more">
-				<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
-			</div>
-		</div>
-	@endif
-</div>
-
-@endsection
+		@endsection
 

@@ -1,3 +1,9 @@
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+
 //Index
 
 .cms-admin-father{
@@ -98,6 +104,91 @@ textarea{
 	}
 }
 
-//Benefits
+//Cms USERS
+//cards horizontal
 
-//Index
+
+.save-benefit-father{
+
+	margin: auto 5%;
+
+	h3{
+		padding: 5% 0;
+		font-size: $l-size;
+		color: $color-secondary;
+		font-weight: 550;
+		font-family: 'SuecaMedium', sans-serif;
+		text-align: center;
+	}
+}
+
+.card-horizontal{
+	box-shadow: 3px 3px 3px #ccc;
+	border: 1px solid $color-grey-dark;
+	
+	&__container-image{
+		margin: auto;
+		width: 100%;
+		text-align: center;
+
+
+		& img{
+			max-width: 100%;
+			min-height: 145px;
+			max-height: 180px;
+			vertical-align: middle;
+			text-align: center;
+		}	
+	}
+
+	&__body{
+		text-align: left;
+		&__title{
+			margin-left: -30px;
+			padding: 5px 0 0px 30px;
+			background: $color-primary;
+			color: $color-white;
+			// font-family: 'Monserrat', sans-serif;
+			font-size: $title-size;
+
+			@include respond (m-phone){
+				margin-left: 0;
+				padding: 5px;
+				padding-left: 10px;
+			}
+			@include respond (tab-port){
+				margin-left: 0;
+				padding: 5px;
+				padding-left: 10px;
+			}
+
+			h2{
+				font-family: 'Monserrat', sans-serif;
+			}
+		}
+
+		&__description{
+			text-align: justify;
+			padding: 8px;
+			font-family: 'SuecaMedium', sans-serif;
+			color: $color-grey-dark;
+
+			@include respond (m-phone){
+				padding: 8px;
+			}
+		}
+	}
+}
+
+.ban-button{
+	font-size: 16px;
+	position: absolute;
+	bottom: 1px;
+	right: 15px;
+	border-radius: 0 !important;
+
+	@include respond(tab-port){
+		bottom: -2px;
+		right: 11px;
+	}
+}

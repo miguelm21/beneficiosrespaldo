@@ -1,9 +1,8 @@
 .shops__container {
   margin: 0 auto;
-  padding: 10px;
 
   & .box-description {
-    height: 70px;
+    // height: 70px;
     max-height: inherit;
     overflow: hidden;
   }
@@ -12,6 +11,9 @@
     max-width: 100% !important;
     height: auto;
     max-height: 130px;
+    @include respond(m-phone){
+      max-height: 180px;
+    }
   }
 
 }
