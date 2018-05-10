@@ -1630,7 +1630,7 @@
 
 		<div class="container my-3">
 			<div class="row my-4">
-				<div class="owl-carousel" id="owl-carousel2">
+				<div class="owl-carousel" id="owl-newbenefits">
 					@if(!$newbenefits->isEmpty())
 					@foreach($newbenefits as $nb)
 					<div>
@@ -1875,13 +1875,11 @@
 				</div>
 				@endif
 			</div>
-			@if(!$news->isEmpty())
 			<div class="row">
 				<div class="col-12 box-more">
 					<a href="{{ route('blog') }}" class="w-100">Ver todas las noticias</a>
 				</div>
 			</div>
-			@endif
 		</div>
 
 		@endsection

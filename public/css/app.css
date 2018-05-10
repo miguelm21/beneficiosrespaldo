@@ -15237,6 +15237,26 @@ body {
   background: #00aeef;
 }
 
+.ranking-category .font-category {
+  font-size: 2.3rem;
+  color: #133f6d;
+  font-family: "Monserrat", sans-serif;
+  font-weight: 550;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .owl-nav {
+    display: block;
+  }
+  .owl-next, .owl-prev {
+    position: absolute;
+    top: 41.5%;
+  }
+  .owl-next {
+    right: 0;
+  }
+}
+
 .benefit-father {
   background: #edf0f9;
   padding: 3% 0;
@@ -16173,21 +16193,21 @@ textarea {
 
 /* twitter button class*/
 .nav-icon2 {
-  background-color: #fff;
-  color: #00aeef;
-  border-color: #133f6d;
-  -webkit-transition: .3s;
-  transition: .3s;
+  /* background-color: $color-white;
+    color: $color-secondary;
+    border-color: $color-primary;
+    transition: .3s; */
 }
 
 .nav-icon2 svg {
   margin-top: 5px;
+  color: #fff;
 }
 
 .nav-icon2:hover {
-  color: #fff;
-  background: #00aeef;
-  border-color: #00aeef;
+  /* color: #fff;
+    background: $color-secondary;
+    border-color: $color-secondary; */
 }
 
 @-webkit-keyframes bounceInDown {

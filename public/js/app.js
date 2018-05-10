@@ -21546,16 +21546,27 @@ $('#owl-carousel22, owl-carousel2').owlCarousel({
   responsive:{
     0:{
       items:1,
-      nav:false
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      loop: false,
+      autoplay:true,
+      autoplayTimeout:1000,
     },
     400:{
       items:1,
-      nav:false
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      loop: false,
+      autoplay:true,
+      autoplayTimeout:1000,
     },
     600:{
       items:3,
-      nav:false,
-      autoplay:false,
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      loop: false,
+      autoplay:true,
+      autoplayTimeout:1000,
     },
     1000:{
       items:4,
@@ -21579,17 +21590,25 @@ $('#owl-newbenefits').owlCarousel({
   responsive:{
     0:{
       items:1,
-      nav:false
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      autoplay: true,
+      autoplayTimeout:3000,
     },
     400:{
       items:1,
       margin: 25,
-      nav:false
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      autoplay: true,
+      autoplayTimeout:3000,
     },
     600:{
       items:3,
-      nav:false,
-      autoplay:false,
+      nav:true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      autoplay: true,
+      autoplayTimeout:3000,
     },
     1000:{
       items:4,
@@ -21614,16 +21633,21 @@ $('#owl-carousel3').owlCarousel({
   responsive:{
     0:{
       items:1,
-      nav:false
+      // nav:true,
+      // navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      // autoplay:true,
     },
     400:{
       items:1,
-      nav:false
+      // nav:true,
+      // navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      // autoplay:true,
     },
     600:{
       items:3,
-      nav:false,
-      autoplay:false,
+      // nav:true,
+      // navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      // autoplay:true,
     },
     1000:{
       items:4,
@@ -21683,16 +21707,24 @@ $('#owl-carousel-article').owlCarousel({
 $('#owl-search').owlCarousel({
   loop:false,
   margin:10,
-  nav:false,
+  // nav:true,
   responsive:{
     0:{
-      items:1
+      items:1,
+      nav: true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      autoplay:true,
+      autoplayTimeout:3000,
     },
     600:{
-      items:3
+      items:3,
+      nav: true,
+      navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+      autoplay:true,
+      autoplayTimeout:3000,
     },
     1000:{
-      items:4
+      items:4,
     }
   }
 })

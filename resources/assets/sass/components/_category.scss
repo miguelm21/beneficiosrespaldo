@@ -24,3 +24,29 @@
 		background: $color-secondary;
 	}
 }
+
+.ranking-category{
+	
+	.font-category{
+		font-size: $m-size + .7;
+		color: $color-primary;
+		font-family: "Monserrat", sans-serif;
+		font-weight: 550;
+	}
+}
+
+
+@include respond(tab-port){
+	.owl-nav{
+		display:block;
+	}
+
+	.owl-next,.owl-prev{
+		position:absolute;
+		top: 41.5%;
+	}
+
+	.owl-next{
+		right:0;
+	}
+}
