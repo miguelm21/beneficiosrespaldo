@@ -301,6 +301,7 @@ class HomeController extends Controller
     {
        $validator =  Validator::make($request->all(),[ 
             'name' => 'required',
+            'dni' => 'required',
             'phone' => 'numeric',
             'province' => 'required',
             'city' => 'required',
@@ -309,6 +310,7 @@ class HomeController extends Controller
 
         $validator->setAttributeNames([
             'name' => 'Nombre',
+            'dni' => 'DNI',
             'phone' => 'Telefono',
             'province' => 'Provincia',
             'city' => 'Ciudad',
@@ -317,6 +319,7 @@ class HomeController extends Controller
 
         $user = User::find($id);
         $user->name = $request->name;
+        $user->dni = $request->dni;
         $user->phone = $request->phone;
         $user->province = $request->province;
         $user->city = $request->city;

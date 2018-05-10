@@ -48,6 +48,11 @@ return [
         'client_id'     => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
         'redirect'      => env('FACEBOOK_URL')
-    ]
+    ],
+
+    'onesignal' => [
+        'app_id' => env('ONESIGNAL_APP_ID'),
+        'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
+    ],
 
 ];

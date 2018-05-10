@@ -48,7 +48,7 @@
 							</div>
 							<div class="form-group col-md-6">
 								<label for="DNI">DNI</label>
-								<input type="text" name="dni" class="form-control form-control-lg section_profile__input" id="dni" value="{{ $user->dni }}" disabled>
+								<input type="text" name="dni" class="form-control form-control-lg section_profile__input" id="dni" value="{{ $user->dni }}">
 							</div>
 						</div>
 						<div class="form-row">

@@ -13,18 +13,27 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    $token = JWTAuth::getToken();
+Route::group([
+    'middleware' => 'api'
 
-    $user = JWTAuth::toUser($token);
+], function ($router) {
+	Route::post('authenticate', 'Api\ApiAuthController@authenticate');
+	Route::post('register', 'Api\ApiAuthController@register');
+    Route::post('login', 'Api\ApiAuthController@login');
+    Route::post('logout', 'Api\ApiAuthController@logout');
+    Route::post('refresh', 'Api\ApiAuthController@refresh');
+    Route::get('me', 'Api\ApiAuthController@me');
 
-    return $user;
-})->middleware('jwt.auth');
+    Route::post('postbenefit', 'Api\ApiHomeController@postbenefit');
+    Route::delete('unpostbenefit/{id}', 'Api\ApiHomeController@unpostbenefit');
 
-Route::post('/authenticate', ['uses' => 'ApiAuthController@authenticate']);
+    Route::get('map', 'Api\ApiHomeController@map');
+    Route::get('category/{id}', 'Api\ApiHomeController@category');
+    Route::get('new/{id}', 'Api\ApiHomeController@new');
+    Route::get('benefit/{id}', 'Api\ApiHomeController@benefit');
 
-Route::post('/register', ['uses' => 'ApiAuthController@register']);
+    Route::put('updateprofile/{id}', 'Api\ApiHomeController@updateprofile');
+    Route::put('updatepassword/{id}', 'Api\ApiHomeController@updatepassword');
 
-Route::get('/jokes', function(){
-	return \App\Joke::all();
-})->middleware('jwt.auth');
+    Route::post('registerPush', 'Api\ApiPushController@registerPush');
+});

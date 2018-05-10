@@ -202,6 +202,11 @@ return [
         */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /*
+        * NoticiationChannels OneSignal
+        */
+        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
+
     ],
 
     /*
