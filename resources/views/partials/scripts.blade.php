@@ -41,7 +41,7 @@ $('#remote .typeahead').typeahead({
   source: bestPictures.ttAdapter()
 });
 
-$('#selectCategory').on('change', function(){
+/*$('#selectCategory').on('change', function(){
   console.log($('#selectCategory').val());
   $('.typeahead').typeahead('destroy');
   var bestPictures2 = new Bloodhound({
@@ -50,7 +50,7 @@ $('#selectCategory').on('change', function(){
     prefetch: { 
       url: $('#selectCategory').val() + '/getBenefits.json',
       cache: false,
-    },
+    },*/
     /*remote: {
       url: 'getBenefits.json',
       wildcard: '%QUERY',
@@ -64,7 +64,7 @@ $('#selectCategory').on('change', function(){
         });
       }
     }*/
-  });
+  /*});
 
   bestPictures2.initialize();
 
@@ -78,7 +78,7 @@ $('#selectCategory').on('change', function(){
     display: 'name',
     source: bestPictures2.ttAdapter()
   });
-});
+});*/
 </script>
 <script type="text/javascript">
     // Second Carousel

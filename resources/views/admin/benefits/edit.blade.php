@@ -74,7 +74,11 @@
 							<select name="category_id" class="form-control form-control-lg section_profile__input select-edit" value="{{ $benefit->category_id }}">
 								<option value="">Seleccione una Categoria</option>
 								@foreach ($categories as $c)
+								@if($benefit->category_id == $c->id)
+								<option value="{{ $c->id}}" selected>{{ $c->name }}</option>
+								@else
 								<option value="{{ $c->id}}">{{ $c->name }}</option>
+								@endif
 								@endforeach
 							</select>
 						</div>

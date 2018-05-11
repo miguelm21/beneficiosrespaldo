@@ -453,19 +453,20 @@
 
 /* twitter button class*/
 .nav-icon2{
-    background-color: $color-white;
+    /* background-color: $color-white;
     color: $color-secondary;
     border-color: $color-primary;
-    transition: .3s;
+    transition: .3s; */
     svg{
         margin-top: 5px;
+        color: $color-white;
     }
 }
 
 .nav-icon2:hover{
-    color: #fff;
+    /* color: #fff;
     background: $color-secondary;
-    border-color: $color-secondary;
+    border-color: $color-secondary; */
 
 }
 

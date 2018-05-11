@@ -36,4 +36,5 @@ Route::group([
     Route::put('updatepassword/{id}', 'Api\ApiHomeController@updatepassword');
 
     Route::post('registerPush', 'Api\ApiPushController@registerPush');
+    Route::post('sendMessage', 'Api\ApiPushController@Message');
 });

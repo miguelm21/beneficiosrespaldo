@@ -52,14 +52,14 @@
 							<form action="{{ route('search') }}" class="search-navbar" method="POST">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<div class="input-group form-inline" id="remote">
-									<div class="form-group dropdown-father">
+									<!-- <div class="form-group dropdown-father">
 										<select class="form-control dropdown-father__select" id="selectCategory" name="category_id">
 											<option>Seleccione una categoria</option>
 											@foreach($categories as $c)
 											<option value="{{ $c->id }}">{{ $c->name }}</option>
 											@endforeach
 										</select>
-									</div>			
+									</div>	 -->		
 									<input type="text" name="name" class="format-input form-control no-border typeahead" aria-describedby="basic-addon2">
 									<div class="input-group-append">
 										<button class="btn-search btn bg-transparent nav-link" type="submit"> <i class="fas fa-search fa-2x"></i></button>
@@ -216,14 +216,14 @@
 					<form action="{{ route('search' )}}" method="POST" class="search-box">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="input-group form-inline dropdown-father dropdown-father3" id="remote">
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<select class="form-control dropdown-father__select" id="exampleFormControlSelect1" name="category_id">
 									<option>Seleccione una categoria</option>
 									@foreach($categories as $c)
 									<option value="{{ $c->id }}">{{ $c->name }}</option>
 									@endforeach
 								</select>
-							</div>			
+							</div>	 -->		
 							<input type="text" name="name" class="search-input typeahead" placeholder="" />
 						</div>
 					</form>
