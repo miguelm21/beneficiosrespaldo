@@ -23,7 +23,7 @@ class ApiHomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api', ['except' => ['map', 'category', 'benefit', 'new']]);
     }
 
     /**
@@ -434,5 +434,86 @@ class ApiHomeController extends Controller
 
         $response = curl_exec($ch);
         curl_close($ch);
+    }
+
+    public function savebenefits()
+    {
+        $id = Auth::id();
+
+        $a = [];
+        $userbenefits = UserBenefits::where('user_id', '=', $id)->get();
+
+        foreach($userbenefits as $ub)
+        {
+            array_push($a, $ub->benefit_id);
+        }
+
+        $userbenefits = Benefits::whereIn('id', $a)->paginate(10);
+
+        try
+        {
+            if(!$userbenefits)
+            {
+                return response()->json(['message' => 'No se encontro ningun beneficio'], 401);
+            }
+        }
+        catch(Exception $e)
+        {
+            return response()->json(['message' => 'Ocurrio un error'], 500);
+        }
+
+        return response()->json(['userbenefits' => $userbenefits], 200);
+    }
+
+    public function getBenefits()
+    {
+        $benefits = Benefits::select('name', 'description', 'latitude', 'longitude', 'keywords')->get();
+        $benef = [];
+        $token = [];
+
+        foreach($benefits as $b)
+        {
+            $name = explode(" ", $b->name);
+            foreach($name as $n)
+            {
+                array_push($token, $n);
+            }
+            
+            $description = explode(" ", $b->description);
+            foreach($description as $d)
+            {
+                array_push($token, $d);
+            }
+
+            $keywords = explode(",", $b->keywords);
+            foreach ($keywords as $k) {
+                array_push($token, $k);
+            }
+
+            $obj = (object) [
+                'name' => $b->name,
+                'description' => $b->description,
+                'tokens' => $token
+            ];
+            array_push($benef, $obj);
+            unset($token);
+            $token = [];
+        }
+
+        $benef = collect($benef);
+
+        try
+        {
+            if(!$benef)
+            {
+                return response()->json(['message' => 'No se encontro ningun beneficio'], 401);
+            }
+        }
+        catch(Exception $e)
+        {
+            return response()->json(['message' => 'Ocurrio un error'], 500);
+        }
+
+        return response()->json(['benef' => $benef], 200);
     }
 }

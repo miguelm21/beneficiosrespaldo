@@ -282,7 +282,6 @@ class HomeController extends Controller
         {
             return redirect()->back()->with('message', 'Usuario incorrecto');
         }
-        
     }
 
     public function editprofile($id)

@@ -31,10 +31,13 @@ Route::group([
     Route::get('category/{id}', 'Api\ApiHomeController@category');
     Route::get('new/{id}', 'Api\ApiHomeController@new');
     Route::get('benefit/{id}', 'Api\ApiHomeController@benefit');
+    Route::get('savebenefits', 'Api\ApiHomeController@savebenefits');
 
     Route::put('updateprofile/{id}', 'Api\ApiHomeController@updateprofile');
     Route::put('updatepassword/{id}', 'Api\ApiHomeController@updatepassword');
 
     Route::post('registerPush', 'Api\ApiPushController@registerPush');
     Route::post('sendMessage', 'Api\ApiPushController@Message');
+
+    Route::get('getBenfits', 'Api/ApiHomeController@getBenefits');
 });
