@@ -23,6 +23,10 @@ Route::group([
     Route::post('logout', 'Api\ApiAuthController@logout');
     Route::post('refresh', 'Api\ApiAuthController@refresh');
     Route::get('me', 'Api\ApiAuthController@me');
+    Route::get('auth/facebook', 'Api\ApiFacebookController@redirectToProvider');
+    Route::post('auth/facebook/callback', 'Api\ApiFacebookController@handleProviderCallback');
+    Route::get('auth/google', 'Api\ApiGoogleController@redirectToProvider');
+    Route::post('auth/google/callback', 'Api\ApiGoogleController@handleProviderCallback');
 
     Route::post('postbenefit', 'Api\ApiHomeController@postbenefit');
     Route::delete('unpostbenefit/{id}', 'Api\ApiHomeController@unpostbenefit');
