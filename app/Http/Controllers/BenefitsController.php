@@ -317,7 +317,7 @@ class BenefitsController extends Controller
 
         foreach($benefits as $b)
         {
-            array_push($benef, $b->name)
+            array_push($benef, $b->name);
            /* $name = explode(" ", $b->name);
             foreach($name as $n)
             {
