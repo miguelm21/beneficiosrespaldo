@@ -6,11 +6,15 @@
   CKEDITOR.replace( 'textarea' );
 </script>
 <script>
+var baseUrl = window.location.origin;
+var url = baseUrl + '/getBenefits.json';
+console.log(url);
+
 var bestPictures = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.tokens.join(' ')); },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   prefetch: { 
-    url: 'getBenefits.json',
+    url: url,
     cache: false,
   },
   /*remote: {
