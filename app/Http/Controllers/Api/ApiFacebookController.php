@@ -40,7 +40,7 @@ class ApiFacebookController extends Controller
         /*$socialUser = Socialite::driver('facebook')->stateless()->user();*/
         $user = User::where('provider_id', $request->id)->first();
 
-        /*if(!$user)
+        if(!$user)
         {
             $user = new User;
             $user->name = $request->name;
@@ -54,12 +54,12 @@ class ApiFacebookController extends Controller
             $roleuser->role_id = 2;
             $roleuser->save();
 
-            $token = auth()->login($user);
+            $token = JWTAuth::fromUser($user);
 
             return response()->json(['token' => $token], 200);
         }
         else
-        {*/
+        {
             try
             {
                 $token = JWTAuth::fromUser($user);
@@ -78,7 +78,7 @@ class ApiFacebookController extends Controller
     	            $roleuser->role_id = 2;
     	            $roleuser->save();
 
-    	            $token = auth()->login($user);
+    	            $token = JWTAuth::fromUser($user);
 
                 	return response()->json(['token' => $token], 200);
                 }
@@ -89,7 +89,7 @@ class ApiFacebookController extends Controller
             }
 
             return response()->json(['token' => $token], 200);
-        /*}*/
+        }
 
     }
 }
