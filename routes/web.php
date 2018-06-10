@@ -47,6 +47,7 @@ Route::post('postbenefit', array('as' => 'postbenefit', 'uses' => 'BenefitsContr
 Route::get('unpostbenefit/{id}', array('as' => 'unpostbenefit', 'uses' => 'BenefitsController@unpostbenefit'));
 
 Route::get('getBenefits.json', array('as' => 'getBenefits.json', 'uses' => 'BenefitsController@getBenefits'));
+Route::get('getBenefits1.json', array('as' => 'getBenefits2.json', 'uses' => 'BenefitsController@getBenefits2'));
 
 Route::get('{id}/getBenefits.json', array('as' => '{id}/getBenefits.json', 'uses' => 'BenefitsController@getBenefitsId'));
 

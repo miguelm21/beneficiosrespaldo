@@ -308,4 +308,19 @@ class BenefitsController extends Controller
             return $benef->toJson(JSON_PRETTY_PRINT);
         }
     }
+
+    public function getBenefits2()
+    {
+        $benefits = Benefits::select('name')->get();
+
+        if(isset($benefits))
+        {
+            return $benefits->toJson(JSON_PRETTY_PRINT);
+        }
+        else
+        {
+            $benefits = 0;
+            return $benefits->toJson(JSON_PRETTY_PRINT);
+        }
+    }
 }
