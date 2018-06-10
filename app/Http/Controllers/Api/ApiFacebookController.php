@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
-use Auth;
+use JWTAuth;
 use App\User;
 use App\User_Role;
 
@@ -40,7 +40,7 @@ class ApiFacebookController extends Controller
         /*$socialUser = Socialite::driver('facebook')->stateless()->user();*/
         $user = User::where('provider_id', $request->id)->first();
 
-        if(!$user)
+        /*if(!$user)
         {
             $user = new User;
             $user->name = $request->name;
@@ -59,10 +59,10 @@ class ApiFacebookController extends Controller
             return response()->json(['token' => $token], 200);
         }
         else
-        {
+        {*/
             try
             {
-                $token = auth()->login($user);
+                $token = JWTAuth::fromUser($user);
 
                 if(!$token)
                 {
@@ -89,7 +89,7 @@ class ApiFacebookController extends Controller
             }
 
             return response()->json(['token' => $token], 200);
-        }
+        /*}*/
 
     }
 }

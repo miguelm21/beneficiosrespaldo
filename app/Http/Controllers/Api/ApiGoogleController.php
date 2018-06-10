@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
+use JWTAuth;
 use Auth;
 use App\User;
 use App\User_Role;
@@ -44,7 +45,7 @@ class ApiGoogleController extends Controller
         /*$socialUser = Socialite::driver('google')->stateless()->user();*/
         $user = User::where('provider_id', $request->id)->first();
 
-        if(!$user)
+        /*if(!$user)
         {
             $user = new User;
             $user->name = $request->name;
@@ -63,10 +64,10 @@ class ApiGoogleController extends Controller
             return response()->json(['token' => $token], 200);
         }
         else
-        {
+        {*/
             try
             {
-                $token = auth()->login($user);
+                $token = JWTAuth::fromUser($user);
 
                 if(!$token)
                 {
@@ -92,6 +93,15 @@ class ApiGoogleController extends Controller
                 return response()->json(['error' => 'Ocurrio un error'], 500);
             }
             return response()->json(['token' => $token], 200);
-        }
+        /*}*/
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => 3600 * 60
+        ]);
     }
 }
