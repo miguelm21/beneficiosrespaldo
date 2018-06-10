@@ -317,8 +317,13 @@ class BenefitsController extends Controller
 
         foreach($benefits as $b)
         {
-            array_push($benef, $b->name);
-           /* $name = explode(" ", $b->name);
+            $benefits = Benefits::select('id', 'name', 'description', 'latitude', 'longitude', 'keywords')->get();
+        $benef = [];
+        $token = [];
+
+        foreach($benefits as $b)
+        {
+            $name = explode(" ", $b->name);
             foreach($name as $n)
             {
                 array_push($token, $n);
@@ -336,13 +341,27 @@ class BenefitsController extends Controller
             }
 
             $obj = (object) [
+                'id' => $b->id,
                 'name' => $b->name,
                 'description' => $b->description,
                 'tokens' => $token
             ];
             array_push($benef, $obj);
             unset($token);
-            $token = [];*/
+            $token = [];
+        }
+
+        $benef = collect($benef);
+
+        if(isset($benef))
+        {
+            return $benef->toJson(JSON_PRETTY_PRINT);
+        }
+        else
+        {
+            $benef = 0;
+            return $benef->toJson(JSON_PRETTY_PRINT);
+        }
         }
 
         $benef = collect($benef);
