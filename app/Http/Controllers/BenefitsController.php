@@ -312,15 +312,49 @@ class BenefitsController extends Controller
     public function getBenefits2()
     {
         $benefits = Benefits::select('name')->get();
+        $benef = [];
+        $token = [];
 
-        if(isset($benefits))
+        foreach($benefits as $b)
         {
-            return $benefits->toJson(JSON_PRETTY_PRINT);
+            array_push($benef, $b->name)
+           /* $name = explode(" ", $b->name);
+            foreach($name as $n)
+            {
+                array_push($token, $n);
+            }
+            
+            $description = explode(" ", $b->description);
+            foreach($description as $d)
+            {
+                array_push($token, $d);
+            }
+
+            $keywords = explode(",", $b->keywords);
+            foreach ($keywords as $k) {
+                array_push($token, $k);
+            }
+
+            $obj = (object) [
+                'name' => $b->name,
+                'description' => $b->description,
+                'tokens' => $token
+            ];
+            array_push($benef, $obj);
+            unset($token);
+            $token = [];*/
+        }
+
+        $benef = collect($benef);
+
+        if(isset($benef))
+        {
+            return $benef->toJson(JSON_PRETTY_PRINT);
         }
         else
         {
-            $benefits = 0;
-            return $benefits->toJson(JSON_PRETTY_PRINT);
+            $benef = 0;
+            return $benef->toJson(JSON_PRETTY_PRINT);
         }
     }
 }
