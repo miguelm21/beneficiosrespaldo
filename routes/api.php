@@ -43,8 +43,6 @@ Route::group([
 
     Route::post('registerPush', 'Api\ApiPushController@registerPush');
     Route::post('sendMessage', 'Api\ApiPushController@Message');
-    ///added
-    Route::get('sendMessage', 'Api\ApiPushController@Message');
     Route::get('sendMessagePosition/{lat}/{lon}/{playerId}', 'Api\ApiPushController@sendMessageForPosition');
 
     Route::get('getBenfits', 'Api/ApiHomeController@getBenefits');
