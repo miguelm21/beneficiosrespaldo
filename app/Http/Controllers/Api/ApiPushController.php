@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Benefits;
+use App\Categories;
 use NotificationChannels\OneSignal\OneSignalChannel;
 use NotificationChannels\OneSignal\OneSignalMessage;
 use NotificationChannels\OneSignal\OneSignalWebButton;
@@ -119,58 +121,87 @@ class ApiPushController extends Notification
 		print($return);
 		print("\n");
 	}
+	/**
+    * Verifica que una fecha esté dentro del rango de fechas establecidas
+    * @param $start_date fecha de inicio
+    * @param $end_date fecha final
+    * @param $evaluame fecha a comparar
+    * @return true si esta en el rango, false si no lo está
+    */
+    function check_in_range($start_date, $end_date, $evaluame) {
+       $start_ts = strtotime($start_date);
+       $end_ts = strtotime($end_date);
+       $user_ts = strtotime($evaluame);
+       return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
+    }
 
 	public function sendMessageForPosition($lat, $lon, $playerId) {
-		$lon2 = -0.1276250;
-		$lat2 = 51.5033640;
-		$theta = $lon - $lon2;
-		$dist = sin(deg2rad($lat)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-		$dist = acos($dist);
-		$dist = rad2deg($dist);
-		$km = $dist * 60 * 1.1515 * 1.609344;
 
-		if ($km <= 9) {
-			$content      = array(
-			    "en" => 'English Message'
-			);
-			$hashes_array = array();
-			array_push($hashes_array, array(
-			    "id" => "like-button",
-			    "text" => "Like",
-			    "icon" => "http://i.imgur.com/N8SN8ZS.png",
-			    "url" => "https://yoursite.com"
-			));
-			$fields = array(
-			    'app_id' => "4348c8d3-0923-4a76-841d-98de77f2c29e",
-			    'include_player_ids' => array($playerId),
-			    'contents' => $content,
-			    'web_buttons' => $hashes_array
-			);
+		$benefits = Benefits::all();
+		$today = (new \DateTime())->format('d-m-Y H:i:s');
+		foreach ($benefits as $key => $benefit) {
+			$theta = $lon - $benefit->longitude;
+			$dist = sin(deg2rad($lat)) * sin(deg2rad($benefit->latitude)) +  cos(deg2rad($lat)) * cos(deg2rad($benefit->latitude)) * cos(deg2rad($theta));
+			$dist = acos($dist);
+			$dist = rad2deg($dist);
+			$km = $dist * 60 * 1.1515 * 1.609344;
 
-			$fields = json_encode($fields);
-			print("\nJSON sent:\n");
-			print($fields);
+			if ($km <= 0.2 && $this->check_in_range($benefit->datestart, $benefit->dateend, $today)) {
+				$heading= array(
+				    "en" => $benefit->name,
+				    
+				);
+				$content = array(
+				   "en" => $benefit->description
+				);
+				$hashes_array = array();
+				
+				
+				array_push($hashes_array, array(
+				    "id" => "like-button",
+				    "text" => $benefit->description,
+				    "icon" => "http://i.imgur.com/N8SN8ZS.png",
+				    "url" => "https://yoursite.com"
+				));
+				$category = Categories::find($benefit->category_id);
+				$fields = array(
+				    'app_id' => "4348c8d3-0923-4a76-841d-98de77f2c29e",
+				    'include_player_ids' => array($playerId),
+				    'contents' => $content,
+				    'headings' => $heading,
+				    "android_background_layout" => "http://i.imgur.com/N8SN8ZS.png",
+				    "small_icon" => "http://i.imgur.com/N8SN8ZS.png",
+				    "large_icon" => $category->iconmap,
+				    //"big_picture" => "data:" . $benefit->mime . ";base64," . chunk_split(base64_encode($benefit->image)),
+				    //'buttons' => $hashes_array
+				);
 
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
-			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-			    'Content-Type: application/json; charset=utf-8',
-			    'Authorization: Basic YjE5N2IzZGUtYTE4ZC00YTZjLWEyYmYtNjhlMTcwZTQ2ZTA3'
-			));
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-			curl_setopt($ch, CURLOPT_HEADER, FALSE);
-			curl_setopt($ch, CURLOPT_POST, TRUE);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+				$fields = json_encode($fields);
+				
+				print($fields);
 
-			$response = curl_exec($ch);
-			curl_close($ch);
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				    'Content-Type: application/json; charset=utf-8',
+				    'Authorization: Basic YjE5N2IzZGUtYTE4ZC00YTZjLWEyYmYtNjhlMTcwZTQ2ZTA3'
+				));
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+				curl_setopt($ch, CURLOPT_HEADER, FALSE);
+				curl_setopt($ch, CURLOPT_POST, TRUE);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
-			return $response;
+				$response = curl_exec($ch);
+				curl_close($ch);
+
+				
+			}
 		}
+		
 
 		
-		return ($km);
+		
 		
 
 
