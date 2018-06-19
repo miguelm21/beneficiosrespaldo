@@ -134,7 +134,13 @@ class ApiPushController extends Notification
        $user_ts = strtotime($evaluame);
        return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
     }
-
+    /**
+    * Verifica si una notificacion debe ser mandada
+    * @param $lat latitud del dispostivo
+    * @param $lon logitud del dispotivo
+    * @param $playerId Id de one singal del dispositivo
+    * @return respose La respuesta de cada envio de notificaciones
+    */
 	public function sendMessageForPosition($lat, $lon, $playerId) {
 
 		$benefits = Benefits::all();
