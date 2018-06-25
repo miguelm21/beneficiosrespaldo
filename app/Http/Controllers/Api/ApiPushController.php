@@ -176,9 +176,7 @@ class ApiPushController extends Notification
 				    'contents' => $content,
 				    'headings' => $heading,
 				    'data' => array("id" =>$benefit->id),
-				    "android_background_layout" => "http://i.imgur.com/N8SN8ZS.png",
-				    "small_icon" => $category->iconapp,
-				    "large_icon" => $category->iconmap,
+				    "large_icon" => "https://raw.githubusercontent.com/miguelrko/filerepo/master/beneficios_min.jpg",
 				    //"big_picture" => "data:" . $benefit->mime . ";base64," . chunk_split(base64_encode($benefit->image)),
 				    //'buttons' => $hashes_array
 				);
