@@ -152,7 +152,7 @@ class ApiPushController extends Notification
 			$dist = rad2deg($dist);
 			$km = $dist * 60 * 1.1515 * 1.609344;
 
-			if ($km <= 0.2 && $this->check_in_range($benefit->datestart, $benefit->dateend, $today)) {
+			//if ($km <= 0.2 && $this->check_in_range($benefit->datestart, $benefit->dateend, $today)) {
 				$heading= array(
 				    "en" => $benefit->name,
 				    
@@ -202,7 +202,7 @@ class ApiPushController extends Notification
 				curl_close($ch);
 
 				
-			}
+			//}
 		}
 		
 
