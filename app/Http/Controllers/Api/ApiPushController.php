@@ -175,6 +175,7 @@ class ApiPushController extends Notification
 				    'include_player_ids' => array($playerId),
 				    'contents' => $content,
 				    'headings' => $heading,
+				    'data' => array("id" =>$benefit->id),
 				    "android_background_layout" => "http://i.imgur.com/N8SN8ZS.png",
 				    "small_icon" => $category->iconapp,
 				    "large_icon" => $category->iconmap,
